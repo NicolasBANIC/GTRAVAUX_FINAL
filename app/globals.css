@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-darkGray font-sans relative overflow-x-hidden transition-colors duration-300;
+}
+
+/* Background gradient animations */
+@keyframes gradientFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-15px) translateX(15px);
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+}
+
+/* Utility class for sticky urgent call-to-action button */
+.sticky-cta {
+  @apply fixed bottom-6 right-6 z-50 bg-primary text-white px-4 py-3 rounded-full shadow-lg hover:bg-black transition-colors duration-300;
+}
+
+/* Utility for 3D tilt hover effect */
+.tilt-card {
+  perspective: 1000px;
+}
+
+.tilt-card:hover .tilt-inner {
+  transform: rotateX(5deg) rotateY(-5deg);
+}
+
+.tilt-inner {
+  transition: transform 0.3s ease;
+}
+
+/* Smooth transitions for components entering view */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
