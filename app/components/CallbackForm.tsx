@@ -78,10 +78,10 @@ export default function CallbackForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow space-y-4" noValidate>
+    <form onSubmit={handleSubmit} className="form-glass space-y-4" noValidate>
       {error && <p className="text-red-500 text-sm">{error}</p>}
       <div>
-        <label htmlFor="callback-name" className="block text-sm font-medium text-darkGray">Nom *</label>
+        <label htmlFor="callback-name" className="form-label">Nom *</label>
         <input
           type="text"
           id="callback-name"
@@ -89,11 +89,11 @@ export default function CallbackForm() {
           value={data.name}
           onChange={handleChange}
           required
-          className="mt-1 w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="form-input"
         />
       </div>
       <div>
-        <label htmlFor="callback-phone" className="block text-sm font-medium text-darkGray">Téléphone *</label>
+        <label htmlFor="callback-phone" className="form-label">Téléphone *</label>
         <input
           type="tel"
           id="callback-phone"
@@ -101,17 +101,17 @@ export default function CallbackForm() {
           value={data.phone}
           onChange={handleChange}
           required
-          className="mt-1 w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="form-input"
         />
       </div>
       <div>
-        <label htmlFor="callback-service" className="block text-sm font-medium text-darkGray">Service souhaité</label>
+        <label htmlFor="callback-service" className="form-label">Service souhaité</label>
         <select
           id="callback-service"
           name="service"
           value={data.service}
           onChange={handleChange}
-          className="mt-1 w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 bg-white"
+          className="form-input text-gray-900 bg-white"
         >
           <option value="" className="text-gray-500">Choisissez un service</option>
           <option value="Maçonnerie légère" className="text-gray-900">Maçonnerie légère</option>
@@ -130,7 +130,7 @@ export default function CallbackForm() {
       <button 
         type="submit" 
         disabled={loading}
-        className="bg-green text-white px-4 py-2 rounded-full hover:bg-green/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="button-accent disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-full"
       >
         {loading ? (
           <>

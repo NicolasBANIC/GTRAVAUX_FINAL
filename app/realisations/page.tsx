@@ -34,11 +34,15 @@ export default function RealisationsPage() {
         imageSrc="/images/placeholder/realisations-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
-      <section className="container mx-auto px-4 py-16 space-y-12">
-        <h2 className="text-3xl font-bold text-center mb-8">Galerie de projets</h2>
+      <section className="container mx-auto px-4 py-20 space-y-16">
+        <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Galerie de projets</h2>
+        <p className="text-darkGray max-w-3xl mx-auto text-center mb-8">
+          Découvrez une sélection de chantiers avant/après : appartements, maisons et commerces.
+          Rénovations complètes, interventions après sinistre et finitions premium.
+        </p>
         <GalleryGrid items={gallery} />
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Avant / Après</h2>
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Avant / Après</h2>
           <div className="max-w-4xl mx-auto">
             <BeforeAfterSlider
               beforeSrc="/images/placeholder/before-1.jpg"
@@ -47,12 +51,12 @@ export default function RealisationsPage() {
             />
           </div>
         </div>
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Nos chiffres clés</h2>
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Nos chiffres clés</h2>
           <StatsSection stats={stats} />
         </div>
-        <div className="text-center mt-16">
-          <Link href="/contact" className="bg-green text-white px-6 py-3 rounded-full hover:bg-green/90 transition-colors duration-300">
+        <div className="text-center mt-20">
+          <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>
         </div>

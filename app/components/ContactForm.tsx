@@ -57,7 +57,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit} className="form-glass space-y-4" noValidate>
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <p className="text-red-800 text-sm">{error}</p>
@@ -65,7 +65,7 @@ export default function ContactForm() {
       )}
       
       <div>
-        <label htmlFor="contact-name" className="block text-sm font-medium text-darkGray mb-1">
+        <label htmlFor="contact-name" className="form-label">
           Nom *
         </label>
         <input
@@ -75,12 +75,12 @@ export default function ContactForm() {
           value={data.name}
           onChange={handleChange}
           required
-          className="w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="form-input"
         />
       </div>
 
       <div>
-        <label htmlFor="contact-email" className="block text-sm font-medium text-darkGray mb-1">
+        <label htmlFor="contact-email" className="form-label">
           Email *
         </label>
         <input
@@ -90,12 +90,12 @@ export default function ContactForm() {
           value={data.email}
           onChange={handleChange}
           required
-          className="w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="form-input"
         />
       </div>
 
       <div>
-        <label htmlFor="contact-phone" className="block text-sm font-medium text-darkGray mb-1">
+        <label htmlFor="contact-phone" className="form-label">
           Téléphone
         </label>
         <input
@@ -104,12 +104,12 @@ export default function ContactForm() {
           name="phone"
           value={data.phone}
           onChange={handleChange}
-          className="w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+          className="form-input"
         />
       </div>
 
       <div>
-        <label htmlFor="contact-service" className="block text-sm font-medium text-darkGray mb-1">
+        <label htmlFor="contact-service" className="form-label">
           Service souhaité
         </label>
         <select
@@ -117,7 +117,7 @@ export default function ContactForm() {
           name="service"
           value={data.service}
           onChange={handleChange}
-          className="w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 bg-white"
+          className="form-input text-gray-900 bg-white"
         >
           <option value="" className="text-gray-500">Sélectionnez un service</option>
           <option value="Maçonnerie légère" className="text-gray-900">Maçonnerie légère</option>
@@ -133,7 +133,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-darkGray mb-1">
+        <label htmlFor="contact-message" className="form-label">
           Message *
         </label>
         <textarea
@@ -143,7 +143,7 @@ export default function ContactForm() {
           onChange={handleChange}
           rows={5}
           required
-          className="w-full border border-lightGray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+          className="form-input resize-none"
           placeholder="Décrivez votre projet..."
         />
       </div>
@@ -175,7 +175,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full bg-green text-white font-semibold py-3 px-6 rounded hover:bg-green/90 transition-colors"
+        className="w-full button-accent font-semibold"
       >
         Envoyer le message
       </button>

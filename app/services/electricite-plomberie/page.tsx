@@ -36,23 +36,23 @@ export default function ElectricitePlomberiePage() {
       />
       <section className="container mx-auto px-4 py-16 space-y-12">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Des réseaux parfaitement maîtrisés</h2>
+          <h2 className="text-2xl font-bold mb-4 uppercase tracking-widest">Des réseaux parfaitement maîtrisés</h2>
           <p className="text-darkGray max-w-3xl">
-            Nos électriciens et plombiers s’occupent de vos installations de A à Z. Sécurité, efficacité énergétique et confort
-            sont au cœur de nos interventions.
+            Mise aux normes (NFC 15‑100), protections différentielles, VMC, réseaux plomberie étanches : sécurité, 
+            efficacité et confort au cœur de nos interventions. Installation, remplacement et dépannage rapide.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {steps.map((step, index) => (
-            <div key={step.title} className="p-6 bg-lightGray rounded-lg shadow">
-              <span className="text-primary text-3xl font-bold mb-2 inline-block">{index + 1}</span>
-              <h3 className="font-semibold mb-2">{step.title}</h3>
-              <p className="text-sm text-darkGray">{step.description}</p>
+            <div key={step.title} className="premium-card">
+              <span className="text-accent-600 text-3xl font-bold mb-2 inline-block">{index + 1}</span>
+              <h3 className="font-semibold mb-2 uppercase tracking-widest text-primary">{step.title}</h3>
+              <p className="text-sm text-darkGray/90">{step.description}</p>
             </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/contact" className="bg-green text-white px-6 py-3 rounded-full hover:bg-green/90 transition-colors duration-300">
+          <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>
         </div>

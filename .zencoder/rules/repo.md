@@ -69,3 +69,6 @@ The project is configured for deployment on Vercel, with automatic Next.js detec
 ## Requirements
 - Node.js >= 16
 - npm
+
+## Testing
+targetFramework: Playwright

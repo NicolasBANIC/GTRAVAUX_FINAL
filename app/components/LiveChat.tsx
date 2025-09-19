@@ -155,11 +155,8 @@ export default function LiveChat() {
                     </div>
                   )}
                   <p>{message.text}</p>
-                  <p className="text-xs opacity-70 mt-1">
-                    {message.timestamp.toLocaleTimeString('fr-FR', { 
-                      hour: '2-digit', 
-                      minute: '2-digit' 
-                    })}
+                  <p className="text-xs opacity-70 mt-1" suppressHydrationWarning>
+                    {message.timestamp.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
               </div>

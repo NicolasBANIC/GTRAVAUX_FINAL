@@ -36,23 +36,23 @@ export default function MaconnerieLegerePage() {
       />
       <section className="container mx-auto px-4 py-16 space-y-12">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Un intérieur sur mesure</h2>
+          <h2 className="text-2xl font-bold mb-4 uppercase tracking-widest">Un intérieur sur mesure</h2>
           <p className="text-darkGray max-w-3xl">
-            Notre service de maçonnerie légère vous permet de modifier la structure de votre logement pour répondre à vos
-            besoins. Nous réalisons des ouvertures, des extensions et des réparations dans le respect des normes.
+            Reprises, petites ouvertures, seuils, réparations structurelles légères. Étaiement si nécessaire, confinement des
+            poussières, finitions prêtes à enduire/peindre, le tout dans le respect des normes et de votre sécurité.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {steps.map((step, index) => (
-            <div key={step.title} className="p-6 bg-lightGray rounded-lg shadow">
-              <span className="text-primary text-3xl font-bold mb-2 inline-block">{index + 1}</span>
-              <h3 className="font-semibold mb-2">{step.title}</h3>
-              <p className="text-sm text-darkGray">{step.description}</p>
+            <div key={step.title} className="premium-card">
+              <span className="text-accent-600 text-3xl font-bold mb-2 inline-block">{index + 1}</span>
+              <h3 className="font-semibold mb-2 uppercase tracking-widest text-primary">{step.title}</h3>
+              <p className="text-sm text-darkGray/90">{step.description}</p>
             </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/contact" className="bg-primary text-white px-6 py-3 rounded-full hover:bg-black transition-colors duration-300">
+          <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>
         </div>

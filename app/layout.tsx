@@ -5,19 +5,13 @@ import StickyCta from './components/StickyCta';
 import BackgroundGradients from './components/BackgroundGradients';
 import LiveChat from './components/LiveChat';
 import { ReactNode } from 'react';
-import { Outfit, Montserrat } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 
-// Import modern fonts via the Next.js font API
-const outfit = Outfit({ 
+// Import Raleway via Next.js font API (aligné avec ATB)
+const raleway = Raleway({ 
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-outfit'
-});
-
-const montserrat = Montserrat({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-montserrat'
+  variable: '--font-raleway'
 });
 
 export const metadata = {
@@ -26,11 +20,11 @@ export const metadata = {
     template: '%s | G.TRAVAUX',
   },
   description: 'Entreprise basée à Strasbourg — interventions dans toute la France. Rénovation haut de gamme & après sinistre, interventions rapides et finitions d’excellence.',
-  metadataBase: new URL('https://g-travaux.example.com'),
+  metadataBase: new URL('https://g-travaux.fr'),
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://g-travaux.example.com',
+    url: 'https://g-travaux.fr',
     siteName: 'G.TRAVAUX',
     title: 'Rénovation haut de gamme & après sinistre',
     description: 'Interventions rapides, finitions d’excellence, accompagnement assurance.',
@@ -51,9 +45,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     '@type': 'LocalBusiness',
     name: 'G.TRAVAUX',
     description: 'Entreprise de rénovation haut de gamme & après sinistre, basée à Strasbourg. Interventions dans toute la France.',
-    url: 'https://g-travaux.example.com',
-    telephone: '+33972123456',
-    email: 'contact.gtravaux@gmail.com',
+    url: 'https://g-travaux.fr',
+    telephone: '+33604007499',
+    email: 'contact@g-travaux.fr',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '3 Rue du Vingt-Deux Novembre',
@@ -71,7 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       </head>
-      <body className={`${outfit.variable} ${montserrat.variable} font-sans relative`}>
+      <body className={`${raleway.variable} font-sans relative`}>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white text-darkGray px-4 py-2 rounded shadow">Aller au contenu</a>
         <BackgroundGradients />
         <Header />

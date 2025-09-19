@@ -36,23 +36,23 @@ export default function IsolationInterieurePage() {
       />
       <section className="container mx-auto px-4 py-16 space-y-12">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Une maison bien isolée, c’est une maison confortable</h2>
+          <h2 className="text-2xl font-bold mb-4 uppercase tracking-widest">Une maison bien isolée, c’est une maison confortable</h2>
           <p className="text-darkGray max-w-3xl">
-            En améliorant l’isolation intérieure de votre logement, vous réduisez vos factures d’énergie et gagnez en confort.
-            Nos solutions s’adaptent à toutes les configurations pour des résultats durables.
+            Confort thermique et acoustique, économies d’énergie, matériaux durables. Étanchéité (freins vapeur), 
+            traitement des ponts thermiques et solutions adaptées à chaque configuration, pour des résultats durables.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {steps.map((step, index) => (
-            <div key={step.title} className="p-6 bg-lightGray rounded-lg shadow">
-              <span className="text-primary text-3xl font-bold mb-2 inline-block">{index + 1}</span>
-              <h3 className="font-semibold mb-2">{step.title}</h3>
-              <p className="text-sm text-darkGray">{step.description}</p>
+            <div key={step.title} className="premium-card">
+              <span className="text-accent-600 text-3xl font-bold mb-2 inline-block">{index + 1}</span>
+              <h3 className="font-semibold mb-2 uppercase tracking-widest text-primary">{step.title}</h3>
+              <p className="text-sm text-darkGray/90">{step.description}</p>
             </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/contact" className="bg-green text-white px-6 py-3 rounded-full hover:bg-green/90 transition-colors duration-300">
+          <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>
         </div>

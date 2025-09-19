@@ -27,17 +27,17 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold mb-8 text-center">Contactez-nous</h1>
+    <div className="container mx-auto px-4 py-20">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight tracking-[0.12em] uppercase text-center">Contactez-nous</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Demande de devis</h2>
+          <h2 className="text-2xl font-semibold mb-4 uppercase tracking-widest">Demande de devis</h2>
           <ContactForm />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Nos coordonnées</h2>
-          <p className="mb-2">Téléphone : <a href="tel:+33972123456" className="text-primary hover:underline">+33 9 72 12 34 56</a></p>
-          <p className="mb-2">Email : <a href="mailto:contact.gtravaux@gmail.com" className="text-primary hover:underline">contact.gtravaux@gmail.com</a></p>
+          <h2 className="text-2xl font-semibold mb-4 uppercase tracking-widest">Nos coordonnées</h2>
+          <p className="mb-2">Téléphone : <a href="tel:+33604007499" className="text-primary hover:underline">+33 6 04 00 74 99</a></p>
+          <p className="mb-2">Email : <a href="mailto:contact@g-travaux.fr" className="text-primary hover:underline">contact@g-travaux.fr</a></p>
           <p className="mb-4">Adresse : 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg</p>
           <div className="w-full h-64 rounded overflow-hidden shadow">
             <iframe
@@ -54,7 +54,7 @@ export default function ContactPage() {
         </div>
       </div>
       <div id="faq" className="mt-16">
-        <h2 className="text-3xl font-bold mb-6 text-center">FAQ</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center uppercase tracking-widest">FAQ</h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq) => (
             <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />

@@ -20,7 +20,7 @@ interface HeroProps {
 export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, showForm, formComponent }: HeroProps) {
   return (
     <section className="relative min-h-[70vh] lg:min-h-[75vh] flex items-center justify-center text-white pt-20">
-      {/* Background Image */}
+      {/* Background Image + overlay plus neutre comme ATB */}
       <div className="absolute inset-0 z-0">
         <Image
           src={imageSrc}
@@ -29,7 +29,9 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60"></div>
+        <div className="absolute inset-0 from-black/40 via-black/55 to-black/70 bg-gradient-to-b"></div>
+        {/* Trame douce type grille sombre + léger cyan */}
+        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:80px_80px]" />
       </div>
 
       {/* Content */}
@@ -38,7 +40,7 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
           /* Layout avec formulaire à droite */
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="text-left">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight tracking-[0.12em] uppercase">
                 {title}
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed opacity-95">
@@ -50,7 +52,7 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="bg-green text-white font-semibold px-8 py-4 rounded-full hover:bg-green/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                    className="button-accent text-center"
                   >
                     {cta.label}
                   </Link>
@@ -58,7 +60,7 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-darkGray hover:scale-105 transition-all duration-300 backdrop-blur-sm text-center"
+                    className="glass-button border-2 border-accent-400 text-white hover:text-white"
                   >
                     {secondaryCta.label}
                   </Link>
@@ -70,9 +72,9 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
             </div>
           </div>
         ) : (
-          /* Layout centré classique */
+          /* Layout centré classique - HARMONISÉ avec le style de la page d'accueil */
           <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight tracking-[0.12em] uppercase">
               {title}
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed opacity-95">
@@ -84,7 +86,7 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
               {cta && (
                 <Link
                   href={cta.href}
-                  className="bg-green text-white font-semibold px-8 py-4 rounded-full hover:bg-green/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="button-accent"
                 >
                   {cta.label}
                 </Link>
@@ -92,7 +94,7 @@ export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, sho
               {secondaryCta && (
                 <Link
                   href={secondaryCta.href}
-                  className="border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-darkGray hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                  className="glass-button border-2 border-accent-400 text-white hover:text-white"
                 >
                   {secondaryCta.label}
                 </Link>

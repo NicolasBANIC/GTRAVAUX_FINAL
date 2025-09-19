@@ -1,0 +1,10 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Carré orange avec G -->
+  <rect x="20" y="20" width="160" height="160" fill="#F6691C" stroke="#050303" stroke-width="2"/>
+  
+  <!-- Lettre G stylisée -->
+  <path d="M50 100 C50 70, 80 50, 110 50 C140 50, 150 70, 150 100 L130 100 C130 80, 120 70, 110 70 C90 70, 70 80, 70 100 C70 120, 90 130, 110 130 L110 110 L140 110 L140 150 C120 150, 50 140, 50 100 Z" fill="#050303"/>
+  
+  <!-- Texte TRAVAUX -->
+  <text x="100" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#050303" letter-spacing="3px">TRAVAUX</text>
+</svg>

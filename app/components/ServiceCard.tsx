@@ -14,21 +14,20 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, href, Icon }: ServiceCardProps) {
   return (
     <motion.div
-      className="tilt-card bg-lightGray p-6 rounded-lg shadow hover:shadow-xl transition-shadow duration-300"
-      whileHover={{ scale: 1.02 }}
+      className="service-card p-6 rounded-2xl card-hover bg-white/95"
+      whileHover={{ scale: 1.01 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
     >
       <div className="tilt-inner">
-        <div className="text-primary mb-4">
-          {/* Render the Icon component directly */}
-          <Icon size={36} />
+        <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent-400/15 text-accent-600">
+          <Icon size={24} />
         </div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="mb-4 text-sm text-darkGray">{description}</p>
-        <Link href={href} className="text-primary font-medium hover:underline">
-          En savoir plus →
+        <h3 className="text-xl font-semibold mb-2 text-primary uppercase tracking-widest">{title}</h3>
+        <p className="mb-4 text-sm text-darkGray/80">{description}</p>
+        <Link href={href} className="inline-block button-secondary !text-primary border-accent-400">
+          En savoir plus
         </Link>
       </div>
     </motion.div>

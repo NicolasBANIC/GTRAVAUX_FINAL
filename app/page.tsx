@@ -1,9 +1,10 @@
 'use client';
 
-import { FaTools, FaClock, FaShieldAlt, FaSmile, FaPaintBrush, FaThLarge, FaHardHat, FaBolt, FaCubes } from 'react-icons/fa';
+import { FaTools, FaClock, FaShieldAlt, FaSmile } from 'react-icons/fa';
 import Hero from './components/Hero';
-import ServiceCard from './components/ServiceCard';
+import ServiceParagraph from './components/ServiceParagraph';
 import TestimonialCard from './components/TestimonialCard';
+import GoogleReviews from './components/GoogleReviews';
 import CallbackForm from './components/CallbackForm';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
@@ -55,39 +56,33 @@ export default function HomePage() {
   const services = [
     {
       title: 'Peinture & finitions',
-      description: 'Des finitions irréprochables pour des intérieurs éclatants et harmonieux.',
+      description: 'Des finitions irréprochables pour des intérieurs éclatants et harmonieux. Notre équipe maîtrise toutes les techniques de peinture moderne, des préparations de support aux finitions les plus délicates. Nous utilisons exclusivement des produits de qualité professionnelle pour garantir la durabilité et l\'esthétique de vos intérieurs.',
       href: '/services/peinture-finitions',
-      Icon: FaPaintBrush,
     },
     {
       title: 'Pose de sol',
-      description: 'Parquets, carrelage ou vinyle, nous posons le revêtement adapté à votre espace.',
+      description: 'Parquets, carrelage ou vinyle, nous posons le revêtement adapté à votre espace. Nos artisans spécialisés interviennent sur tous types de sols, en neuf comme en rénovation. Une préparation soignée du support et une pose technique irréprochable garantissent la longévité de votre revêtement.',
       href: '/services/pose-de-sol',
-      Icon: FaThLarge,
     },
     {
       title: 'Plâtrerie & placo',
-      description: 'Réagencement intérieur, création de cloisons et finitions soignées.',
+      description: 'Réagencement intérieur, création de cloisons et finitions soignées. De la simple réparation à l\'aménagement complet d\'espaces, nous réalisons tous vos travaux de plâtrerie avec expertise. Isolation phonique et thermique intégrée selon vos besoins.',
       href: '/services/platrerie-placo',
-      Icon: FaHardHat,
     },
     {
       title: 'Électricité & plomberie',
-      description: 'Mise aux normes, installations neuves et dépannages en toute sécurité.',
+      description: 'Mise aux normes, installations neuves et dépannages en toute sécurité. Nos techniciens qualifiés interviennent sur tous vos équipements électriques et de plomberie. Diagnostic, réparation, installation : nous garantissons des interventions conformes aux normes en vigueur.',
       href: '/services/electricite-plomberie',
-      Icon: FaBolt,
     },
     {
       title: 'Isolation intérieure',
-      description: 'Améliorez votre confort thermique et acoustique grâce à des solutions performantes.',
+      description: 'Améliorez votre confort thermique et acoustique grâce à des solutions performantes. Nous sélectionnons les matériaux isolants les plus adaptés à votre habitation pour optimiser les performances énergétiques et acoustiques de votre logement.',
       href: '/services/isolation-interieure',
-      Icon: FaCubes,
     },
     {
       title: 'Maçonnerie légère',
-      description: 'Création d\'ouvertures, petits travaux de maçonnerie et réparations structurales.',
+      description: 'Création d\'ouvertures, petits travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle : ouverture de murs, réfection de cloisons, réparations diverses.',
       href: '/services/maconnerie-legere',
-      Icon: FaHardHat,
     },
   ];
 
@@ -116,7 +111,7 @@ export default function HomePage() {
         title="Rénovation haut de gamme & après sinistre"
         /* Inspiré du site House‑Rénovation qui met en avant sa localisation dès le hero【882952368121044†L146-L149】,
            nous précisons notre présence nationale et notre expertise premium. */
-        subtitle="Entreprise basée à Strasbourg — interventions dans toute la France. Interventions rapides, finitions d'excellence, accompagnement assurance."
+        subtitle="De l’étude à la réception, nous coordonnons tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France."
         imageSrc="/images/placeholder/home-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
         showForm={true}
@@ -134,55 +129,76 @@ export default function HomePage() {
       />
       {/* Pourquoi nous choisir */}
       <section className="container mx-auto px-4 py-16" id="pourquoi">
-        <h2 className="text-3xl font-bold text-center mb-8">Pourquoi nous choisir ?</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-primary">Pourquoi nous choisir ?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason) => {
             const Icon = reason.Icon;
             return (
-              <div key={reason.title} className="text-center p-4 bg-lightGray rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
-                <Icon className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">{reason.title}</h3>
+              <div key={reason.title} className="bg-white p-6 rounded-lg border border-gray-200 text-center">
+                <Icon className="text-primary mx-auto mb-4" size={32} />
+                <h3 className="font-semibold mb-2 text-primary">{reason.title}</h3>
                 <p className="text-sm text-darkGray">{reason.description}</p>
               </div>
             );
           })}
         </div>
       </section>
-      {/* Engagements */}
-      <section className="container mx-auto px-4 py-16" id="engagements">
-        <h2 className="text-3xl font-bold text-center mb-8">Nos engagements</h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 bg-lightGray rounded-lg shadow">
-            <h3 className="font-semibold mb-2">Devis sous 48h</h3>
-            <p className="text-sm text-darkGray">Diagnostic rapide et devis transparent, détaillé et sans surprise.</p>
-          </div>
-          <div className="p-6 bg-lightGray rounded-lg shadow">
-            <h3 className="font-semibold mb-2">Assurance décennale</h3>
-            <p className="text-sm text-darkGray">Interventions couvertes 10 ans, dans le respect strict des normes.</p>
-          </div>
-          <div className="p-6 bg-lightGray rounded-lg shadow">
-            <h3 className="font-semibold mb-2">Finitions d'excellence</h3>
-            <p className="text-sm text-darkGray">Exigence artisanale et contrôle qualité à chaque étape.</p>
-          </div>
-          <div className="p-6 bg-lightGray rounded-lg shadow">
-            <h3 className="font-semibold mb-2">Prise en charge assurance</h3>
-            <p className="text-sm text-darkGray">Accompagnement après sinistre pour vos démarches assurantielles.</p>
+
+      {/* Services overview */}
+      <section className="bg-white py-20" id="services">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-16 text-primary">Nos services</h2>
+          <div className="max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <ServiceParagraph 
+                key={service.title} 
+                title={service.title}
+                description={service.description}
+                href={service.href}
+                imagePosition={index % 2 === 0 ? 'right' : 'left'}
+              />
+            ))}
           </div>
         </div>
-        <div className="mt-8 text-center">
-          <CertificationsBadge />
+      </section>
+
+      {/* Engagements */}
+      <section className="bg-lightGray py-16" id="engagements">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Nos engagements</h2>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="font-semibold mb-2 text-primary">Devis sous 48h</h3>
+              <p className="text-sm text-darkGray">Diagnostic rapide et devis transparent, détaillé et sans surprise.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="font-semibold mb-2 text-primary">Assurance décennale</h3>
+              <p className="text-sm text-darkGray">Interventions couvertes 10 ans, dans le respect strict des normes.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="font-semibold mb-2 text-primary">Finitions d'excellence</h3>
+              <p className="text-sm text-darkGray">Exigence artisanale et contrôle qualité à chaque étape.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 className="font-semibold mb-2 text-primary">Prise en charge assurance</h3>
+              <p className="text-sm text-darkGray">Accompagnement après sinistre pour vos démarches assurantielles.</p>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <CertificationsBadge />
+          </div>
         </div>
       </section>
 
       {/* Processus en 4 étapes */}
       <section className="bg-white py-16" id="processus">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Notre processus</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Notre processus</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {["Diagnostic","Projection 3D & devis","Réalisation","Réception & garanties"].map((step, i) => (
-              <div key={step} className="p-6 bg-lightGray rounded-lg text-center shadow">
+              <div key={step} className="p-6 bg-lightGray rounded-lg text-center border border-gray-200">
                 <div className="text-primary text-3xl font-bold mb-2">{i+1}</div>
-                <div className="font-semibold mb-1">{step}</div>
+                <div className="font-semibold mb-1 text-primary">{step}</div>
                 <div className="text-sm text-darkGray">
                   {i===0 && 'Analyse de votre besoin et évaluation du projet.'}
                   {i===1 && 'Proposition claire, maquette 3D (si pertinent) et planning.'}
@@ -195,24 +211,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services overview */}
-      <section className="bg-lightGray py-16" id="services">
+      {/* Testimonials */}
+      <section className="bg-lightGray py-20" id="temoignages">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Nos services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Ils nous ont fait confiance</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {testimonials.map((t) => (
+              <TestimonialCard key={t.name} {...t} />
             ))}
           </div>
         </div>
       </section>
-      {/* Testimonials */}
-      <section className="container mx-auto px-4 py-16" id="temoignages">
-        <h2 className="text-3xl font-bold text-center mb-8">Ils nous ont fait confiance</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t) => (
-            <TestimonialCard key={t.name} {...t} />
-          ))}
+
+      {/* Google Reviews block */}
+      <section className="bg-white py-20" aria-labelledby="avis-google-title">
+        <div className="container mx-auto px-4">
+          <h2 id="avis-google-title" className="text-3xl font-bold text-center mb-12 text-primary">Avis Google</h2>
+          {/* Static social proof preview — replace with live API/widget later if desired */}
+          <GoogleReviews />
         </div>
       </section>
 
@@ -238,7 +254,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">Besoin d'un conseil ?</h2>
           <p className="mb-6">Notre équipe est à votre écoute pour répondre à toutes vos questions.</p>
-          <a href="tel:+33972123456" className="bg-white text-green px-6 py-3 rounded-full font-medium hover:bg-lightGray transition-colors duration-300">
+          <a href="tel:+33604007499" className="button-secondary">
             Appelez-nous
           </a>
         </div>

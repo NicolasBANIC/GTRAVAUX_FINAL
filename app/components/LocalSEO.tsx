@@ -107,7 +107,7 @@ export function generateLocalSEOMetadata({
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Services de rénovation',
-          itemListElement: services.map((service, index) => ({
+          itemListElement: services.map((service) => ({
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
@@ -118,6 +118,18 @@ export function generateLocalSEOMetadata({
             }
           }))
         },
+        knowsAbout: [
+          'Rénovation énergétique',
+          'Rénovation après sinistre',
+          'Plâtrerie',
+          'Peinture',
+          'Électricité',
+          'Plomberie',
+          'Isolation intérieure',
+          'Pose de sol',
+          'Maçonnerie légère'
+        ],
+        hasCredential: ['RGE', 'QUALIBAT'],
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '4.8',

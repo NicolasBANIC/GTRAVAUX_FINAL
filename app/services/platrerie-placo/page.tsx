@@ -38,8 +38,8 @@ export default function PlatreriePage() {
         <div>
           <h2 className="text-2xl font-bold mb-4">Des cloisons parfaitement intégrées</h2>
           <p className="text-darkGray max-w-3xl">
-            Notre équipe réalise des travaux de plâtrerie et d’aménagement intérieur pour créer des espaces modulables et
-            fonctionnels. Cloisons, faux plafonds et niches décoratives : tout est possible.
+            Cloisons, doublages, faux plafonds : optimisez volumes, isolation et finitions. Joints parfaits prêts à peindre, 
+            intégration des réseaux techniques et solutions acoustiques pour des espaces modulables et confortables.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -52,7 +52,7 @@ export default function PlatreriePage() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="/contact" className="bg-green text-white px-6 py-3 rounded-full hover:bg-green/90 transition-colors duration-300">
+          <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>
         </div>
