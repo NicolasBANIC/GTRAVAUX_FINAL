@@ -26,12 +26,9 @@ export function generateLocalSEOMetadata({
     'Peinture',
     'Isolation',
     'Plâtrerie',
-    'Pose de sol'
+    'Pose de sol',
   ],
-  openingHours = [
-    'Mo-Fr 08:00-18:00',
-    'Sa 09:00-17:00'
-  ]
+  openingHours = ['Mo-Fr 08:00-18:00', 'Sa 09:00-17:00'],
 }: LocalSEOProps = {}): Metadata {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -48,17 +45,17 @@ export function generateLocalSEOMetadata({
           streetAddress: address,
           addressLocality: city,
           postalCode: postalCode,
-          addressCountry: 'FR'
+          addressCountry: 'FR',
         },
         geo: {
           '@type': 'GeoCoordinates',
           latitude: 48.5734,
-          longitude: 7.7521
+          longitude: 7.7521,
         },
         url: 'https://g-travaux.fr',
         sameAs: [
           'https://www.facebook.com/gtravaux',
-          'https://www.instagram.com/gtravaux'
+          'https://www.instagram.com/gtravaux',
         ],
         openingHoursSpecification: openingHours.map(hours => {
           const [days, time] = hours.split(' ');
@@ -67,56 +64,56 @@ export function generateLocalSEOMetadata({
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: days.split('-').map(day => {
               const dayMap: { [key: string]: string } = {
-                'Mo': 'Monday',
-                'Tu': 'Tuesday',
-                'We': 'Wednesday',
-                'Th': 'Thursday',
-                'Fr': 'Friday',
-                'Sa': 'Saturday',
-                'Su': 'Sunday'
+                Mo: 'Monday',
+                Tu: 'Tuesday',
+                We: 'Wednesday',
+                Th: 'Thursday',
+                Fr: 'Friday',
+                Sa: 'Saturday',
+                Su: 'Sunday',
               };
               return dayMap[day] || day;
             }),
             opens: open,
-            closes: close
+            closes: close,
           };
         }),
         priceRange: '€€',
         areaServed: [
           {
             '@type': 'City',
-            name: 'Strasbourg'
+            name: 'Strasbourg',
           },
           {
             '@type': 'City',
-            name: 'Metz'
+            name: 'Metz',
           },
           {
             '@type': 'City',
-            name: 'Nancy'
+            name: 'Nancy',
           },
           {
             '@type': 'City',
-            name: 'Mulhouse'
+            name: 'Mulhouse',
           },
           {
             '@type': 'City',
-            name: 'Colmar'
-          }
+            name: 'Colmar',
+          },
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Services de rénovation',
-          itemListElement: services.map((service) => ({
+          itemListElement: services.map(service => ({
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
               name: service,
               provider: {
-                '@id': 'https://g-travaux.fr/#business'
-              }
-            }
-          }))
+                '@id': 'https://g-travaux.fr/#business',
+              },
+            },
+          })),
         },
         knowsAbout: [
           'Rénovation énergétique',
@@ -127,7 +124,7 @@ export function generateLocalSEOMetadata({
           'Plomberie',
           'Isolation intérieure',
           'Pose de sol',
-          'Maçonnerie légère'
+          'Maçonnerie légère',
         ],
         hasCredential: ['RGE', 'QUALIBAT'],
         aggregateRating: {
@@ -135,28 +132,29 @@ export function generateLocalSEOMetadata({
           ratingValue: '4.8',
           reviewCount: '127',
           bestRating: '5',
-          worstRating: '1'
-        }
+          worstRating: '1',
+        },
       },
       {
         '@type': 'WebSite',
         '@id': 'https://g-travaux.fr/#website',
         url: 'https://g-travaux.fr',
         name: businessName,
-        description: 'Entreprise de rénovation et travaux après sinistre en Alsace-Lorraine',
+        description:
+          'Entreprise de rénovation et travaux après sinistre en Alsace-Lorraine',
         publisher: {
-          '@id': 'https://g-travaux.fr/#business'
+          '@id': 'https://g-travaux.fr/#business',
         },
         potentialAction: [
           {
             '@type': 'SearchAction',
             target: {
               '@type': 'EntryPoint',
-              urlTemplate: 'https://g-travaux.fr/search?q={search_term_string}'
+              urlTemplate: 'https://g-travaux.fr/search?q={search_term_string}',
             },
-            'query-input': 'required name=search_term_string'
-          }
-        ]
+            'query-input': 'required name=search_term_string',
+          },
+        ],
       },
       {
         '@type': 'Organization',
@@ -167,7 +165,7 @@ export function generateLocalSEOMetadata({
           '@type': 'ImageObject',
           url: 'https://g-travaux.fr/images/logo.png',
           width: 300,
-          height: 100
+          height: 100,
         },
         contactPoint: [
           {
@@ -175,7 +173,7 @@ export function generateLocalSEOMetadata({
             telephone: phone,
             contactType: 'customer service',
             availableLanguage: 'French',
-            areaServed: 'FR'
+            areaServed: 'FR',
           },
           {
             '@type': 'ContactPoint',
@@ -183,15 +181,15 @@ export function generateLocalSEOMetadata({
             contactType: 'emergency',
             availableLanguage: 'French',
             areaServed: 'FR',
-            hoursAvailable: '24/7'
-          }
+            hoursAvailable: '24/7',
+          },
         ],
         sameAs: [
           'https://www.facebook.com/gtravaux',
-          'https://www.instagram.com/gtravaux'
-        ]
-      }
-    ]
+          'https://www.instagram.com/gtravaux',
+        ],
+      },
+    ],
   };
 
   return {
@@ -207,7 +205,7 @@ export function generateLocalSEOMetadata({
       'entreprise travaux Alsace',
       'dégât des eaux',
       'rénovation complète',
-      'artisan Strasbourg'
+      'artisan Strasbourg',
     ],
     authors: [{ name: businessName }],
     creator: businessName,
@@ -267,35 +265,43 @@ export default function LocalSEO(props: LocalSEOProps) {
       streetAddress: props.address || 'Strasbourg, France',
       addressLocality: props.city || 'Strasbourg',
       postalCode: props.postalCode || '67000',
-      addressCountry: 'FR'
+      addressCountry: 'FR',
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 48.5734,
-      longitude: 7.7521
+      longitude: 7.7521,
     },
     url: 'https://g-travaux.fr',
     areaServed: [
-      'Strasbourg', 'Metz', 'Nancy', 'Mulhouse', 'Colmar', 'Alsace', 'Lorraine'
+      'Strasbourg',
+      'Metz',
+      'Nancy',
+      'Mulhouse',
+      'Colmar',
+      'Alsace',
+      'Lorraine',
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Services de rénovation',
-      itemListElement: (props.services || [
-        'Rénovation complète',
-        'Après sinistre',
-        'Plomberie',
-        'Électricité',
-        'Peinture',
-        'Isolation'
-      ]).map(service => ({
+      itemListElement: (
+        props.services || [
+          'Rénovation complète',
+          'Après sinistre',
+          'Plomberie',
+          'Électricité',
+          'Peinture',
+          'Isolation',
+        ]
+      ).map(service => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: service
-        }
-      }))
-    }
+          name: service,
+        },
+      })),
+    },
   };
 
   return (

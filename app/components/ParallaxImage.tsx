@@ -32,7 +32,7 @@ export default function ParallaxImage({
   // Mettre à jour les mesures lors du défilement ou du redimensionnement
   useEffect(() => {
     const element = containerRef.current;
-    if (!element) return;
+    if (!element) return undefined;
 
     const updatePosition = () => {
       const rect = element.getBoundingClientRect();
@@ -53,18 +53,15 @@ export default function ParallaxImage({
   );
 
   return (
-    <div
-      ref={containerRef}
-      className={`overflow-hidden relative ${className}`}
-    >
-      <motion.div style={{ y }} className="w-full h-full">
+    <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
+      <motion.div style={{ y }} className="size-full">
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
           priority={priority}
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       </motion.div>
     </div>

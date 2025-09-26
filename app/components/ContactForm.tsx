@@ -1,16 +1,9 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-  want3D: boolean;
-  honeypot: string;
-}
+import type { ContactFormData } from '../../types/forms';
+import { AVAILABLE_SERVICES } from '../../types/forms';
+import type { ChangeEventHandler, FormEventHandler } from '../../types/events';
 
 export default function ContactForm() {
   const [data, setData] = useState<ContactFormData>({
@@ -20,21 +13,22 @@ export default function ContactForm() {
     service: '',
     message: '',
     want3D: false,
-    honeypot: ''
+    honeypot: '',
   });
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState('');
+  const [sent, setSent] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = (e) => {
     const { name, value, type } = e.target;
     const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
-    setData((prev) => ({ 
-      ...prev, 
-      [name]: type === 'checkbox' ? checked : value 
+    
+    setData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (data.honeypot) return;
     if (!data.name || !data.email || !data.message) {
@@ -48,9 +42,10 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <div className="bg-green-50 border-green-200 rounded-lg border p-6">
         <p className="text-green-800 font-medium">
-          Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
+          Merci pour votre message ! Nous vous répondrons dans les plus brefs
+          délais.
         </p>
       </div>
     );
@@ -59,11 +54,11 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="form-glass space-y-4" noValidate>
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <p className="text-red-800 text-sm">{error}</p>
+        <div className="rounded-lg border border-red-200 bg-red-50 p-4">
+          <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
-      
+
       <div>
         <label htmlFor="contact-name" className="form-label">
           Nom *
@@ -117,18 +112,16 @@ export default function ContactForm() {
           name="service"
           value={data.service}
           onChange={handleChange}
-          className="form-input text-gray-900 bg-white"
+          className="form-input bg-white text-gray-900"
         >
-          <option value="" className="text-gray-500">Sélectionnez un service</option>
-          <option value="Maçonnerie légère" className="text-gray-900">Maçonnerie légère</option>
-          <option value="Électricité & plomberie" className="text-gray-900">Électricité & plomberie</option>
-          <option value="Isolation intérieure" className="text-gray-900">Isolation intérieure</option>
-          <option value="Plâtrerie & placo" className="text-gray-900">Plâtrerie & placo</option>
-          <option value="Pose de sol" className="text-gray-900">Pose de sol</option>
-          <option value="Peinture & finitions" className="text-gray-900">Peinture & finitions</option>
-          <option value="Rénovation complète" className="text-gray-900">Rénovation complète</option>
-          <option value="Après sinistre" className="text-gray-900">Après sinistre</option>
-          <option value="Autres" className="text-gray-900">Autres</option>
+          <option value="" className="text-gray-500">
+            Sélectionnez un service
+          </option>
+          {AVAILABLE_SERVICES.map((service) => (
+            <option key={service} value={service} className="text-gray-900">
+              {service}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -155,10 +148,14 @@ export default function ContactForm() {
           name="want3D"
           checked={data.want3D}
           onChange={handleChange}
-          className="mt-1 h-4 w-4 text-primary focus:ring-primary border-lightGray rounded"
+          className="mt-1 size-4 rounded border-lightGray text-primary focus:ring-primary"
         />
-        <label htmlFor="contact-want3d" className="text-sm text-darkGray leading-5">
-          Je souhaite une projection 3D de mon projet (nécessite l'envoi de plans)
+        <label
+          htmlFor="contact-want3d"
+          className="text-sm leading-5 text-darkGray"
+        >
+          Je souhaite une projection 3D de mon projet (nécessite l'envoi de
+          plans)
         </label>
       </div>
 
@@ -173,10 +170,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full button-accent font-semibold"
-      >
+      <button type="submit" className="button-accent w-full font-semibold">
         Envoyer le message
       </button>
     </form>

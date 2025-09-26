@@ -1,7 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { FaComments, FaTimes, FaPaperPlane, FaPhone, FaUser } from 'react-icons/fa';
+import {
+  FaComments,
+  FaTimes,
+  FaPaperPlane,
+  FaPhone,
+  FaUser,
+} from 'react-icons/fa';
 
 interface Message {
   id: string;
@@ -17,8 +23,8 @@ export default function LiveChat() {
       id: '1',
       text: 'Bonjour ! Je suis là pour vous aider. Avez-vous une urgence ou souhaitez-vous des informations sur nos services ?',
       sender: 'agent',
-      timestamp: new Date()
-    }
+      timestamp: new Date(),
+    },
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -38,16 +44,20 @@ export default function LiveChat() {
     'Dégât des eaux',
     'Demander un devis',
     'Prendre rendez-vous',
-    'Parler à un conseiller'
+    'Parler à un conseiller',
   ];
 
   const autoResponses: { [key: string]: string } = {
-    'urgence': 'Pour toute urgence, appelez immédiatement le 06 04 00 74 99. Nous intervenons 24h/24 pour les sinistres.',
-    'devis': 'Je peux vous rediriger vers notre calculateur de devis en ligne ou vous pouvez remplir notre formulaire de contact. Que préférez-vous ?',
-    'rendez-vous': 'Parfait ! Vous pouvez utiliser notre planificateur de rendez-vous en ligne ou m\'indiquer vos disponibilités.',
-    'prix': 'Nos tarifs dépendent du type de travaux. Utilisez notre calculateur de devis pour une estimation rapide ou contactez-nous pour un devis personnalisé.',
-    'délai': 'Nos délais varient selon l\'urgence : interventions d\'urgence sous 2h, devis sous 48h, travaux planifiés selon disponibilités.',
-    'zone': 'Nous intervenons principalement en Alsace-Lorraine (Strasbourg, Metz, Nancy, Mulhouse, Colmar) et dans toute la France pour les urgences.'
+    urgence:
+      'Pour toute urgence, appelez immédiatement le 06 04 00 74 99. Nous intervenons 24h/24 pour les sinistres.',
+    devis:
+      'Je peux vous rediriger vers notre calculateur de devis en ligne ou vous pouvez remplir notre formulaire de contact. Que préférez-vous ?',
+    'rendez-vous':
+      "Parfait ! Vous pouvez utiliser notre planificateur de rendez-vous en ligne ou m'indiquer vos disponibilités.",
+    prix: 'Nos tarifs dépendent du type de travaux. Utilisez notre calculateur de devis pour une estimation rapide ou contactez-nous pour un devis personnalisé.',
+    délai:
+      "Nos délais varient selon l'urgence : interventions d'urgence sous 2h, devis sous 48h, travaux planifiés selon disponibilités.",
+    zone: 'Nous intervenons principalement en Alsace-Lorraine (Strasbourg, Metz, Nancy, Mulhouse, Colmar) et dans toute la France pour les urgences.',
   };
 
   const sendMessage = (text: string) => {
@@ -57,7 +67,7 @@ export default function LiveChat() {
       id: Date.now().toString(),
       text: text.trim(),
       sender: 'user',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -67,7 +77,8 @@ export default function LiveChat() {
     // Simulation de réponse automatique
     setTimeout(() => {
       const lowerText = text.toLowerCase();
-      let response = 'Merci pour votre message. Un conseiller va vous répondre dans quelques instants.';
+      let response =
+        'Merci pour votre message. Un conseiller va vous répondre dans quelques instants.';
 
       // Recherche de mots-clés pour réponses automatiques
       for (const [keyword, autoResponse] of Object.entries(autoResponses)) {
@@ -81,7 +92,7 @@ export default function LiveChat() {
         id: (Date.now() + 1).toString(),
         text: response,
         sender: 'agent',
-        timestamp: new Date()
+        timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, agentMessage]);
@@ -103,24 +114,24 @@ export default function LiveChat() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 z-50 bg-green text-white p-4 rounded-full shadow-lg hover:bg-green/90 transition-all duration-300 ${
+        className={`fixed bottom-6 left-6 z-50 rounded-full bg-green p-4 text-white shadow-lg transition-all duration-300 hover:bg-green/90 ${
           isOpen ? 'hidden' : 'flex'
         } items-center justify-center`}
         aria-label="Ouvrir le chat"
       >
         <FaComments size={24} />
-        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center animate-pulse">
+        <span className="absolute -right-2 -top-2 flex size-6 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
           !
         </span>
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border flex flex-col">
+        <div className="fixed bottom-6 right-6 z-50 flex h-96 w-80 flex-col rounded-lg border bg-white shadow-2xl">
           {/* Header */}
-          <div className="bg-primary text-white p-4 rounded-t-lg flex items-center justify-between">
+          <div className="flex items-center justify-between rounded-t-lg bg-primary p-4 text-white">
             <div className="flex items-center">
-              <div className="w-3 h-3 bg-green rounded-full mr-2"></div>
+              <div className="mr-2 size-3 rounded-full bg-green"></div>
               <div>
                 <h4 className="font-semibold">Chat d'urgence</h4>
                 <p className="text-xs opacity-90">En ligne maintenant</p>
@@ -128,35 +139,43 @@ export default function LiveChat() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white transition-colors hover:text-gray-300"
             >
               <FaTimes size={18} />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {messages.map((message) => (
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+            {messages.map(message => (
               <div
                 key={message.id}
                 className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
+                  className={`max-w-xs rounded-lg px-3 py-2 text-sm ${
                     message.sender === 'user'
                       ? 'bg-primary text-white'
                       : 'bg-lightGray text-darkGray'
                   }`}
                 >
                   {message.sender === 'agent' && (
-                    <div className="flex items-center mb-1">
+                    <div className="mb-1 flex items-center">
                       <FaUser size={12} className="mr-1" />
-                      <span className="text-xs font-medium">Conseiller G.TRAVAUX</span>
+                      <span className="text-xs font-medium">
+                        Conseiller G.TRAVAUX
+                      </span>
                     </div>
                   )}
                   <p>{message.text}</p>
-                  <p className="text-xs opacity-70 mt-1" suppressHydrationWarning>
-                    {message.timestamp.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                  <p
+                    className="mt-1 text-xs opacity-70"
+                    suppressHydrationWarning
+                  >
+                    {message.timestamp.toLocaleTimeString('fr-FR', {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
                   </p>
                 </div>
               </div>
@@ -164,12 +183,18 @@ export default function LiveChat() {
 
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-lightGray text-darkGray px-3 py-2 rounded-lg text-sm">
+                <div className="rounded-lg bg-lightGray px-3 py-2 text-sm text-darkGray">
                   <div className="flex items-center">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-darkGray rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-darkGray rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-darkGray rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="size-2 animate-bounce rounded-full bg-darkGray"></div>
+                      <div
+                        className="size-2 animate-bounce rounded-full bg-darkGray"
+                        style={{ animationDelay: '0.1s' }}
+                      ></div>
+                      <div
+                        className="size-2 animate-bounce rounded-full bg-darkGray"
+                        style={{ animationDelay: '0.2s' }}
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -181,13 +206,13 @@ export default function LiveChat() {
           {/* Quick Responses */}
           {messages.length <= 2 && (
             <div className="px-4 pb-2">
-              <p className="text-xs text-darkGray mb-2">Réponses rapides :</p>
+              <p className="mb-2 text-xs text-darkGray">Réponses rapides :</p>
               <div className="flex flex-wrap gap-1">
-                {quickResponses.slice(0, 3).map((response) => (
+                {quickResponses.slice(0, 3).map(response => (
                   <button
                     key={response}
                     onClick={() => handleQuickResponse(response)}
-                    className="text-xs bg-lightGray text-darkGray px-2 py-1 rounded hover:bg-primary hover:text-white transition-colors"
+                    className="rounded bg-lightGray px-2 py-1 text-xs text-darkGray transition-colors hover:bg-primary hover:text-white"
                   >
                     {response}
                   </button>
@@ -197,28 +222,31 @@ export default function LiveChat() {
           )}
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="p-4 border-t">
+          <form onSubmit={handleSubmit} className="border-t p-4">
             <div className="flex items-center space-x-2">
               <input
                 type="text"
                 value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
+                onChange={e => setInputMessage(e.target.value)}
                 placeholder="Tapez votre message..."
-                className="flex-1 p-2 border border-lightGray rounded-lg focus:border-primary focus:outline-none text-sm"
+                className="flex-1 rounded-lg border border-lightGray p-2 text-sm focus:border-primary focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={!inputMessage.trim()}
-                className="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="rounded-lg bg-primary p-2 text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <FaPaperPlane size={14} />
               </button>
             </div>
-            <div className="flex items-center justify-between mt-2">
+            <div className="mt-2 flex items-center justify-between">
               <p className="text-xs text-darkGray">
-                Urgence ? 
-                <a href="tel:+33604007499" className="text-green font-medium ml-1">
-                  <FaPhone className="inline mr-1" size={10} />
+                Urgence ?
+                <a
+                  href="tel:+33604007499"
+                  className="ml-1 font-medium text-green"
+                >
+                  <FaPhone className="mr-1 inline" size={10} />
                   06 04 00 74 99
                 </a>
               </p>

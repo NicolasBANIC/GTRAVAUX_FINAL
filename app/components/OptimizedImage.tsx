@@ -35,11 +35,11 @@ export default function OptimizedImage({
 
   // Intersection Observer pour le lazy loading
   useEffect(() => {
-    if (!lazy || priority || isInView) return;
+    if (!lazy || priority || isInView) return undefined;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsInView(true);
             observer.disconnect();
@@ -87,16 +87,24 @@ export default function OptimizedImage({
     <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
       {/* Loading skeleton */}
       {isLoading && !hasError && (
-        <div className="absolute inset-0 bg-gradient-to-r from-lightGray via-gray-200 to-lightGray animate-pulse">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shimmer"></div>
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-lightGray via-gray-200 to-lightGray">
+          <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent"></div>
         </div>
       )}
-      
+
       {/* Error state */}
       {hasError ? (
-        <div className="absolute inset-0 bg-lightGray flex flex-col items-center justify-center text-darkGray">
-          <svg className="w-12 h-12 mb-2 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-lightGray text-darkGray">
+          <svg
+            className="mb-2 size-12 opacity-50"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+              clipRule="evenodd"
+            />
           </svg>
           <div className="text-sm">Image non disponible</div>
         </div>
@@ -115,7 +123,7 @@ export default function OptimizedImage({
             placeholder="blur"
             blurDataURL={blurDataURL}
             className={`transition-all duration-500 ease-out ${
-              isLoading ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
+              isLoading ? 'scale-105 opacity-0' : 'scale-100 opacity-100'
             } ${fill ? 'object-cover' : ''}`}
             onLoad={() => setIsLoading(false)}
             onError={() => {

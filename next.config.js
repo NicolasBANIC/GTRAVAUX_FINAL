@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['react-icons'],
   },
-  
+
   // Compression et optimisation des images
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -14,7 +14,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  
+
   // Optimisation du bundle
   webpack: (config, { dev, isServer }) => {
     // Optimisations de production
@@ -36,10 +36,10 @@ const nextConfig = {
         },
       };
     }
-    
+
     return config;
   },
-  
+
   // Headers de performance et sécurité
   async headers() {
     return [
@@ -48,23 +48,23 @@ const nextConfig = {
         headers: [
           {
             key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            value: 'on',
           },
           {
             key: 'X-XSS-Protection',
-            value: '1; mode=block'
+            value: '1; mode=block',
           },
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'SAMEORIGIN',
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'origin-when-cross-origin',
           },
         ],
       },
@@ -88,19 +88,42 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // Compression
   compress: true,
-  
+
   // PWA et performance
   poweredByHeader: false,
-  
+
   // Configuration du tracing pour éviter les avertissements
   outputFileTracingRoot: __dirname,
-  
+
   // Redirections pour SEO
   async redirects() {
     return [
+      // Pages de rénovation → Services équivalents
+      {
+        source: '/renovation-strasbourg',
+        destination: '/services/maconnerie-legere',
+        permanent: true,
+      },
+      {
+        source: '/renovation-mulhouse',
+        destination: '/services/maconnerie-legere',
+        permanent: true,
+      },
+      {
+        source: '/renovation-colmar',
+        destination: '/services/maconnerie-legere',
+        permanent: true,
+      },
+      // Page réservation → Contact
+      {
+        source: '/reservation',
+        destination: '/contact',
+        permanent: true,
+      },
+      // Ancien lien existant
       {
         source: '/travaux',
         destination: '/services',

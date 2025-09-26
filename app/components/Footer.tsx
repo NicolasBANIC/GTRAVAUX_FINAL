@@ -3,62 +3,106 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white mt-12">
-      <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="mt-12 bg-primary text-white">
+      <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 md:grid-cols-4">
         <div className="space-y-3">
-          <h3 className="text-xl font-bold tracking-widest uppercase">G.TRAVAUX</h3>
+          <h3 className="text-xl font-bold uppercase tracking-widest">
+            G.TRAVAUX
+          </h3>
           <p className="mb-2 flex items-center text-white/90">
-            <FaMapMarkerAlt className="mr-2 text-accent-400" /> 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg
+            <FaMapMarkerAlt className="mr-2 text-accent-400" /> 3 Rue du
+            Vingt-Deux Novembre, 67000 Strasbourg
           </p>
           <p className="mb-2 flex items-center text-white/90">
             <FaPhone className="mr-2 text-success-400" />
-            <a href="tel:+33972123456" className="hover:text-accent-300 transition-colors">+33 9 72 12 34 56</a>
+            <a
+              href="tel:+33972123456"
+              className="transition-colors hover:text-accent-300"
+            >
+              +33 9 72 12 34 56
+            </a>
           </p>
           <p className="flex items-center text-white/90">
             <FaEnvelope className="mr-2 text-accent-400" />
-            <a href="mailto:contact.gtravaux@gmail.com" className="hover:text-accent-300 transition-colors">
+            <a
+              href="mailto:contact.gtravaux@gmail.com"
+              className="transition-colors hover:text-accent-300"
+            >
               contact.gtravaux@gmail.com
             </a>
           </p>
         </div>
         <div>
-          <h4 className="text-sm font-semibold mb-4 uppercase tracking-widest">Navigation</h4>
+          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest">
+            Navigation
+          </h4>
           <ul className="space-y-2 text-white/90">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+              <Link href="/" className="transition-colors hover:text-white">
+                Accueil
+              </Link>
             </li>
             <li>
-              <Link href="/realisations" className="hover:text-white transition-colors">Réalisations</Link>
+              <Link
+                href="/realisations"
+                className="transition-colors hover:text-white"
+              >
+                Réalisations
+              </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white transition-colors">À propos</Link>
+              <Link
+                href="/about"
+                className="transition-colors hover:text-white"
+              >
+                À propos
+              </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+              <Link
+                href="/contact"
+                className="transition-colors hover:text-white"
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
         <div>
-          <h4 className="text-sm font-semibold mb-4 uppercase tracking-widest">Aides</h4>
+          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest">
+            Aides
+          </h4>
           <ul className="space-y-2 text-white/90">
             <li>
-              <Link href="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
+              <span className="cursor-not-allowed text-white/50">
+                Mentions légales (bientôt)
+              </span>
             </li>
             <li>
-              <Link href="/confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link>
+              <span className="cursor-not-allowed text-white/50">
+                Politique de confidentialité (bientôt)
+              </span>
             </li>
             <li>
-              <Link href="/cookies" className="hover:text-white transition-colors">Politique de cookies</Link>
+              <span className="cursor-not-allowed text-white/50">
+                Politique de cookies (bientôt)
+              </span>
             </li>
           </ul>
         </div>
         <div className="space-y-2">
-          <h4 className="text-sm font-semibold mb-4 uppercase tracking-widest">Informations</h4>
-          <p className="mb-2 text-white/90">Basés à Strasbourg — interventions dans toute la France.</p>
+          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest">
+            Informations
+          </h4>
+          <p className="mb-2 text-white/90">
+            Basés à Strasbourg — interventions dans toute la France.
+          </p>
           <p className="mb-2 text-white/90">SIRET : 123 456 789 00012</p>
           <p className="mb-2 text-white/90">Assurance décennale incluse.</p>
           <p className="mb-2 text-white/90">Certifications : RGE, Qualibat</p>
-          <p className="text-xs text-white/60">© {new Date().getFullYear()} G.TRAVAUX — Tous droits réservés.</p>
+          <p className="text-xs text-white/60">
+            © {new Date().getFullYear()} G.TRAVAUX — Tous droits réservés.
+          </p>
         </div>
       </div>
     </footer>

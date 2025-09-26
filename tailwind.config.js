@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./app/components/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}"
+    './app/**/*.{js,ts,jsx,tsx}',
+    './app/components/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -44,8 +44,10 @@ module.exports = {
       },
       boxShadow: {
         // Ombres "premium" utilisées dans globals.css (adoucies)
-        premium: '0 8px 16px -10px rgba(30, 122, 69, 0.18), 0 6px 12px -12px rgba(44, 62, 80, 0.18)',
-        'premium-lg': '0 16px 28px -12px rgba(30, 122, 69, 0.22), 0 10px 20px -16px rgba(44, 62, 80, 0.22)',
+        premium:
+          '0 8px 16px -10px rgba(30, 122, 69, 0.18), 0 6px 12px -12px rgba(44, 62, 80, 0.18)',
+        'premium-lg':
+          '0 16px 28px -12px rgba(30, 122, 69, 0.22), 0 10px 20px -16px rgba(44, 62, 80, 0.22)',
         glass: '0 8px 20px rgba(0,0,0,0.06)',
       },
       keyframes: {
@@ -58,8 +60,20 @@ module.exports = {
         glow: 'glow 2.2s ease-in-out infinite',
       },
       fontFamily: {
-        sans: ['var(--font-raleway)', 'Raleway', 'Arial', 'Helvetica', 'sans-serif'],
-        heading: ['var(--font-raleway)', 'Raleway', 'Arial', 'Helvetica', 'sans-serif'],
+        sans: [
+          'var(--font-raleway)',
+          'Raleway',
+          'Arial',
+          'Helvetica',
+          'sans-serif',
+        ],
+        heading: [
+          'var(--font-raleway)',
+          'Raleway',
+          'Arial',
+          'Helvetica',
+          'sans-serif',
+        ],
       },
     },
   },

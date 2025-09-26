@@ -1,108 +1,146 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import ClientMotionDiv from './ClientMotionDiv';
+import HeroVideo from './HeroVideo';
 
 interface HeroProps {
   title: string;
   subtitle: string;
-  imageSrc: string;
+  videoSrc?: string | string[];
+  imageSrc?: string;
   cta?: {
     label: string;
     href: string;
   };
-  secondaryCta?: {
-    label: string;
-    href: string;
-  };
   showForm?: boolean;
+  fullScreen?: boolean;
   formComponent?: React.ReactNode;
+  centerText?: boolean; // Controls text alignment - true for center everywhere, false for left on large screens
 }
 
-export default function Hero({ title, subtitle, imageSrc, cta, secondaryCta, showForm, formComponent }: HeroProps) {
+/**
+ * Hero Component - Version Server
+ * Migration d'un composant Client vers Server pour améliorer les performances
+ * Seules les animations sont déportées vers ClientMotionDiv
+ */
+export default function Hero({
+  title,
+  subtitle,
+  videoSrc,
+  imageSrc,
+  cta,
+  showForm = false,
+  fullScreen = false,
+  formComponent,
+  centerText = true, // Default to centered text (for all pages except homepage)
+}: HeroProps) {
+  // Hauteur adaptive selon les règles : 100vh uniquement pour accueil, ~60vh pour les autres
+  const heightClass = fullScreen ? 'h-screen' : 'h-[60vh] min-h-[500px]';
+  
   return (
-    <section className="relative min-h-[70vh] lg:min-h-[75vh] flex items-center justify-center text-white pt-20">
-      {/* Background Image + overlay plus neutre comme ATB */}
+    <section
+      className={`relative flex items-center justify-center ${
+        heightClass
+      }`}
+    >
+      {/* Background Video/Image - Static, server-rendered */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 from-black/40 via-black/55 to-black/70 bg-gradient-to-b"></div>
-        {/* Trame douce type grille sombre + léger cyan */}
-        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:80px_80px]" />
+        {videoSrc ? (
+          <HeroVideo
+            videoSrc={videoSrc}
+            fallbackImage={imageSrc}
+            title={title}
+            poster={imageSrc}
+          />
+        ) : (
+          imageSrc && (
+            <div
+              className="h-full w-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${imageSrc})` }}
+              role="img"
+              aria-label="Image d'arrière-plan"
+            />
+          )
+        )}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 w-full">
-        {showForm ? (
-          /* Layout avec formulaire à droite */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="text-left">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight tracking-[0.12em] uppercase">
-                {title}
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed opacity-95">
-                {subtitle}
-              </p>
-              
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4">
+      {/* Content Container */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 md:py-12">
+        {/* Dynamic layout: responsive stacking for mobile, two-column for desktop */}
+        {showForm && formComponent ? (
+          // Responsive layout: mobile stacked (text above form), desktop two-column
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            {/* Text Content - Full width on mobile, proper alignment responsive */}
+            <ClientMotionDiv immediateVisible={true} delay={0.2} className="order-1">
+              <div className={centerText ? "text-center" : "text-center lg:text-left max-w-none lg:max-w-full"}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight">
+                  {title}
+                </h1>
+                <p className="text-lg sm:text-xl text-white/90 mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto">
+                  {subtitle}
+                </p>
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="button-accent text-center"
+                    className="button-accent text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 inline-block transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+                    aria-label={`${cta.label} - Ouvre la page de contact`}
                   >
                     {cta.label}
                   </Link>
                 )}
-                {secondaryCta && (
-                  <Link
-                    href={secondaryCta.href}
-                    className="glass-button border-2 border-accent-400 text-white hover:text-white"
-                  >
-                    {secondaryCta.label}
-                  </Link>
-                )}
               </div>
-            </div>
-            <div className="flex justify-center lg:justify-end">
-              {formComponent}
-            </div>
+            </ClientMotionDiv>
+
+            {/* Form Section - Full width on mobile, positioned right on desktop */}
+            <ClientMotionDiv immediateVisible={true} delay={0.4} className="order-2">
+              <div className="flex justify-center lg:justify-end">
+                <div className="w-full max-w-md lg:max-w-lg">
+                  {formComponent}
+                </div>
+              </div>
+            </ClientMotionDiv>
           </div>
         ) : (
-          /* Layout centré classique - HARMONISÉ avec le style de la page d'accueil */
-          <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight tracking-[0.12em] uppercase">
-              {title}
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed opacity-95">
-              {subtitle}
-            </p>
-            
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {cta && (
-                <Link
-                  href={cta.href}
-                  className="button-accent"
-                >
-                  {cta.label}
-                </Link>
-              )}
-              {secondaryCta && (
-                <Link
-                  href={secondaryCta.href}
-                  className="glass-button border-2 border-accent-400 text-white hover:text-white"
-                >
-                  {secondaryCta.label}
-                </Link>
-              )}
+          // Centered single column layout for other pages without form
+          <div className="flex justify-center">
+            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+              <ClientMotionDiv immediateVisible={true} delay={0.2}>
+                <div className="text-center">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    {title}
+                  </h1>
+                  <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                    {subtitle}
+                  </p>
+                  {cta && (
+                    <Link
+                      href={cta.href}
+                      className="button-accent text-lg px-8 py-4 inline-block transition-all hover:scale-105"
+                    >
+                      {cta.label}
+                    </Link>
+                  )}
+                </div>
+              </ClientMotionDiv>
             </div>
           </div>
         )}
       </div>
+
+      {/* Scroll Indicator - Immediate visibility with longer delay */}
+      {fullScreen && (
+        <ClientMotionDiv
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          immediateVisible={true}
+          delay={1.2}
+        >
+          <div className="flex flex-col items-center">
+            <span className="text-white/80 text-sm mb-2">Découvrez nos services</span>
+            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </div>
+        </ClientMotionDiv>
+      )}
     </section>
   );
 }

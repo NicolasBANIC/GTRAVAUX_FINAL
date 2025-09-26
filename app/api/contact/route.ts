@@ -1,11 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-interface ContactFormData {
-  name: string;
-  phone: string;
-  service?: string;
-  honeypot?: string;
-}
+import type { ContactFormData, ContactApiResponse } from '../../../types/api';
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,10 +15,11 @@ export async function POST(request: NextRequest) {
 
     // Basic validation
     if (!data.name || !data.phone) {
-      return NextResponse.json(
-        { success: false, message: 'Nom et téléphone sont requis' },
-        { status: 400 }
-      );
+      const validationError: ContactApiResponse = {
+        success: false,
+        message: 'Nom et téléphone sont requis',
+      };
+      return NextResponse.json(validationError, { status: 400 });
     }
 
     // Validate phone number (basic French format)
@@ -57,17 +52,18 @@ export async function POST(request: NextRequest) {
     await new Promise(resolve => setTimeout(resolve, 500));
 
     // Return success response
-    return NextResponse.json({
+    const successResponse: ContactApiResponse = {
       success: true,
-      message: 'Merci ! Nous vous rappellerons dans les plus brefs délais.'
-    });
-
+      message: 'Merci ! Nous vous rappellerons dans les plus brefs délais.',
+    };
+    return NextResponse.json(successResponse);
   } catch (error) {
     console.error('Erreur lors du traitement de la demande de contact:', error);
-    return NextResponse.json(
-      { success: false, message: 'Erreur interne du serveur' },
-      { status: 500 }
-    );
+    const errorResponse: ContactApiResponse = {
+      success: false,
+      message: 'Erreur interne du serveur',
+    };
+    return NextResponse.json(errorResponse, { status: 500 });
   }
 }
 

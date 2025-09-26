@@ -1,22 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import {
+  FaCalendarAlt,
+  FaClock,
+  FaMapMarkerAlt,
+  FaPhone,
+} from 'react-icons/fa';
 
 interface CalendlyBookingProps {
   compact?: boolean;
   service?: string;
 }
 
-export default function CalendlyBooking({ compact = false, service }: CalendlyBookingProps) {
+export default function CalendlyBooking({
+  compact = false,
+  service,
+}: CalendlyBookingProps) {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [bookingStep, setBookingStep] = useState<'slots' | 'form' | 'success'>('slots');
+  const [bookingStep, setBookingStep] = useState<'slots' | 'form' | 'success'>(
+    'slots'
+  );
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     address: '',
-    description: ''
+    description: '',
   });
 
   // Créneaux disponibles (simulation)
@@ -36,33 +46,35 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simulation envoi
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     setBookingStep('success');
-    
+
     // Dans la vraie vie, envoyer vers API
     console.log('Booking data:', { selectedSlot, formData, service });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   if (compact) {
     return (
-      <div className="bg-white p-4 rounded-lg shadow border">
-        <div className="flex items-center space-x-3 mb-3">
+      <div className="rounded-lg border bg-white p-4 shadow">
+        <div className="mb-3 flex items-center space-x-3">
           <FaCalendarAlt className="text-primary" />
           <h3 className="font-semibold">Prendre rendez-vous</h3>
         </div>
-        <p className="text-sm text-darkGray mb-3">
+        <p className="mb-3 text-sm text-darkGray">
           Diagnostic gratuit à domicile
         </p>
-        <button 
-          className="w-full bg-green text-white py-2 rounded-full text-sm font-medium hover:bg-green/90 transition-colors"
+        <button
+          className="w-full rounded-full bg-green py-2 text-sm font-medium text-white transition-colors hover:bg-green/90"
           onClick={() => window.open('#booking-modal', '_self')}
         >
           Choisir un créneau
@@ -72,15 +84,17 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg border max-w-2xl mx-auto">
+    <div className="mx-auto max-w-2xl rounded-lg border bg-white shadow-lg">
       {/* Header */}
-      <div className="bg-primary text-white p-6 rounded-t-lg">
+      <div className="rounded-t-lg bg-primary p-6 text-white">
         <div className="flex items-center space-x-3">
           <FaCalendarAlt size={24} />
           <div>
             <h2 className="text-xl font-bold">Réservation en ligne</h2>
             <p className="text-sm opacity-90">
-              {service ? `Service : ${service}` : 'Diagnostic gratuit à domicile'}
+              {service
+                ? `Service : ${service}`
+                : 'Diagnostic gratuit à domicile'}
             </p>
           </div>
         </div>
@@ -90,13 +104,15 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
         {/* Étape 1: Sélection créneau */}
         {bookingStep === 'slots' && (
           <div>
-            <h3 className="text-lg font-semibold mb-4">Choisissez votre créneau</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {availableSlots.map((slot) => (
+            <h3 className="mb-4 text-lg font-semibold">
+              Choisissez votre créneau
+            </h3>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {availableSlots.map(slot => (
                 <button
                   key={`${slot.date}-${slot.time}`}
                   onClick={() => handleSlotSelect(`${slot.date}-${slot.time}`)}
-                  className="p-4 border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-left"
+                  className="rounded-lg border p-4 text-left transition-colors hover:border-primary hover:bg-primary/5"
                 >
                   <div className="flex items-center space-x-3">
                     <FaClock className="text-primary" />
@@ -108,12 +124,12 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
                 </button>
               ))}
             </div>
-            
-            <div className="mt-6 p-4 bg-lightGray rounded-lg">
+
+            <div className="mt-6 rounded-lg bg-lightGray p-4">
               <div className="flex items-start space-x-3">
-                <FaMapMarkerAlt className="text-primary mt-1" />
+                <FaMapMarkerAlt className="mt-1 text-primary" />
                 <div className="text-sm">
-                  <p className="font-medium mb-1">Zone d'intervention</p>
+                  <p className="mb-1 font-medium">Zone d'intervention</p>
                   <p className="text-darkGray">
                     Strasbourg et environs (30km) • Colmar • Mulhouse
                     <br />
@@ -128,7 +144,7 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
         {/* Étape 2: Formulaire */}
         {bookingStep === 'form' && (
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-semibold">Vos coordonnées</h3>
               <button
                 onClick={() => setBookingStep('slots')}
@@ -137,21 +153,29 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
                 ← Modifier le créneau
               </button>
             </div>
-            
-            <div className="bg-green/10 border border-green/20 rounded-lg p-3 mb-6">
+
+            <div className="mb-6 rounded-lg border border-green/20 bg-green/10 p-3">
               <div className="flex items-center space-x-2">
                 <FaClock className="text-green" />
                 <span className="text-sm font-medium text-green">
-                  Créneau sélectionné : {availableSlots.find(s => `${s.date}-${s.time}` === selectedSlot)?.label}
+                  Créneau sélectionné :{' '}
+                  {
+                    availableSlots.find(
+                      s => `${s.date}-${s.time}` === selectedSlot
+                    )?.label
+                  }
                 </span>
               </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="form-label">Nom complet *</label>
+                  <label htmlFor="booking-name" className="form-label">
+                    Nom complet *
+                  </label>
                   <input
+                    id="booking-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -161,8 +185,11 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
                   />
                 </div>
                 <div>
-                  <label className="form-label">Téléphone *</label>
+                  <label htmlFor="booking-phone" className="form-label">
+                    Téléphone *
+                  </label>
                   <input
+                    id="booking-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -174,8 +201,11 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
               </div>
 
               <div>
-                <label className="form-label">Email</label>
+                <label htmlFor="booking-email" className="form-label">
+                  Email
+                </label>
                 <input
+                  id="booking-email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -185,8 +215,11 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
               </div>
 
               <div>
-                <label className="form-label">Adresse de l'intervention *</label>
+                <label htmlFor="booking-address" className="form-label">
+                  Adresse de l'intervention *
+                </label>
                 <input
+                  id="booking-address"
                   type="text"
                   name="address"
                   value={formData.address}
@@ -198,8 +231,11 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
               </div>
 
               <div>
-                <label className="form-label">Description du projet</label>
+                <label htmlFor="booking-description" className="form-label">
+                  Description du projet
+                </label>
                 <textarea
+                  id="booking-description"
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
@@ -209,10 +245,7 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="w-full button-primary"
-              >
+              <button type="submit" className="button-primary w-full">
                 Confirmer le rendez-vous
               </button>
             </form>
@@ -222,13 +255,20 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
         {/* Étape 3: Succès */}
         {bookingStep === 'success' && (
           <div className="text-center">
-            <div className="text-green text-4xl mb-4">✓</div>
-            <h3 className="text-xl font-bold text-green mb-4">Rendez-vous confirmé !</h3>
-            
-            <div className="bg-lightGray p-4 rounded-lg text-left mb-6">
-              <h4 className="font-semibold mb-2">Récapitulatif :</h4>
+            <div className="mb-4 text-4xl text-green">✓</div>
+            <h3 className="mb-4 text-xl font-bold text-green">
+              Rendez-vous confirmé !
+            </h3>
+
+            <div className="mb-6 rounded-lg bg-lightGray p-4 text-left">
+              <h4 className="mb-2 font-semibold">Récapitulatif :</h4>
               <p className="text-sm text-darkGray">
-                <strong>Date :</strong> {availableSlots.find(s => `${s.date}-${s.time}` === selectedSlot)?.label}
+                <strong>Date :</strong>{' '}
+                {
+                  availableSlots.find(
+                    s => `${s.date}-${s.time}` === selectedSlot
+                  )?.label
+                }
                 <br />
                 <strong>Contact :</strong> {formData.name} - {formData.phone}
                 <br />
@@ -247,16 +287,23 @@ export default function CalendlyBooking({ compact = false, service }: CalendlyBo
                 <FaPhone className="text-primary" />
                 <span>Un SMS de confirmation vous sera envoyé</span>
               </div>
-              
+
               <p className="text-sm text-darkGray">
-                Notre technicien vous contactera <strong>30 minutes avant</strong> le rendez-vous
+                Notre technicien vous contactera{' '}
+                <strong>30 minutes avant</strong> le rendez-vous
               </p>
 
               <button
                 onClick={() => {
                   setBookingStep('slots');
                   setSelectedSlot(null);
-                  setFormData({ name: '', phone: '', email: '', address: '', description: '' });
+                  setFormData({
+                    name: '',
+                    phone: '',
+                    email: '',
+                    address: '',
+                    description: '',
+                  });
                 }}
                 className="button-secondary"
               >

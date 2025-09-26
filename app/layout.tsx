@@ -8,10 +8,10 @@ import { ReactNode } from 'react';
 import { Raleway } from 'next/font/google';
 
 // Import Raleway via Next.js font API (aligné avec ATB)
-const raleway = Raleway({ 
+const raleway = Raleway({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-raleway'
+  variable: '--font-raleway',
 });
 
 export const metadata = {
@@ -19,7 +19,8 @@ export const metadata = {
     default: 'G.TRAVAUX | Rénovation haut de gamme & après sinistre',
     template: '%s | G.TRAVAUX',
   },
-  description: 'Entreprise basée à Strasbourg — interventions dans toute la France. Rénovation haut de gamme & après sinistre, interventions rapides et finitions d’excellence.',
+  description:
+    'Entreprise basée à Strasbourg — interventions dans toute la France. Rénovation haut de gamme & après sinistre, interventions rapides et finitions d’excellence.',
   metadataBase: new URL('https://g-travaux.fr'),
   openGraph: {
     type: 'website',
@@ -27,8 +28,16 @@ export const metadata = {
     url: 'https://g-travaux.fr',
     siteName: 'G.TRAVAUX',
     title: 'Rénovation haut de gamme & après sinistre',
-    description: 'Interventions rapides, finitions d’excellence, accompagnement assurance.',
-    images: [{ url: '/images/placeholder/home-hero.jpg', width: 1200, height: 630, alt: 'G.TRAVAUX' }],
+    description:
+      'Interventions rapides, finitions d’excellence, accompagnement assurance.',
+    images: [
+      {
+        url: '/images/placeholder/home-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'G.TRAVAUX',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,7 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'G.TRAVAUX',
-    description: 'Entreprise de rénovation haut de gamme & après sinistre, basée à Strasbourg. Interventions dans toute la France.',
+    description:
+      'Entreprise de rénovation haut de gamme & après sinistre, basée à Strasbourg. Interventions dans toute la France.',
     url: 'https://g-travaux.fr',
     telephone: '+33604007499',
     email: 'contact@g-travaux.fr',
@@ -62,14 +72,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <head>
         {/* Inject structured data for SEO */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body className={`${raleway.variable} font-sans relative`}>
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white text-darkGray px-4 py-2 rounded shadow">Aller au contenu</a>
+      <body className={`${raleway.variable} relative font-sans`}>
+        <a
+          href="#main"
+          className="sr-only rounded bg-white px-4 py-2 text-darkGray shadow focus:not-sr-only focus:fixed focus:left-2 focus:top-2"
+        >
+          Aller au contenu
+        </a>
         <BackgroundGradients />
         <Header />
-        <main id="main" className="min-h-screen pt-16">{children}</main>
+        {/* The main content is pushed exactly by header height across breakpoints */}
+        <main id="main" className="min-h-screen pt-16 md:pt-20">
+          {children}
+        </main>
         <Footer />
         <StickyCta />
         <LiveChat />

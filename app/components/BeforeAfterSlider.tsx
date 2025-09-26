@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -14,29 +14,33 @@ interface BeforeAfterSliderProps {
  * each other with an adjustable handle to reveal the after image. Accessible
  * via keyboard by using the range input.
  */
-export default function BeforeAfterSlider({ beforeSrc, afterSrc, alt = '' }: BeforeAfterSliderProps) {
+export default function BeforeAfterSlider({
+  beforeSrc,
+  afterSrc,
+  alt = '',
+}: BeforeAfterSliderProps) {
   const [value, setValue] = useState(50);
   return (
-    <div className="relative w-full h-72 md:h-96 overflow-hidden rounded-lg">
+    <div className="relative h-72 w-full overflow-hidden rounded-lg md:h-96">
       {/* After image (full) */}
-      <Image 
-        src={afterSrc} 
-        alt={alt} 
-        fill 
+      <Image
+        src={afterSrc}
+        alt={alt}
+        fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-cover object-center" 
+        className="object-cover object-center"
       />
       {/* Before image (clipped) */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ width: `${value}%` }}
       >
-        <Image 
-          src={beforeSrc} 
-          alt={alt} 
-          fill 
+        <Image
+          src={beforeSrc}
+          alt={alt}
+          fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-center" 
+          className="object-cover object-center"
         />
       </div>
       {/* Slider handle */}
@@ -45,8 +49,8 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, alt = '' }: Bef
         min={0}
         max={100}
         value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-        className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/2"
+        onChange={e => setValue(Number(e.target.value))}
+        className="absolute bottom-2 left-1/2 w-1/2 -translate-x-1/2"
         aria-label="Comparateur avant-après"
       />
     </div>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
@@ -13,12 +13,14 @@ export default function FaqItem({ question, answer }: FaqItemProps) {
   return (
     <div className="border-b border-lightGray py-4">
       <button
-        className="flex justify-between w-full text-left font-medium text-darkGray"
+        className="flex w-full justify-between text-left font-medium text-darkGray"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
         {question}
-        <FaChevronDown className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+        <FaChevronDown
+          className={`transition-transform ${open ? 'rotate-180' : ''}`}
+        />
       </button>
       {open && <p className="mt-2 text-sm text-darkGray">{answer}</p>}
     </div>

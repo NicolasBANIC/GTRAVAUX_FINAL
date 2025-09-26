@@ -1,13 +1,10 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
-
-interface CallbackFormData {
-  name: string;
-  phone: string;
-  service: string;
-  honeypot: string;
-}
+import type { ContactApiResponse } from '../../types/api';
+import type { CallbackFormData } from '../../types/forms';
+import { CALLBACK_TIME_SLOTS } from '../../types/forms';
+import type { ChangeEventHandler, FormEventHandler } from '../../types/events';
 
 /**
  * Formulaire de rappel rapide. Permet de récupérer rapidement le nom,
@@ -15,24 +12,29 @@ interface CallbackFormData {
  * caché (honeypot).
  */
 export default function CallbackForm() {
-  const [data, setData] = useState<CallbackFormData>({ name: '', phone: '', service: '', honeypot: '' });
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<CallbackFormData>({
+    name: '',
+    phone: '',
+    timeSlot: '',
+    honeypot: '',
+  });
+  const [sent, setSent] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = (e) => {
     const { name, value } = e.target;
-    setData((prev) => ({ ...prev, [name]: value }));
+    setData(prev => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
     if (error) setError('');
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    
+
     // Honeypot check
     if (data.honeypot) return;
-    
+
     // Basic validation
     if (!data.name?.trim() || !data.phone?.trim()) {
       setError('Veuillez saisir votre nom et votre numéro de téléphone.');
@@ -51,15 +53,19 @@ export default function CallbackForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      const result = (await response.json()) as ContactApiResponse;
 
       if (response.ok && result.success) {
         setSent(true);
       } else {
-        setError(result.message || 'Une erreur est survenue. Veuillez réessayer.');
+        setError(
+          result.message || 'Une erreur est survenue. Veuillez réessayer.'
+        );
       }
-    } catch (err) {
-      setError('Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.');
+    } catch (_err) {
+      setError(
+        'Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.'
+      );
     } finally {
       setLoading(false);
     }
@@ -67,10 +73,10 @@ export default function CallbackForm() {
 
   if (sent) {
     return (
-      <div className="bg-green/10 border-2 border-green/20 rounded-lg p-6 text-center">
-        <div className="text-green text-2xl mb-2">✓</div>
-        <h3 className="text-green font-bold text-lg mb-2">Demande envoyée !</h3>
-        <p className="text-green font-medium">
+      <div className="rounded-lg border-2 border-green/20 bg-green/10 p-6 text-center">
+        <div className="mb-2 text-2xl text-green">✓</div>
+        <h3 className="mb-2 text-lg font-bold text-green">Demande envoyée !</h3>
+        <p className="font-medium text-green">
           Merci ! Nous vous rappellerons dans les plus brefs délais.
         </p>
       </div>
@@ -79,9 +85,11 @@ export default function CallbackForm() {
 
   return (
     <form onSubmit={handleSubmit} className="form-glass space-y-4" noValidate>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-sm text-red-500">{error}</p>}
       <div>
-        <label htmlFor="callback-name" className="form-label">Nom *</label>
+        <label htmlFor="callback-name" className="form-label">
+          Nom *
+        </label>
         <input
           type="text"
           id="callback-name"
@@ -93,7 +101,9 @@ export default function CallbackForm() {
         />
       </div>
       <div>
-        <label htmlFor="callback-phone" className="form-label">Téléphone *</label>
+        <label htmlFor="callback-phone" className="form-label">
+          Téléphone *
+        </label>
         <input
           type="tel"
           id="callback-phone"
@@ -105,36 +115,38 @@ export default function CallbackForm() {
         />
       </div>
       <div>
-        <label htmlFor="callback-service" className="form-label">Service souhaité</label>
+        <label htmlFor="callback-timeslot" className="form-label">
+          Créneau préféré pour le rappel
+        </label>
         <select
-          id="callback-service"
-          name="service"
-          value={data.service}
+          id="callback-timeslot"
+          name="timeSlot"
+          value={data.timeSlot}
           onChange={handleChange}
-          className="form-input text-gray-900 bg-white"
+          className="form-input bg-white text-gray-900"
         >
-          <option value="" className="text-gray-500">Choisissez un service</option>
-          <option value="Maçonnerie légère" className="text-gray-900">Maçonnerie légère</option>
-          <option value="Électricité & plomberie" className="text-gray-900">Électricité & plomberie</option>
-          <option value="Isolation intérieure" className="text-gray-900">Isolation intérieure</option>
-          <option value="Plâtrerie & placo" className="text-gray-900">Plâtrerie & placo</option>
-          <option value="Pose de sol" className="text-gray-900">Pose de sol</option>
-          <option value="Peinture & finitions" className="text-gray-900">Peinture & finitions</option>
-          <option value="Autres" className="text-gray-900">Autres</option>
+          <option value="" className="text-gray-500">
+            Choisissez un créneau
+          </option>
+          {CALLBACK_TIME_SLOTS.map((slot) => (
+            <option key={slot} value={slot} className="text-gray-900">
+              {slot}
+            </option>
+          ))}
         </select>
       </div>
       {/* Honeypot */}
       <div className="hidden">
         <input name="honeypot" value={data.honeypot} onChange={handleChange} />
       </div>
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         disabled={loading}
-        className="button-accent disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-full"
+        className="button-accent flex w-full items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? (
           <>
-            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <div className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
             Envoi...
           </>
         ) : (

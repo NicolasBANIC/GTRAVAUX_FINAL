@@ -6,17 +6,42 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Réalisations | G.TRAVAUX',
-  description: 'Découvrez nos projets de rénovation et nos interventions après sinistre dans toute la région.',
+  description:
+    'Découvrez nos projets de rénovation et nos interventions après sinistre dans toute la région.',
 };
 
 export default function RealisationsPage() {
   const gallery = [
-    { src: '/images/placeholder/realisations-strasbourg.jpg', title: 'Appartement rénové', location: 'Strasbourg' },
-    { src: '/images/placeholder/realisations-colmar.jpg', title: 'Maison contemporaine', location: 'Colmar' },
-    { src: '/images/placeholder/realisations-mulhouse.jpg', title: 'Rénovation complète', location: 'Mulhouse' },
-    { src: '/images/placeholder/realisations-lyon.jpg', title: 'Projet design', location: 'Lyon' },
-    { src: '/images/placeholder/realisations-nancy.jpg', title: 'Cuisine moderne', location: 'Nancy' },
-    { src: '/images/placeholder/realisations-metz.jpg', title: 'Salle de bains zen', location: 'Metz' },
+    {
+      src: '/images/placeholder/realisations-strasbourg.jpg',
+      title: 'Appartement rénové',
+      location: 'Strasbourg',
+    },
+    {
+      src: '/images/placeholder/realisations-colmar.jpg',
+      title: 'Maison contemporaine',
+      location: 'Colmar',
+    },
+    {
+      src: '/images/placeholder/realisations-mulhouse.jpg',
+      title: 'Rénovation complète',
+      location: 'Mulhouse',
+    },
+    {
+      src: '/images/placeholder/realisations-lyon.jpg',
+      title: 'Projet design',
+      location: 'Lyon',
+    },
+    {
+      src: '/images/placeholder/realisations-nancy.jpg',
+      title: 'Cuisine moderne',
+      location: 'Nancy',
+    },
+    {
+      src: '/images/placeholder/realisations-metz.jpg',
+      title: 'Salle de bains zen',
+      location: 'Metz',
+    },
   ];
 
   const stats = [
@@ -34,16 +59,21 @@ export default function RealisationsPage() {
         imageSrc="/images/placeholder/realisations-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
-      <section className="container mx-auto px-4 py-20 space-y-16">
-        <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Galerie de projets</h2>
-        <p className="text-darkGray max-w-3xl mx-auto text-center mb-8">
-          Découvrez une sélection de chantiers avant/après : appartements, maisons et commerces.
-          Rénovations complètes, interventions après sinistre et finitions premium.
+      <section className="container mx-auto space-y-16 px-4 py-20 text-center">
+        <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest">
+          Galerie de projets
+        </h2>
+        <p className="mx-auto mb-8 max-w-4xl text-center text-darkGray">
+          Découvrez une sélection de chantiers avant/après : appartements,
+          maisons et commerces. Rénovations complètes, interventions après
+          sinistre et finitions premium.
         </p>
         <GalleryGrid items={gallery} />
         <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Avant / Après</h2>
-          <div className="max-w-4xl mx-auto">
+          <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest">
+            Avant / Après
+          </h2>
+          <div className="mx-auto max-w-4xl">
             <BeforeAfterSlider
               beforeSrc="/images/placeholder/before-1.jpg"
               afterSrc="/images/placeholder/after-1.jpg"
@@ -52,10 +82,12 @@ export default function RealisationsPage() {
           </div>
         </div>
         <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-widest">Nos chiffres clés</h2>
+          <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest">
+            Nos chiffres clés
+          </h2>
           <StatsSection stats={stats} />
         </div>
-        <div className="text-center mt-20">
+        <div className="mt-20 text-center">
           <Link href="/contact" className="button-accent">
             Demander un devis
           </Link>

@@ -1,34 +1,31 @@
-'use client';
-
 import { FaTools, FaClock, FaShieldAlt, FaSmile } from 'react-icons/fa';
 import Hero from './components/Hero';
 import ServiceParagraph from './components/ServiceParagraph';
 import TestimonialCard from './components/TestimonialCard';
 import GoogleReviews from './components/GoogleReviews';
-import CallbackForm from './components/CallbackForm';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
 import Link from 'next/link';
 import CertificationsBadge from './components/CertificationsBadge';
-import dynamic from 'next/dynamic';
+import { getServices, getCompanyStats } from '../lib/staticData';
+import ClientMotionDiv from './components/ClientMotionDiv';
+// Removed dynamic component imports - using inline forms instead
 
-// Dynamically import interactive components to prevent hydration issues
-const QuoteCalculator = dynamic(() => import('./components/QuoteCalculator'), {
-  ssr: false,
-  loading: () => (
-    <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
-      <div className="animate-pulse">
-        <div className="h-8 bg-lightGray rounded mb-4"></div>
-        <div className="h-4 bg-lightGray rounded mb-2"></div>
-        <div className="h-32 bg-lightGray rounded"></div>
-      </div>
-    </div>
-  )
-});
+/**
+ * Page d'accueil - Version Server Component
+ * Migration majeure d'un composant client vers server pour optimiser les performances
+ * - Données récupérées côté serveur
+ * - Rendu initial côté serveur
+ * - Composants interactifs chargés dynamiquement
+ */
+export default async function HomePage() {
+  // 🚀 Récupération des données côté serveur
+  const [services, stats] = await Promise.all([
+    getServices(),
+    getCompanyStats()
+  ]);
 
-
-export default function HomePage() {
-  // Reasons to choose the company
+  // Données statiques calculées côté serveur
   const reasons = [
     {
       title: 'Expertise multi-métiers',
@@ -47,42 +44,8 @@ export default function HomePage() {
     },
     {
       title: 'Satisfaction client',
-      description: 'Priorité donnée à la qualité du travail et à votre satisfaction.',
+      description: `${stats.satisfactionRate}% de clients satisfaits sur plus de ${stats.projectsCompleted} projets réalisés.`,
       Icon: FaSmile,
-    },
-  ];
-
-  // List of services for quick access on home page
-  const services = [
-    {
-      title: 'Peinture & finitions',
-      description: 'Des finitions irréprochables pour des intérieurs éclatants et harmonieux. Notre équipe maîtrise toutes les techniques de peinture moderne, des préparations de support aux finitions les plus délicates. Nous utilisons exclusivement des produits de qualité professionnelle pour garantir la durabilité et l\'esthétique de vos intérieurs.',
-      href: '/services/peinture-finitions',
-    },
-    {
-      title: 'Pose de sol',
-      description: 'Parquets, carrelage ou vinyle, nous posons le revêtement adapté à votre espace. Nos artisans spécialisés interviennent sur tous types de sols, en neuf comme en rénovation. Une préparation soignée du support et une pose technique irréprochable garantissent la longévité de votre revêtement.',
-      href: '/services/pose-de-sol',
-    },
-    {
-      title: 'Plâtrerie & placo',
-      description: 'Réagencement intérieur, création de cloisons et finitions soignées. De la simple réparation à l\'aménagement complet d\'espaces, nous réalisons tous vos travaux de plâtrerie avec expertise. Isolation phonique et thermique intégrée selon vos besoins.',
-      href: '/services/platrerie-placo',
-    },
-    {
-      title: 'Électricité & plomberie',
-      description: 'Mise aux normes, installations neuves et dépannages en toute sécurité. Nos techniciens qualifiés interviennent sur tous vos équipements électriques et de plomberie. Diagnostic, réparation, installation : nous garantissons des interventions conformes aux normes en vigueur.',
-      href: '/services/electricite-plomberie',
-    },
-    {
-      title: 'Isolation intérieure',
-      description: 'Améliorez votre confort thermique et acoustique grâce à des solutions performantes. Nous sélectionnons les matériaux isolants les plus adaptés à votre habitation pour optimiser les performances énergétiques et acoustiques de votre logement.',
-      href: '/services/isolation-interieure',
-    },
-    {
-      title: 'Maçonnerie légère',
-      description: 'Création d\'ouvertures, petits travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle : ouverture de murs, réfection de cloisons, réparations diverses.',
-      href: '/services/maconnerie-legere',
     },
   ];
 
@@ -90,7 +53,7 @@ export default function HomePage() {
     {
       name: 'Marie D.',
       location: 'Strasbourg',
-      message: 'Équipe à l\'écoute et travail de qualité. Mon appartement a retrouvé tout son charme !',
+      message: "Équipe à l'écoute et travail de qualité. Mon appartement a retrouvé tout son charme !",
     },
     {
       name: 'Thomas B.',
@@ -105,56 +68,174 @@ export default function HomePage() {
   ];
 
   return (
-    <div>
+    <>
+      {/* SEO Local - Server-side */}
+      <LocalSEO 
+        businessName="G.TRAVAUX"
+        city="Strasbourg"
+        services={services.map(s => s.title)}
+      />
+
       {/* Hero section avec formulaire intégré */}
       <Hero
         title="Rénovation haut de gamme & après sinistre"
-        /* Inspiré du site House‑Rénovation qui met en avant sa localisation dès le hero【882952368121044†L146-L149】,
-           nous précisons notre présence nationale et notre expertise premium. */
-        subtitle="De l’étude à la réception, nous coordonnons tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France."
+        subtitle={`Forte de ${stats.yearsExperience} années d'expérience et plus de ${stats.projectsCompleted} projets réalisés, notre équipe coordonne tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France.`}
+        videoSrc={["/videos/videoHeroGT.mp4", "/videos/videoHeroAc.mp4"]}
         imageSrc="/images/placeholder/home-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
         showForm={true}
+        fullScreen={true}
+        centerText={true}
         formComponent={
-          <div className="bg-white/95 backdrop-blur-sm p-6 rounded-lg shadow-xl max-w-md w-full">
+          <div className="w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl backdrop-blur-sm">
             <div className="mb-4 text-center">
-              <h3 className="text-xl font-bold text-darkGray mb-2">Nous vous rappelons !</h3>
+              <h3 className="mb-2 text-lg sm:text-xl font-bold text-darkGray">
+                Nous vous rappelons !
+              </h3>
               <p className="text-sm text-darkGray">
                 Remplissez ce formulaire pour être rappelé·e rapidement
               </p>
             </div>
-            <CallbackForm />
+            <div className="w-full">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="hero-name" className="block text-sm font-medium text-darkGray">
+                    Nom et prénom *
+                  </label>
+                  <input
+                    type="text"
+                    id="hero-name"
+                    name="name"
+                    placeholder="Votre nom complet"
+                    required
+                    aria-required="true"
+                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="hero-phone" className="block text-sm font-medium text-darkGray">
+                    Téléphone *
+                  </label>
+                  <input
+                    type="tel"
+                    id="hero-phone"
+                    name="phone"
+                    placeholder="06 12 34 56 78"
+                    required
+                    aria-required="true"
+                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="hero-time" className="block text-sm font-medium text-darkGray">
+                    Meilleur moment pour vous rappeler
+                  </label>
+                  <select 
+                    id="hero-time"
+                    name="preferredTime"
+                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
+                  >
+                    <option value="">Choisir un créneau</option>
+                    <option value="matin">Matin (8h-12h)</option>
+                    <option value="apres-midi">Après-midi (12h-18h)</option>
+                    <option value="soir">Soir (18h-20h)</option>
+                  </select>
+                </div>
+                
+                <Link 
+                  href="/contact" 
+                  className="block w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white/10"
+                  aria-label="Demander un rappel - Ouvre la page de contact"
+                >
+                  Demander un rappel
+                </Link>
+              </div>
+            </div>
           </div>
         }
       />
-      {/* Pourquoi nous choisir */}
-      <section className="container mx-auto px-4 py-16" id="pourquoi">
-        <h2 className="text-3xl font-bold text-center mb-8 text-primary">Pourquoi nous choisir ?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {reasons.map((reason) => {
-            const Icon = reason.Icon;
-            return (
-              <div key={reason.title} className="bg-white p-6 rounded-lg border border-gray-200 text-center">
-                <Icon className="text-primary mx-auto mb-4" size={32} />
-                <h3 className="font-semibold mb-2 text-primary">{reason.title}</h3>
-                <p className="text-sm text-darkGray">{reason.description}</p>
+
+      {/* Statistiques de l'entreprise */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <ClientMotionDiv>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  {stats.projectsCompleted}+
+                </div>
+                <div className="text-darkGray">Projets réalisés</div>
               </div>
-            );
-          })}
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  {stats.yearsExperience}
+                </div>
+                <div className="text-darkGray">Années d'expérience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  {stats.satisfactionRate}%
+                </div>
+                <div className="text-darkGray">Clients satisfaits</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  {stats.coverageArea}
+                </div>
+                <div className="text-darkGray">Départements couverts</div>
+              </div>
+            </div>
+          </ClientMotionDiv>
         </div>
       </section>
 
-      {/* Services overview */}
+      {/* Pourquoi nous choisir */}
+      <section className="bg-lightGray py-16" id="pourquoi">
+        <div className="container mx-auto px-4">
+          <ClientMotionDiv>
+            <h2 className="mb-12 text-center text-3xl font-bold text-primary">
+              Pourquoi nous choisir ?
+            </h2>
+          </ClientMotionDiv>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {reasons.map((reason, index) => {
+              const Icon = reason.Icon;
+              return (
+                <ClientMotionDiv key={reason.title} delay={index * 0.1}>
+                  <div className="rounded-lg border border-gray-200 bg-white p-6 text-center h-full hover:shadow-lg transition-shadow">
+                    <Icon className="mx-auto mb-4 text-primary" size={40} />
+                    <h3 className="mb-3 font-semibold text-primary text-lg">
+                      {reason.title}
+                    </h3>
+                    <p className="text-sm text-darkGray leading-relaxed">
+                      {reason.description}
+                    </p>
+                  </div>
+                </ClientMotionDiv>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Services overview - Server-side rendering */}
       <section className="bg-white py-20" id="services">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-16 text-primary">Nos services</h2>
-          <div className="max-w-6xl mx-auto">
+          <ClientMotionDiv>
+            <h2 className="mb-16 text-center text-3xl font-bold text-primary">
+              Nos services
+            </h2>
+          </ClientMotionDiv>
+          <div className="mx-auto max-w-6xl">
             {services.map((service, index) => (
-              <ServiceParagraph 
-                key={service.title} 
+              <ServiceParagraph
+                key={service.title}
                 title={service.title}
                 description={service.description}
                 href={service.href}
+                imageSrc={service.image}
                 imagePosition={index % 2 === 0 ? 'right' : 'left'}
               />
             ))}
@@ -162,72 +243,200 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Engagements */}
-      <section className="bg-lightGray py-16" id="engagements">
+      {/* Calculateur de devis - Client-side component */}
+      <section className="bg-lightGray py-16" id="devis">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Nos engagements</h2>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold mb-2 text-primary">Devis sous 48h</h3>
-              <p className="text-sm text-darkGray">Diagnostic rapide et devis transparent, détaillé et sans surprise.</p>
+          <ClientMotionDiv>
+            <h2 className="mb-12 text-center text-3xl font-bold text-primary">
+              Estimez votre projet
+            </h2>
+            <p className="text-center text-darkGray mb-8 max-w-4xl mx-auto">
+              Obtenez une première estimation de votre projet de rénovation avec notre calculateur interactif.
+            </p>
+          </ClientMotionDiv>
+          <div className="mx-auto max-w-4xl rounded-lg bg-white p-8 shadow-lg">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-primary mb-2">
+                Calculateur de devis
+              </h3>
+              <p className="text-darkGray">
+                Obtenez une estimation rapide de votre projet
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold mb-2 text-primary">Assurance décennale</h3>
-              <p className="text-sm text-darkGray">Interventions couvertes 10 ans, dans le respect strict des normes.</p>
+            
+            <div className="space-y-6">
+              <fieldset>
+                <legend className="block text-sm font-medium text-darkGray mb-3">
+                  Type de projet
+                </legend>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {['Rénovation complète', 'Rénovation partielle', 'Après sinistre', 'Aménagement'].map((type) => (
+                    <div key={type} className="border border-lightGray rounded-lg p-4 cursor-pointer hover:border-primary transition-colors">
+                      <div className="text-center">
+                        <div className="text-sm font-medium text-darkGray">{type}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </fieldset>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="calc-surface" className="block text-sm font-medium text-darkGray mb-2">
+                    Surface (m²)
+                  </label>
+                  <input
+                    id="calc-surface"
+                    name="surface"
+                    type="number"
+                    placeholder="Ex: 80"
+                    className="w-full px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="calc-rooms" className="block text-sm font-medium text-darkGray mb-2">
+                    Nombre de pièces
+                  </label>
+                  <input
+                    id="calc-rooms"
+                    name="rooms"
+                    type="number"
+                    placeholder="Ex: 4"
+                    className="w-full px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+              </div>
+              
+              <Link href="/contact" className="block w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 text-center">
+                Obtenir un devis précis
+              </Link>
             </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold mb-2 text-primary">Finitions d'excellence</h3>
-              <p className="text-sm text-darkGray">Exigence artisanale et contrôle qualité à chaque étape.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold mb-2 text-primary">Prise en charge assurance</h3>
-              <p className="text-sm text-darkGray">Accompagnement après sinistre pour vos démarches assurantielles.</p>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <CertificationsBadge />
           </div>
         </div>
       </section>
 
-      {/* Processus en 4 étapes */}
-      <section className="bg-white py-16" id="processus">
+      {/* Engagements */}
+      <section className="bg-white py-16" id="engagements">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Notre processus</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {["Diagnostic","Projection 3D & devis","Réalisation","Réception & garanties"].map((step, i) => (
-              <div key={step} className="p-6 bg-lightGray rounded-lg text-center border border-gray-200">
-                <div className="text-primary text-3xl font-bold mb-2">{i+1}</div>
-                <div className="font-semibold mb-1 text-primary">{step}</div>
-                <div className="text-sm text-darkGray">
-                  {i===0 && 'Analyse de votre besoin et évaluation du projet.'}
-                  {i===1 && 'Proposition claire, maquette 3D (si pertinent) et planning.'}
-                  {i===2 && 'Exécution aux normes, coordination des corps de métier.'}
-                  {i===3 && 'Contrôle qualité, réception et garanties activées.'}
+          <ClientMotionDiv>
+            <h2 className="mb-12 text-center text-3xl font-bold text-primary">
+              Nos engagements
+            </h2>
+          </ClientMotionDiv>
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
+            {[
+              {
+                title: 'Devis sous 48h',
+                description: 'Diagnostic rapide et devis transparent, détaillé et sans surprise.'
+              },
+              {
+                title: 'Assurance décennale',
+                description: 'Interventions couvertes 10 ans, dans le respect strict des normes.'
+              },
+              {
+                title: 'Finitions d\'excellence',
+                description: 'Exigence artisanale et contrôle qualité à chaque étape.'
+              },
+              {
+                title: 'Prise en charge assurance',
+                description: 'Accompagnement après sinistre pour vos démarches assurantielles.'
+              }
+            ].map((engagement, index) => (
+              <ClientMotionDiv key={engagement.title} delay={index * 0.1}>
+                <div className="rounded-lg border border-gray-200 bg-white p-6 h-full hover:shadow-md transition-shadow">
+                  <h3 className="mb-3 font-semibold text-primary text-lg">
+                    {engagement.title}
+                  </h3>
+                  <p className="text-sm text-darkGray">
+                    {engagement.description}
+                  </p>
                 </div>
-              </div>
+              </ClientMotionDiv>
+            ))}
+          </div>
+          <ClientMotionDiv delay={0.4}>
+            <div className="mt-12 text-center">
+              <CertificationsBadge />
+            </div>
+          </ClientMotionDiv>
+        </div>
+      </section>
+
+      {/* Processus en 4 étapes */}
+      <section className="bg-lightGray py-16" id="processus">
+        <div className="container mx-auto px-4">
+          <ClientMotionDiv>
+            <h2 className="mb-12 text-center text-3xl font-bold text-primary">
+              Notre processus
+            </h2>
+          </ClientMotionDiv>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+            {[
+              {
+                step: 'Diagnostic',
+                description: 'Analyse de votre besoin et évaluation du projet.'
+              },
+              {
+                step: 'Projection 3D & devis',
+                description: 'Proposition claire, maquette 3D (si pertinent) et planning.'
+              },
+              {
+                step: 'Réalisation',
+                description: 'Exécution aux normes, coordination des corps de métier.'
+              },
+              {
+                step: 'Réception & garanties',
+                description: 'Contrôle qualité, réception et garanties activées.'
+              }
+            ].map((item, i) => (
+              <ClientMotionDiv key={item.step} delay={i * 0.1}>
+                <div className="rounded-lg border border-gray-200 bg-white p-6 text-center h-full">
+                  <div className="mb-4 text-4xl font-bold text-primary">
+                    {i + 1}
+                  </div>
+                  <div className="mb-3 font-semibold text-primary text-lg">
+                    {item.step}
+                  </div>
+                  <div className="text-sm text-darkGray">
+                    {item.description}
+                  </div>
+                </div>
+              </ClientMotionDiv>
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-lightGray py-20" id="temoignages">
+      <section className="bg-white py-20" id="temoignages">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Ils nous ont fait confiance</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {testimonials.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
+          <ClientMotionDiv>
+            <h2 className="mb-12 text-center text-3xl font-bold text-primary">
+              Ils nous ont fait confiance
+            </h2>
+          </ClientMotionDiv>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <ClientMotionDiv key={testimonial.name} delay={index * 0.1}>
+                <TestimonialCard {...testimonial} />
+              </ClientMotionDiv>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Google Reviews block */}
-      <section className="bg-white py-20" aria-labelledby="avis-google-title">
+      {/* Google Reviews block - Server-side */}
+      <section className="bg-lightGray py-20" aria-labelledby="avis-google-title">
         <div className="container mx-auto px-4">
-          <h2 id="avis-google-title" className="text-3xl font-bold text-center mb-12 text-primary">Avis Google</h2>
-          {/* Static social proof preview — replace with live API/widget later if desired */}
+          <ClientMotionDiv>
+            <h2
+              id="avis-google-title"
+              className="mb-12 text-center text-3xl font-bold text-primary"
+            >
+              Avis de nos clients
+            </h2>
+          </ClientMotionDiv>
           <GoogleReviews />
         </div>
       </section>
@@ -236,51 +445,71 @@ export default function HomePage() {
       <InterventionZones />
 
       {/* Section leadership et engagement */}
-      <section className="bg-lightGray py-16" id="leadership">
-        <div className="container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl font-bold">Leader de la rénovation en Alsace & Lorraine</h2>
-          <p className="max-w-3xl mx-auto text-darkGray">
-            Forts de plus de 15 ans d'expérience, nous maîtrisons l'ensemble des métiers de la rénovation et
-            intervenons aussi bien pour des projets complets que pour des dépannages après sinistre. Notre priorité est
-            votre sécurité et la conformité de nos réalisations : toutes nos interventions sont couvertes par une
-            assurance décennale et respectent les normes en vigueur. Comme le souligne l'analyse de House Rénovation,
-            mettre en avant son leadership et ses garanties rassure le client【882952368121044†L279-L330】. Nous assumons ce
-            rôle en proposant un accompagnement personnalisé et une qualité irréprochable.
-          </p>
-        </div>
-      </section>
-      {/* Secondary CTA for call */}
-      <section className="bg-primary text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Besoin d'un conseil ?</h2>
-          <p className="mb-6">Notre équipe est à votre écoute pour répondre à toutes vos questions.</p>
-          <a href="tel:+33604007499" className="button-secondary">
-            Appelez-nous
-          </a>
-        </div>
-      </section>
-      {/* Outils interactifs */}
-      <section className="bg-white py-16" id="outils">
+      <section className="bg-white py-16" id="leadership">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Notre outil en ligne</h2>
-          <div className="max-w-2xl mx-auto">
-            {/* Calculateur de devis */}
-            <QuoteCalculator />
-          </div>
+          <ClientMotionDiv>
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl font-bold text-primary">
+                Leader de la rénovation en Alsace & Lorraine
+              </h2>
+              <p className="text-lg text-darkGray leading-relaxed">
+                Forts de plus de {stats.yearsExperience} ans d'expérience, nous maîtrisons l'ensemble des 
+                métiers de la rénovation et intervenons aussi bien pour des projets 
+                complets que pour des dépannages après sinistre. Notre priorité est 
+                votre sécurité et la conformité de nos réalisations : toutes nos 
+                interventions sont couvertes par une assurance décennale et 
+                respectent les normes en vigueur.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-lightGray p-6 rounded-lg">
+                  <div className="text-2xl font-bold text-primary mb-2">RGE</div>
+                  <div className="text-sm text-darkGray">Reconnu Garant Environnement</div>
+                </div>
+                <div className="bg-lightGray p-6 rounded-lg">
+                  <div className="text-2xl font-bold text-primary mb-2">QUALIBAT</div>
+                  <div className="text-sm text-darkGray">Certification métiers</div>
+                </div>
+                <div className="bg-lightGray p-6 rounded-lg">
+                  <div className="text-2xl font-bold text-primary mb-2">10 ans</div>
+                  <div className="text-sm text-darkGray">Garantie décennale</div>
+                </div>
+              </div>
+            </div>
+          </ClientMotionDiv>
         </div>
       </section>
 
-      {/* FAQ reminder */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold mb-4">Une question ?</h2>
-        <p className="mb-6">Consultez notre FAQ ou contactez-nous pour plus d'informations.</p>
-        <Link href="/contact#faq" className="text-primary font-medium hover:underline">
-          Voir la FAQ
-        </Link>
+      {/* Secondary CTA for call */}
+      <section className="bg-primary py-16 text-white">
+        <div className="container mx-auto px-4">
+          <ClientMotionDiv>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="mb-4 text-3xl font-bold">Besoin d'un conseil ?</h2>
+              <p className="mb-8 text-xl text-white/90">
+                Notre équipe est disponible pour répondre à toutes vos questions
+                et vous accompagner dans votre projet de rénovation.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="tel:+33604007499"
+                  className="button-accent text-lg px-8 py-4 inline-flex items-center justify-center"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  06 04 00 74 99
+                </Link>
+                <Link
+                  href="/contact"
+                  className="button-secondary text-lg px-8 py-4 inline-flex items-center justify-center"
+                >
+                  Demander un devis
+                </Link>
+              </div>
+            </div>
+          </ClientMotionDiv>
+        </div>
       </section>
-
-      {/* SEO local */}
-      <LocalSEO />
-    </div>
+    </>
   );
 }

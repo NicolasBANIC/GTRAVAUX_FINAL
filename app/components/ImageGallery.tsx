@@ -22,7 +22,7 @@ interface ImageGalleryProps {
 export default function ImageGallery({
   images,
   columns = 3,
-  masonry = true,
+  masonry: _masonry = true,
   className = '',
 }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -39,11 +39,15 @@ export default function ImageGallery({
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (selectedImage === null) return;
-    
+
     if (direction === 'prev') {
-      setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1);
+      setSelectedImage(
+        selectedImage === 0 ? images.length - 1 : selectedImage - 1
+      );
     } else {
-      setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1);
+      setSelectedImage(
+        selectedImage === images.length - 1 ? 0 : selectedImage + 1
+      );
     }
   };
 
@@ -56,11 +60,13 @@ export default function ImageGallery({
 
   return (
     <>
-      <div className={`grid gap-6 ${columns === 2 ? 'grid-cols-1 md:grid-cols-2' : columns === 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'} ${className}`}>
+      <div
+        className={`grid gap-6 ${columns === 2 ? 'grid-cols-1 md:grid-cols-2' : columns === 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'} ${className}`}
+      >
         {images.map((image, index) => (
           <motion.div
             key={index}
-            className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="cursor-pointer overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl"
             whileHover={{ scale: 1.02 }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +79,7 @@ export default function ImageGallery({
               alt={image.alt}
               width={image.width}
               height={image.height}
-              className="w-full h-auto object-cover"
+              className="h-auto w-full object-cover"
             />
           </motion.div>
         ))}
@@ -86,37 +92,37 @@ export default function ImageGallery({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={0}
           >
             <motion.div
-              className="relative max-w-5xl max-h-[90vh] w-full"
+              className="relative max-h-[90vh] w-full max-w-5xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <Image
                 src={images[selectedImage].src}
                 alt={images[selectedImage].alt}
                 width={images[selectedImage].width}
                 height={images[selectedImage].height}
-                className="w-full h-auto object-contain max-h-[80vh]"
+                className="h-auto max-h-[80vh] w-full object-contain"
               />
-              
+
               <button
-                className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/80 transition-colors"
+                className="absolute right-4 top-4 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/80"
                 onClick={closeLightbox}
                 aria-label="Fermer"
               >
                 <FaTimes size={20} />
               </button>
-              
+
               <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/50 rounded-full p-3 hover:bg-black/80 transition-colors"
-                onClick={(e) => {
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition-colors hover:bg-black/80"
+                onClick={e => {
                   e.stopPropagation();
                   navigateImage('prev');
                 }}
@@ -124,10 +130,10 @@ export default function ImageGallery({
               >
                 <FaChevronLeft size={20} />
               </button>
-              
+
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/50 rounded-full p-3 hover:bg-black/80 transition-colors"
-                onClick={(e) => {
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition-colors hover:bg-black/80"
+                onClick={e => {
                   e.stopPropagation();
                   navigateImage('next');
                 }}
@@ -135,8 +141,8 @@ export default function ImageGallery({
               >
                 <FaChevronRight size={20} />
               </button>
-              
-              <div className="absolute bottom-4 left-0 right-0 text-center text-white">
+
+              <div className="absolute inset-x-0 bottom-4 text-center text-white">
                 {selectedImage + 1} / {images.length}
               </div>
             </motion.div>

@@ -1,0 +1,296 @@
+{
+  "metadata": {
+    "projectName": "G.TRAVAUX",
+    "auditDate": "2024-12-30",
+    "nextjsVersion": "App Router",
+    "language": "TypeScript",
+    "buildSystem": "Next.js",
+    "packageManager": "npm"
+  },
+  "projectStructure": {
+    "mode": "app",
+    "directories": {
+      "app": "✓ Present",
+      "pages": "✗ Not used (App Router mode)",
+      "components": "✓ Present (app/components/)",
+      "lib": "✗ Missing",
+      "styles": "✓ Present (app/globals.css)",
+      "public": "✓ Present",
+      "api": "✓ Present (app/api/)"
+    }
+  },
+  "routesMap": {
+    "staticRoutes": [
+      {
+        "path": "/",
+        "file": "app/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/about",
+        "file": "app/about/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/blog",
+        "file": "app/blog/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/contact",
+        "file": "app/contact/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/realisations",
+        "file": "app/realisations/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/reservation",
+        "file": "app/reservation/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/test-header",
+        "file": "app/test-header/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing",
+        "note": "Page de test"
+      },
+      {
+        "path": "/renovation-colmar",
+        "file": "app/renovation-colmar/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/renovation-mulhouse",
+        "file": "app/renovation-mulhouse/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/renovation-strasbourg",
+        "file": "app/renovation-strasbourg/page.tsx",
+        "type": "static",
+        "metadata": "✓ Present"
+      },
+      {
+        "path": "/services/electricite-plomberie",
+        "file": "app/services/electricite-plomberie/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/services/isolation-interieure",
+        "file": "app/services/isolation-interieure/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/services/maconnerie-legere",
+        "file": "app/services/maconnerie-legere/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/services/peinture-finitions",
+        "file": "app/services/peinture-finitions/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/services/platrerie-placo",
+        "file": "app/services/platrerie-placo/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      },
+      {
+        "path": "/services/pose-de-sol",
+        "file": "app/services/pose-de-sol/page.tsx",
+        "type": "static",
+        "metadata": "✗ Missing"
+      }
+    ],
+    "dynamicRoutes": [],
+    "apiRoutes": [
+      {
+        "path": "/api/contact",
+        "file": "app/api/contact/route.ts",
+        "type": "api"
+      }
+    ],
+    "layouts": [
+      {
+        "path": "/",
+        "file": "app/layout.tsx",
+        "metadata": "✓ Present"
+      }
+    ]
+  },
+  "unusedComponents": [
+    {
+      "name": "Accordion",
+      "file": "app/components/Accordion.tsx",
+      "reason": "No imports found"
+    },
+    {
+      "name": "ExitIntentPopup",
+      "file": "app/components/ExitIntentPopup.tsx",
+      "reason": "No imports found"
+    },
+    {
+      "name": "Loader",
+      "file": "app/components/Loader.tsx",
+      "reason": "No imports found"
+    },
+    {
+      "name": "PromoBanner",
+      "file": "app/components/PromoBanner.tsx",
+      "reason": "No imports found"
+    },
+    {
+      "name": "QuoteGeneratorPDF",
+      "file": "app/components/QuoteGeneratorPDF.tsx",
+      "reason": "No imports found"
+    },
+    {
+      "name": "Timeline",
+      "file": "app/components/Timeline.tsx",
+      "reason": "No imports found"
+    }
+  ],
+  "testPageComponents": [
+    {
+      "name": "HeaderMinimal",
+      "file": "app/components/HeaderMinimal.tsx",
+      "usage": "Only used in test-header page",
+      "action": "Keep if test page is needed, otherwise remove"
+    }
+  ],
+  "unusedImports": [
+    {
+      "file": "Multiple components",
+      "imports": "Various unused React hooks and utilities",
+      "severity": "low"
+    }
+  ],
+  "orphanAssets": {
+    "images": [
+      "public/images/placeholder/avant-*.jpg (multiple files referenced but don't exist)",
+      "public/images/placeholder/apres-*.jpg (multiple files referenced but don't exist)",
+      "public/images/placeholder/team-antoine.jpg",
+      "public/images/placeholder/team-claire.jpg", 
+      "public/images/placeholder/team-jean.jpg",
+      "public/images/placeholder/team-laura.jpg"
+    ],
+    "videos": [
+      "All videos appear to be used"
+    ]
+  },
+  "missingAssets": {
+    "images": [
+      "avant-strasbourg-1.jpg",
+      "apres-strasbourg-1.jpg", 
+      "avant-colmar-1.jpg",
+      "apres-colmar-1.jpg",
+      "avant-sdb-1.jpg",
+      "apres-sdb-1.jpg",
+      "avant-cuisine-1.jpg",
+      "apres-cuisine-1.jpg",
+      "avant-sinistre-1.jpg",
+      "apres-sinistre-1.jpg",
+      "avant-loft-1.jpg",
+      "apres-loft-1.jpg"
+    ]
+  },
+  "brokenLinks": {
+    "internal": [
+      "/mentions-legales (referenced in Footer)",
+      "/confidentialite (referenced in Footer)",
+      "/cookies (referenced in Footer)",
+      "/blog/[slug] (blog post links point to non-existing dynamic routes)"
+    ],
+    "external": [
+      "No external links analysis performed"
+    ]
+  },
+  "dependencies": {
+    "unused": [
+      {
+        "name": "critters",
+        "version": "^0.0.23",
+        "reason": "No usage found in codebase",
+        "action": "Remove"
+      },
+      {
+        "name": "html2canvas", 
+        "version": "^1.4.1",
+        "reason": "Only used in unused QuoteGeneratorPDF component",
+        "action": "Remove if QuoteGeneratorPDF is removed"
+      }
+    ],
+    "partiallyUsed": [
+      {
+        "name": "jspdf",
+        "version": "^3.0.2", 
+        "reason": "Only used in unused QuoteGeneratorPDF component",
+        "action": "Remove if QuoteGeneratorPDF is removed"
+      }
+    ],
+    "duplicates": [],
+    "outdated": [
+      {
+        "name": "@types/node",
+        "current": "24.5.0",
+        "note": "Could be updated to latest"
+      },
+      {
+        "name": "@types/react", 
+        "current": "19.1.13",
+        "note": "Could be updated to latest"
+      }
+    ]
+  },
+  "environmentVariables": {
+    "defined": [],
+    "used": [],
+    "unused": []
+  },
+  "seoIssues": {
+    "missingMetadata": [
+      "app/page.tsx (home page missing metadata export)",
+      "app/reservation/page.tsx",
+      "app/test-header/page.tsx",
+      "All service pages missing metadata"
+    ],
+    "missingStructuredData": [
+      "Service pages could benefit from Service schema",
+      "Blog page could benefit from Article schema"
+    ]
+  },
+  "performanceIssues": {
+    "dynamicImports": [
+      "QuoteCalculator is properly dynamic imported ✓"
+    ],
+    "imageOptimization": [
+      "Uses Next.js Image component ✓",
+      "Custom OptimizedImage component with lazy loading ✓"
+    ],
+    "bundleSize": [
+      "Multiple unused components increase bundle size"
+    ]
+  },
+  "codeQuality": {
+    "typescript": "✓ Properly configured",
+    "linting": "✓ ESLint configured via Next.js",
+    "formatting": "? No Prettier config found"
+  }
+}
