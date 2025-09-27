@@ -16,6 +16,7 @@ export interface ContactFormData extends BaseFormData {
 export interface CallbackFormData extends BaseFormData {
   name: string;
   phone: string;
+  preferredDate: string;
   timeSlot: string;
   message?: string;
 }

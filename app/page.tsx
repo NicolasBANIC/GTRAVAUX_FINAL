@@ -9,7 +9,6 @@ import Link from 'next/link';
 import CertificationsBadge from './components/CertificationsBadge';
 import { getServices, getCompanyStats } from '../lib/staticData';
 import ClientMotionDiv from './components/ClientMotionDiv';
-// Removed dynamic component imports - using inline forms instead
 
 /**
  * Page d'accueil - Version Server Component
@@ -80,81 +79,12 @@ export default async function HomePage() {
       <Hero
         title="Rénovation haut de gamme & après sinistre"
         subtitle={`Forte de ${stats.yearsExperience} années d'expérience et plus de ${stats.projectsCompleted} projets réalisés, notre équipe coordonne tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France.`}
-        videoSrc={["/videos/videoHeroGT.mp4", "/videos/videoHeroAc.mp4"]}
+        videoSrc="/videos/videoLibreGT.mp4"
         imageSrc="/images/placeholder/home-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
         showForm={true}
         fullScreen={true}
         centerText={true}
-        formComponent={
-          <div className="w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl backdrop-blur-sm">
-            <div className="mb-4 text-center">
-              <h3 className="mb-2 text-lg sm:text-xl font-bold text-darkGray">
-                Nous vous rappelons !
-              </h3>
-              <p className="text-sm text-darkGray">
-                Remplissez ce formulaire pour être rappelé·e rapidement
-              </p>
-            </div>
-            <div className="w-full">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="hero-name" className="block text-sm font-medium text-darkGray">
-                    Nom et prénom *
-                  </label>
-                  <input
-                    type="text"
-                    id="hero-name"
-                    name="name"
-                    placeholder="Votre nom complet"
-                    required
-                    aria-required="true"
-                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="hero-phone" className="block text-sm font-medium text-darkGray">
-                    Téléphone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="hero-phone"
-                    name="phone"
-                    placeholder="06 12 34 56 78"
-                    required
-                    aria-required="true"
-                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="hero-time" className="block text-sm font-medium text-darkGray">
-                    Meilleur moment pour vous rappeler
-                  </label>
-                  <select 
-                    id="hero-time"
-                    name="preferredTime"
-                    className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
-                  >
-                    <option value="">Choisir un créneau</option>
-                    <option value="matin">Matin (8h-12h)</option>
-                    <option value="apres-midi">Après-midi (12h-18h)</option>
-                    <option value="soir">Soir (18h-20h)</option>
-                  </select>
-                </div>
-                
-                <Link 
-                  href="/contact" 
-                  className="block w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white/10"
-                  aria-label="Demander un rappel - Ouvre la page de contact"
-                >
-                  Demander un rappel
-                </Link>
-              </div>
-            </div>
-          </div>
-        }
       />
 
       {/* Statistiques de l'entreprise */}

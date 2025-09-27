@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ClientMotionDiv from './ClientMotionDiv';
 import HeroVideo from './HeroVideo';
+import CallbackFormEnhanced from './CallbackFormEnhanced';
 
 interface HeroProps {
   title: string;
@@ -66,7 +67,7 @@ export default function Hero({
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 md:py-12">
         {/* Dynamic layout: responsive stacking for mobile, two-column for desktop */}
-        {showForm && formComponent ? (
+        {showForm ? (
           // Responsive layout: mobile stacked (text above form), desktop two-column
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Text Content - Full width on mobile, proper alignment responsive */}
@@ -91,13 +92,13 @@ export default function Hero({
             </ClientMotionDiv>
 
             {/* Form Section - Full width on mobile, positioned right on desktop */}
-            <ClientMotionDiv immediateVisible={true} delay={0.4} className="order-2">
+            <div className="order-2">
               <div className="flex justify-center lg:justify-end">
                 <div className="w-full max-w-md lg:max-w-lg">
-                  {formComponent}
+                  <CallbackFormEnhanced />
                 </div>
               </div>
-            </ClientMotionDiv>
+            </div>
           </div>
         ) : (
           // Centered single column layout for other pages without form
