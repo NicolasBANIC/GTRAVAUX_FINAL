@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { CallbackFormData } from '../../types/forms';
 import { CALLBACK_TIME_SLOTS } from '../../types/forms';
 import type { ChangeEventHandler, FormEventHandler } from '../../types/events';
@@ -98,7 +98,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
       await simulateSubmission(data);
       
       setSent(true);
-    } catch (err) {
+    } catch (_err) {
       setError('Une erreur est survenue. Veuillez réessayer.');
     } finally {
       setLoading(false);

@@ -14,7 +14,7 @@ interface HeroProps {
   };
   showForm?: boolean;
   fullScreen?: boolean;
-  formComponent?: React.ReactNode;
+
   centerText?: boolean; // Controls text alignment - true for center everywhere, false for left on large screens
 }
 
@@ -31,7 +31,6 @@ export default function Hero({
   cta,
   showForm = false,
   fullScreen = false,
-  formComponent,
   centerText = true, // Default to centered text (for all pages except homepage)
 }: HeroProps) {
   // Hauteur adaptive selon les règles : 100vh uniquement pour accueil, ~60vh pour les autres

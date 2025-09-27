@@ -15,6 +15,7 @@ export default function CallbackForm() {
   const [data, setData] = useState<CallbackFormData>({
     name: '',
     phone: '',
+    preferredDate: '',
     timeSlot: '',
     honeypot: '',
   });
@@ -111,6 +112,19 @@ export default function CallbackForm() {
           value={data.phone}
           onChange={handleChange}
           required
+          className="form-input"
+        />
+      </div>
+      <div>
+        <label htmlFor="callback-date" className="form-label">
+          Date préférée pour le rappel
+        </label>
+        <input
+          type="date"
+          id="callback-date"
+          name="preferredDate"
+          value={data.preferredDate}
+          onChange={handleChange}
           className="form-input"
         />
       </div>
