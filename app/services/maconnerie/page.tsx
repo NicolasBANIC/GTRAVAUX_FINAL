@@ -3,14 +3,14 @@ import Link from 'next/link';
 
 export const metadata = {
   title:
-    'Maçonnerie Légère Strasbourg | Ouvertures, Cloisons, Réparations | G.TRAVAUX',
+    'Maçonnerie Strasbourg | Ouvertures, Cloisons, Réparations | G.TRAVAUX',
   description:
-    'Maçon spécialisé travaux légers Strasbourg, Colmar, Mulhouse. Création ouvertures murs, reprises maçonnerie, cloisons béton cellulaire, réparations structurelles. Devis gratuit.',
+    'Maçon spécialisé Strasbourg, Colmar, Mulhouse. Création ouvertures murs, reprises maçonnerie, cloisons béton cellulaire, réparations structurelles. Devis gratuit.',
   keywords:
-    'maçon Strasbourg, maçonnerie légère, création ouverture mur, reprise maçonnerie, cloison béton cellulaire, réparation fissures, seuils, linteaux, étaiement',
+    'maçon Strasbourg, maçonnerie, création ouverture mur, reprise maçonnerie, cloison béton cellulaire, réparation fissures, seuils, linteaux, étaiement',
 };
 
-export default function MaconnerieLegerePage() {
+export default function MaconneriePage() {
   const steps = [
     {
       title: 'Étude structurelle & faisabilité',
@@ -37,9 +37,9 @@ export default function MaconnerieLegerePage() {
   return (
     <div>
       <Hero
-        title="Maçonnerie légère"
+        title="Maçonnerie"
         subtitle="Des travaux de maçonnerie pour transformer votre intérieur."
-        imageSrc="/images/placeholder/maconnerie-legere-hero.jpg"
+        imageSrc="/images/placeholder/maconnerie-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 
@@ -50,7 +50,7 @@ export default function MaconnerieLegerePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Service',
-            name: 'Maçonnerie Légère',
+            name: 'Maçonnerie',
             serviceType: 'Travaux maçonnerie intérieure',
             provider: {
               '@type': 'LocalBusiness',
@@ -60,7 +60,7 @@ export default function MaconnerieLegerePage() {
             areaServed: ['Strasbourg', 'Colmar', 'Mulhouse'],
             brand: 'G.TRAVAUX',
             description:
-              'Maçonnerie légère, création ouvertures, reprises, réparations structurelles en Alsace',
+              'Maçonnerie, création ouvertures, reprises, réparations structurelles en Alsace',
           }),
         }}
       />
@@ -72,7 +72,7 @@ export default function MaconnerieLegerePage() {
             Maçonnerie de rénovation et créations d'ouvertures sur mesure
           </h2>
           <p className="mx-auto mb-8 max-w-4xl text-lg leading-relaxed text-darkGray">
-            Spécialistes en <strong>maçonnerie légère</strong> et{' '}
+            Spécialistes en <strong>maçonnerie</strong> et{' '}
             <strong>gros œuvre de rénovation</strong>, nous réalisons vos{' '}
             <strong>créations d'ouvertures</strong>,
             <strong>reprises de maçonnerie</strong>,{' '}
@@ -303,8 +303,8 @@ export default function MaconnerieLegerePage() {
                 <li>• Passage gaines techniques</li>
                 <li>• Évacuation VMC</li>
                 <li>• Conduits cheminée</li>
-                <li>• Trappes accès combles</li>
-                <li>• Renforcement plancher</li>
+                <li>• Réseaux électriques</li>
+                <li>• Canalisations</li>
               </ul>
             </div>
           </div>
@@ -313,7 +313,7 @@ export default function MaconnerieLegerePage() {
         {/* Notre processus d'intervention */}
         <div>
           <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest text-primary">
-            Notre méthode d'intervention sécurisée
+            Notre méthode d'intervention certifiée
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {steps.map((step, index) => (
@@ -335,58 +335,48 @@ export default function MaconnerieLegerePage() {
           </div>
         </div>
 
-        {/* Sécurité et conformité */}
+        {/* Garanties et certifications */}
         <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
-            🛡️ Sécurité chantier & conformité réglementaire
+            🏗️ Nos garanties maçonnerie
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-red-100">
-                <span className="text-2xl">⚠️</span>
+              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+                <span className="text-2xl">✓</span>
               </div>
-              <h3 className="mb-2 font-semibold">
-                Étude préalable obligatoire
-              </h3>
+              <h3 className="mb-2 font-semibold">Conformité DTU 20.1</h3>
               <p className="text-sm text-darkGray">
-                Analyse structure & faisabilité
+                Travaux conformes aux normes de maçonnerie en vigueur
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-orange-100">
-                <span className="text-2xl">🦺</span>
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+                <span className="text-2xl">🔧</span>
               </div>
-              <h3 className="mb-2 font-semibold">Protection EPI complète</h3>
+              <h3 className="mb-2 font-semibold">Étude préalable</h3>
               <p className="text-sm text-darkGray">
-                Casques, lunettes, masques P3
+                Analyse structurelle et faisabilité avant intervention
               </p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-yellow-100">
                 <span className="text-2xl">📋</span>
               </div>
-              <h3 className="mb-2 font-semibold">Conformité DTU 20.1</h3>
+              <h3 className="mb-2 font-semibold">Devis détaillé gratuit</h3>
               <p className="text-sm text-darkGray">
-                Respect règles de l'art maçonnerie
+                Chiffrage transparent avec matériaux et main d'œuvre
               </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
-                <span className="text-2xl">✅</span>
-              </div>
-              <h3 className="mb-2 font-semibold">Assurance décennale</h3>
-              <p className="text-sm text-darkGray">Garantie structure 10 ans</p>
             </div>
           </div>
         </div>
 
         <div className="text-center">
           <Link href="/contact" className="button-accent px-8 py-4 text-lg">
-            Demander une étude de faisabilité
+            Demander une étude gratuite
           </Link>
           <p className="mt-4 text-sm text-darkGray">
-            Consultation technique gratuite • Intervention Strasbourg, Colmar,
-            Mulhouse
+            Intervention sur Strasbourg, Colmar, Mulhouse et environs
           </p>
         </div>
       </section>

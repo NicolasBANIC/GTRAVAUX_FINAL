@@ -102,7 +102,7 @@ export async function getCompanyStats(): Promise<CompanyStats> {
  * Liste des services - données statiques structurées
  */
 export async function getServices(): Promise<Service[]> {
-  return [
+  const services = [
     {
       title: 'Démolition',
       description:
@@ -111,11 +111,18 @@ export async function getServices(): Promise<Service[]> {
       image: '/images/demolition.png'
     },
     {
-      title: 'Électricité & plomberie',
+      title: 'Électricité',
       description:
-        'Mise aux normes, installations neuves et dépannages en toute sécurité. Nos techniciens qualifiés interviennent sur tous vos équipements électriques et de plomberie.',
-      href: '/services/electricite-plomberie',
-      image: '/images/electricite-plomberie.png'
+        'Mise aux normes électriques, installations neuves et dépannages en toute sécurité. Nos électriciens qualifiés interviennent sur tous vos équipements électriques.',
+      href: '/services/electricite',
+      image: '/images/electricite.png'
+    },
+    {
+      title: 'Plomberie',
+      description:
+        'Installation, réparation et maintenance de vos équipements de plomberie. Nos plombiers expérimentés assurent un service rapide et efficace.',
+      href: '/services/plomberie',
+      image: '/images/plomberie.png'
     },
     {
       title: 'Isolation intérieure',
@@ -125,11 +132,11 @@ export async function getServices(): Promise<Service[]> {
       image: '/images/isolation-interieure.png'
     },
     {
-      title: 'Maçonnerie légère',
+      title: 'Maçonnerie',
       description:
-        "Création d'ouvertures, petits travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle.",
-      href: '/services/maconnerie-legere',
-      image: '/images/maconnerie-legere.png'
+        "Création d'ouvertures, travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle.",
+      href: '/services/maconnerie',
+      image: '/images/maconnerie.png'
     },
     {
       title: 'Peinture & finitions',
@@ -160,6 +167,11 @@ export async function getServices(): Promise<Service[]> {
       image: '/images/sanitaires.png'
     }
   ];
+
+  // Tri alphabétique français
+  return services.sort((a, b) => 
+    a.title.localeCompare(b.title, 'fr', { sensitivity: 'base' })
+  );
 }
 
 /**
