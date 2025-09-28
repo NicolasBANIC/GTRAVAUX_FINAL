@@ -25,7 +25,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-icons": "latest"
+    "react-icons": "latest",
+    "sharp": "^0.34.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

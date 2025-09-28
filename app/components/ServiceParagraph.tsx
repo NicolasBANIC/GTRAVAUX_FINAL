@@ -93,7 +93,7 @@ export default function ServiceParagraph({
               {/* Using standard img tag to avoid server-side rendering issues */}
               <img
                 src={defaultImageSrc}
-                alt={`${title} - G.TRAVAUX`}
+                alt={`Service ${title} – illustration chantier`}
                 className="w-full h-auto transition-transform duration-300 hover:scale-105"
                 loading="lazy"
               />

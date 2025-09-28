@@ -122,7 +122,7 @@ export async function getServices(): Promise<Service[]> {
       description:
         'Installation, réparation et maintenance de vos équipements de plomberie. Nos plombiers expérimentés assurent un service rapide et efficace.',
       href: '/services/plomberie',
-      image: '/images/plomberie.png'
+      image: '/images/plomberie.webp'
     },
     {
       title: 'Isolation intérieure',
@@ -136,35 +136,35 @@ export async function getServices(): Promise<Service[]> {
       description:
         "Création d'ouvertures, travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle.",
       href: '/services/maconnerie',
-      image: '/images/maconnerie.png'
+      image: '/images/maconnerie.webp'
     },
     {
       title: 'Peinture & finitions',
       description:
         'Des finitions irréprochables pour des intérieurs éclatants et harmonieux. Notre équipe maîtrise toutes les techniques de peinture moderne, des préparations de support aux finitions les plus délicates.',
       href: '/services/peinture-finitions',
-      image: '/images/peintureFinitions.png'
+      image: '/images/peinture-finitions.webp'
     },
     {
       title: 'Plâtrerie & placo',
       description:
         "Réagencement intérieur, création de cloisons et finitions soignées. De la simple réparation à l'aménagement complet d'espaces, nous réalisons tous vos travaux de plâtrerie.",
       href: '/services/platrerie-placo',
-      image: '/images/platrerie-placo.png'
+      image: '/images/platrerie-placo.webp'
     },
     {
       title: 'Pose de sol',
       description:
         'Parquets, carrelage ou vinyle, nous posons le revêtement adapté à votre espace. Nos artisans spécialisés interviennent sur tous types de sols, en neuf comme en rénovation.',
       href: '/services/pose-de-sol',
-      image: '/images/pose-de-sol.png'
+      image: '/images/pose-de-sol.webp'
     },
     {
       title: 'Sanitaires',
       description:
         "Conception de salles d'eau, réseaux sanitaires complets et pose d'appareils haut rendement pour un confort durable.",
       href: '/services/sanitaires',
-      image: '/images/sanitaires.png'
+      image: '/images/sanitaires.jpg'
     }
   ];
 

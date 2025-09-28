@@ -34,11 +34,16 @@ export default function Hero({
   centerText = true, // Default to centered text (for all pages except homepage)
 }: HeroProps) {
   // Hauteur adaptive selon les règles : 100vh uniquement pour accueil, ~60vh pour les autres
-  const heightClass = fullScreen ? 'h-screen' : 'h-[60vh] min-h-[500px]';
-  
+  const heightClass = fullScreen
+    ? 'min-h-[600px] sm:min-h-[660px] md:min-h-[720px] lg:h-screen'
+    : 'min-h-[520px] sm:min-h-[560px] lg:min-h-[620px]';
+  const alignmentClass = fullScreen
+    ? 'justify-start pt-16 sm:pt-20 md:pt-24 lg:pt-0 lg:justify-center'
+    : 'justify-center';
+
   return (
     <section
-      className={`relative flex items-center justify-center ${
+      className={`relative flex items-center ${alignmentClass} ${
         heightClass
       }`}
     >
@@ -71,17 +76,23 @@ export default function Hero({
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Text Content - Full width on mobile, proper alignment responsive */}
             <ClientMotionDiv immediateVisible={true} delay={0.2} className="order-1">
-              <div className={centerText ? "text-center" : "text-center lg:text-left max-w-none lg:max-w-full"}>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight">
+              <div
+                className={
+                  centerText
+                    ? 'text-center'
+                    : 'text-center md:text-left max-w-3xl md:max-w-none'
+                }
+              >
+                <h1 className="text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
                   {title}
                 </h1>
-                <p className="text-lg sm:text-xl text-white/90 mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
                   {subtitle}
                 </p>
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="button-accent text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 inline-block transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+                    className="button-accent text-sm sm:text-base md:text-lg px-5 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 inline-block transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
                     aria-label={`${cta.label} - Ouvre la page de contact`}
                   >
                     {cta.label}
@@ -91,9 +102,9 @@ export default function Hero({
             </ClientMotionDiv>
 
             {/* Form Section - Full width on mobile, positioned right on desktop */}
-            <div className="order-2">
+            <div className="order-2 w-full md:max-w-md lg:max-w-lg">
               <div className="flex justify-center lg:justify-end">
-                <div className="w-full max-w-md lg:max-w-lg">
+                <div className="w-full max-w-md sm:max-w-lg lg:max-w-lg">
                   <CallbackFormEnhanced />
                 </div>
               </div>

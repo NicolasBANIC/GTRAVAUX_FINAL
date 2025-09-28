@@ -80,7 +80,6 @@ export default async function HomePage() {
         title="Rénovation haut de gamme & après sinistre"
         subtitle={`Forte de ${stats.yearsExperience} années d'expérience et plus de ${stats.projectsCompleted} projets réalisés, notre équipe coordonne tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France.`}
         videoSrc="/videos/videoLibreGT.mp4"
-        imageSrc="/images/placeholder/home-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
         showForm={true}
         fullScreen={true}
