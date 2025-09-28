@@ -49,6 +49,7 @@ export default function Hero({
     >
       {/* Background Video/Image - Static, server-rendered */}
       <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         {videoSrc ? (
           <HeroVideo
             videoSrc={videoSrc}
@@ -60,7 +61,11 @@ export default function Hero({
           imageSrc && (
             <div
               className="h-full w-full bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${imageSrc})` }}
+              style={{
+                backgroundImage: `url(${imageSrc})`,
+                minHeight: '100%',
+                aspectRatio: '16 / 9',
+              }}
               role="img"
               aria-label="Image d'arrière-plan"
             />
