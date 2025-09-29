@@ -139,7 +139,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
   // Message de confirmation après envoi réussi
   if (sent) {
     return (
-      <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl backdrop-blur-sm ${className}`}>
+      <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl ${className}`}>
         <div className="text-center">
           <div className="mb-4 text-4xl text-brand-orange-600">✓</div>
           <h3 className="mb-3 text-lg sm:text-xl font-bold text-darkGray">
@@ -168,7 +168,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
 
   // Formulaire principal
   return (
-    <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl backdrop-blur-sm ${className}`}>
+    <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl ${className}`}>
       <div className="mb-4 text-center">
         <h3 className="mb-2 text-lg sm:text-xl font-bold text-darkGray">
           Nous vous rappelons !
