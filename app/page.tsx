@@ -1,7 +1,7 @@
 import { FaTools, FaClock, FaShieldAlt, FaSmile } from 'react-icons/fa';
 import Hero from './components/Hero';
 import ServiceParagraph from './components/ServiceParagraph';
-
+import BeforeAfterSlider from './components/BeforeAfterSlider';
 import GoogleReviews from './components/GoogleReviews';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
@@ -152,6 +152,31 @@ export default async function HomePage() {
                 imagePosition={index % 2 === 0 ? 'right' : 'left'}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Avant/Après - Nouvelle section déplacée depuis /realisations */}
+      <section className="section-light py-20" id="avant-apres">
+        <div className="container mx-auto px-4">
+          <ClientMotionDiv>
+            <h2 className="section-title mb-8 text-center text-brand-graphite-900">
+              Avant / Après — Nous redonnons vie à vos espaces sinistrés
+            </h2>
+            <p className="section-sub text-center mb-12 max-w-4xl mx-auto">
+              Faites glisser le curseur pour comparer l'existant et le résultat final.
+            </p>
+          </ClientMotionDiv>
+          <div className="mx-auto max-w-4xl">
+            <ClientMotionDiv delay={0.2}>
+              <BeforeAfterSlider
+                nomProjet="Cuisine rénovée"
+                srcBefore="/images/placeholder/apres.png"
+                srcAfter="/images/placeholder/avant.png"
+                altBefore="Cuisine avant rénovation — projet"
+                altAfter="Cuisine après rénovation — projet"
+              />
+            </ClientMotionDiv>
           </div>
         </div>
       </section>

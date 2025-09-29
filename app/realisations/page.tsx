@@ -1,6 +1,5 @@
 import Hero from '../components/Hero';
 import GalleryGrid from '../components/GalleryGrid';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import StatsSection from '../components/StatsSection';
 import Link from 'next/link';
 
@@ -69,20 +68,6 @@ export default function RealisationsPage() {
           sinistre et finitions premium.
         </p>
         <GalleryGrid items={gallery} />
-        <div className="mt-20">
-          <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest">
-            Avant / Après
-          </h2>
-          <div className="mx-auto max-w-4xl">
-            <BeforeAfterSlider
-              nomProjet="Cuisine 01"
-              srcBefore="/images/placeholder/apres.png"
-              srcAfter="/images/placeholder/avant.png"
-              altBefore="Cuisine avant rénovation — projet Cuisine 01"
-              altAfter="Cuisine après rénovation — projet Cuisine 01"
-            />
-          </div>
-        </div>
         <div className="mt-20">
           <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest">
             Nos chiffres clés
