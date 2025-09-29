@@ -172,8 +172,8 @@ export default function InteractiveGallery({
               onClick={() => setSelectedCategory(category)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-lightGray text-darkGray hover:bg-primary/10 hover:text-primary'
+                  ? 'bg-brand-orange-600 text-white shadow-lg'
+                  : 'bg-lightGray text-darkGray hover:bg-brand-orange-50 hover:text-brand-orange-700'
               }`}
             >
               {category === 'all' ? 'Tous les projets' : category}
@@ -190,8 +190,8 @@ export default function InteractiveGallery({
             onClick={() => setViewMode('after')}
             className={`rounded px-3 py-1 text-xs transition-colors ${
               viewMode === 'after'
-                ? 'bg-primary text-white'
-                : 'text-darkGray hover:text-primary'
+                ? 'bg-brand-orange-600 text-white'
+                : 'text-darkGray hover:text-brand-orange-700'
             }`}
           >
             Résultat final
@@ -200,8 +200,8 @@ export default function InteractiveGallery({
             onClick={() => setViewMode('before-after')}
             className={`rounded px-3 py-1 text-xs transition-colors ${
               viewMode === 'before-after'
-                ? 'bg-primary text-white'
-                : 'text-darkGray hover:text-primary'
+                ? 'bg-brand-orange-600 text-white'
+                : 'text-darkGray hover:text-brand-orange-700'
             }`}
           >
             Avant / Après
@@ -242,7 +242,7 @@ export default function InteractiveGallery({
                         alt={`Après - ${item.title}`}
                         className="size-full object-cover"
                       />
-                      <div className="absolute right-2 top-2 rounded bg-green px-2 py-1 text-xs text-white">
+                      <div className="absolute right-2 top-2 rounded bg-brand-orange-600 px-2 py-1 text-xs text-white">
                         Après
                       </div>
                     </div>
@@ -428,7 +428,7 @@ export default function InteractiveGallery({
                       {selectedItem.budget && (
                         <div className="flex justify-between">
                           <span className="text-darkGray">Budget :</span>
-                          <span className="font-medium text-primary">
+                          <span className="font-medium text-brand-orange-600">
                             {selectedItem.budget}
                           </span>
                         </div>
@@ -441,7 +441,7 @@ export default function InteractiveGallery({
                           closeModal();
                           window.location.href = '/contact';
                         }}
-                        className="w-full rounded-lg bg-primary py-3 font-medium text-white transition-colors hover:bg-primary/90"
+                        className="btn btn-primary w-full"
                       >
                         Un projet similaire ?
                       </button>

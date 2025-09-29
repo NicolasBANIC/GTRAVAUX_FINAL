@@ -74,7 +74,7 @@ export default function CalendlyBooking({
           Diagnostic gratuit à domicile
         </p>
         <button
-          className="w-full rounded-full bg-green py-2 text-sm font-medium text-white transition-colors hover:bg-green/90"
+          className="btn btn-primary w-full text-sm"
           onClick={() => window.open('#booking-modal', '_self')}
         >
           Choisir un créneau
@@ -86,7 +86,7 @@ export default function CalendlyBooking({
   return (
     <div className="mx-auto max-w-2xl rounded-lg border bg-white shadow-lg">
       {/* Header */}
-      <div className="rounded-t-lg bg-primary p-6 text-white">
+      <div className="rounded-t-lg section-dark p-6">
         <div className="flex items-center space-x-3">
           <FaCalendarAlt size={24} />
           <div>
@@ -112,10 +112,10 @@ export default function CalendlyBooking({
                 <button
                   key={`${slot.date}-${slot.time}`}
                   onClick={() => handleSlotSelect(`${slot.date}-${slot.time}`)}
-                  className="rounded-lg border p-4 text-left transition-colors hover:border-primary hover:bg-primary/5"
+                  className="rounded-lg border p-4 text-left transition-colors hover:border-brand-orange-600 hover:bg-brand-orange-50"
                 >
                   <div className="flex items-center space-x-3">
-                    <FaClock className="text-primary" />
+                    <FaClock className="text-brand-orange-600" />
                     <div>
                       <div className="font-medium">{slot.label}</div>
                       <div className="text-sm text-darkGray">Disponible</div>
@@ -127,7 +127,7 @@ export default function CalendlyBooking({
 
             <div className="mt-6 rounded-lg bg-lightGray p-4">
               <div className="flex items-start space-x-3">
-                <FaMapMarkerAlt className="mt-1 text-primary" />
+                <FaMapMarkerAlt className="mt-1 text-brand-orange-600" />
                 <div className="text-sm">
                   <p className="mb-1 font-medium">Zone d'intervention</p>
                   <p className="text-darkGray">

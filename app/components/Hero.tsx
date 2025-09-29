@@ -43,13 +43,12 @@ export default function Hero({
 
   return (
     <section
-      className={`relative flex items-center ${alignmentClass} ${
+      className={`relative flex items-center section-hero mt-0 pt-0 ${alignmentClass} ${
         heightClass
       }`}
     >
       {/* Background Video/Image - Static, server-rendered */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         {videoSrc ? (
           <HeroVideo
             videoSrc={videoSrc}
@@ -88,16 +87,16 @@ export default function Hero({
                     : 'text-center md:text-left max-w-3xl md:max-w-none'
                 }
               >
-                <h1 className="text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
+                <h1 className="section-title text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
                   {title}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
+                <p className="text-base sm:text-lg md:text-xl text-brand-graphite-100/90 mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
                   {subtitle}
                 </p>
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="button-accent text-sm sm:text-base md:text-lg px-5 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 inline-block transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+                    className="btn btn-primary text-sm sm:text-base md:text-lg px-5 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 inline-block transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
                     aria-label={`${cta.label} - Ouvre la page de contact`}
                   >
                     {cta.label}
@@ -121,16 +120,16 @@ export default function Hero({
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
               <ClientMotionDiv immediateVisible={true} delay={0.2}>
                 <div className="text-center">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  <h1 className="section-title text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
                     {title}
                   </h1>
-                  <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                  <p className="text-xl text-brand-graphite-100/90 mb-8 leading-relaxed">
                     {subtitle}
                   </p>
                   {cta && (
                     <Link
                       href={cta.href}
-                      className="button-accent text-lg px-8 py-4 inline-block transition-all hover:scale-105"
+                      className="btn btn-primary text-lg px-8 py-4 inline-block transition-all hover:scale-105"
                     >
                       {cta.label}
                     </Link>

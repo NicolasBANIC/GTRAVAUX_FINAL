@@ -12,7 +12,7 @@ export const metadata = {
 const expertiseCards = [
   {
     title: "Conception d'espaces sanitaires",
-    gradient: 'from-blue-50 to-blue-100',
+    gradient: 'from-brand-orange-500/10 to-orange-100',
     items: [
       "Études techniques et plans 3D pour salle d'eau complète",
       'Optimisation des réseaux eau chaude/froide et évacuation',
@@ -22,7 +22,7 @@ const expertiseCards = [
   },
   {
     title: 'Installations techniques',
-    gradient: 'from-primary/10 to-cyan-100',
+    gradient: 'from-brand-orange-500/10 to-orange-100',
     items: [
       'Alimentations PER/Multicouche avec collecteurs calibrés',
       'Groupes de sécurité et protections anti-retour conformes',
@@ -32,7 +32,7 @@ const expertiseCards = [
   },
   {
     title: 'Étanchéité & finitions',
-    gradient: 'from-rose-50 to-rose-100',
+    gradient: 'from-brand-orange-500/10 to-orange-100',
     items: [
       "Douches à l'italienne, receveurs extra-plats, parois vitrées",
       'Systèmes SEL/Spec pour zones humides et pièces d\'eau',
@@ -146,7 +146,7 @@ export default function SanitairesPage() {
                 <ul className="space-y-3 text-left text-sm leading-relaxed text-darkGray">
                   {card.items.map(item => (
                     <li key={item} className="flex items-start">
-                      <span aria-hidden="true" className="text-green-600 mr-2 mt-1">
+                      <span aria-hidden="true" className="text-brand-orange-600 mr-2 mt-1">
                         ✓
                       </span>
                       <span>{item}</span>
@@ -212,7 +212,7 @@ export default function SanitairesPage() {
           <ul className="mx-auto max-w-3xl space-y-3 text-left text-sm leading-relaxed text-darkGray">
             {ctaList.map(item => (
               <li key={item} className="flex items-start">
-                <span aria-hidden="true" className="text-green-600 mr-2 mt-1">
+                <span aria-hidden="true" className="text-brand-orange-600 mr-2 mt-1">
                   ✓
                 </span>
                 <span>{item}</span>

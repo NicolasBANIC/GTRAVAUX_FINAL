@@ -130,7 +130,7 @@ export default function MaconneriePage() {
               🏗️ Cloisons & réparations
             </h3>
             <div className="space-y-4">
-              <div className="rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Cloisons béton cellulaire
                 </h4>
@@ -140,7 +140,7 @@ export default function MaconneriePage() {
                   intégrée.
                 </p>
               </div>
-              <div className="border-green-500 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+              <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Reprises maçonnerie ancienne
                 </h4>
@@ -175,77 +175,77 @@ export default function MaconneriePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Tronçonneuse
+                  <span className="text-brand-orange-600 mr-2">✓</span> Tronçonneuse
                   thermique Ø400mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Carotteuse
+                  <span className="text-brand-orange-600 mr-2">✓</span> Carotteuse
                   béton Ø50-400mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Brise-roche
+                  <span className="text-brand-orange-600 mr-2">✓</span> Brise-roche
                   hydraulique 25kg
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Aspiration
+                  <span className="text-brand-orange-600 mr-2">✓</span> Aspiration
                   poussières intégrée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Protection
+                  <span className="text-brand-orange-600 mr-2">✓</span> Protection
                   bâches étanches
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6">
-              <h3 className="mb-4 border-b-2 border-blue-300 pb-2 text-xl font-bold text-primary">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
+              <h3 className="mb-4 border-b-2 border-brand-orange-600 pb-2 text-xl font-bold text-primary">
                 🏗️ Structure & renforcement
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Étais
+                  <span className="text-brand-orange-600 mr-2">✓</span> Étais
                   métalliques 1,5-4m
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Linteaux acier
+                  <span className="text-brand-orange-600 mr-2">✓</span> Linteaux acier
                   IPN/HEB
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Scellement
+                  <span className="text-brand-orange-600 mr-2">✓</span> Scellement
                   chimique haute résistance
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Chaînages béton
+                  <span className="text-brand-orange-600 mr-2">✓</span> Chaînages béton
                   armé HA8-12
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Contrôle
+                  <span className="text-brand-orange-600 mr-2">✓</span> Contrôle
                   portance selon Eurocode
                 </li>
               </ul>
             </div>
-            <div className="from-green-50 to-green-100 rounded-xl bg-gradient-to-br p-6">
-              <h3 className="border-green-300 mb-4 border-b-2 pb-2 text-xl font-bold text-primary">
+            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
+              <h3 className="border-brand-orange-600 mb-4 border-b-2 pb-2 text-xl font-bold text-primary">
                 🧱 Matériaux & finitions
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Parpaings NF
+                  <span className="text-brand-orange-600 mr-2">✓</span> Parpaings NF
                   15-20cm B40
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Béton
+                  <span className="text-brand-orange-600 mr-2">✓</span> Béton
                   cellulaire 5-25cm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Mortier
+                  <span className="text-brand-orange-600 mr-2">✓</span> Mortier
                   hydrofuge M5/M10
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Enduit grésé
+                  <span className="text-brand-orange-600 mr-2">✓</span> Enduit grésé
                   taloché CP10
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Pierre
+                  <span className="text-brand-orange-600 mr-2">✓</span> Pierre
                   naturelle locale
                 </li>
               </ul>
@@ -271,7 +271,7 @@ export default function MaconneriePage() {
                 <li>• Porte-fenêtre terrasse</li>
               </ul>
             </div>
-            <div className="rounded-lg border-t-4 border-blue-500 bg-white p-4 shadow-lg">
+            <div className="rounded-lg border-t-4 border-brand-orange-600 bg-white p-4 shadow-lg">
               <h4 className="mb-3 text-center font-bold text-primary">
                 🏢 Commercial
               </h4>
@@ -283,7 +283,7 @@ export default function MaconneriePage() {
                 <li>• Locaux techniques</li>
               </ul>
             </div>
-            <div className="border-green-500 rounded-lg border-t-4 bg-white p-4 shadow-lg">
+            <div className="border-brand-orange-600 rounded-lg border-t-4 bg-white p-4 shadow-lg">
               <h4 className="mb-3 text-center font-bold text-primary">
                 🏛️ Patrimoine
               </h4>
@@ -342,7 +342,7 @@ export default function MaconneriePage() {
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
                 <span className="text-2xl">✓</span>
               </div>
               <h3 className="mb-2 font-semibold">Conformité DTU 20.1</h3>
@@ -351,7 +351,7 @@ export default function MaconneriePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🔧</span>
               </div>
               <h3 className="mb-2 font-semibold">Étude préalable</h3>

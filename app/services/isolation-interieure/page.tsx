@@ -86,8 +86,8 @@ export default function IsolationInterieurePage() {
 
         {/* Types d'isolation */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6">
-            <h3 className="mb-4 border-b-2 border-blue-300 pb-2 text-xl font-bold text-primary">
+          <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
+            <h3 className="mb-4 border-b-2 border-brand-orange-600 pb-2 text-xl font-bold text-primary">
               🏠 Isolation des combles
             </h3>
             <div className="space-y-3">
@@ -117,8 +117,8 @@ export default function IsolationInterieurePage() {
             </div>
           </div>
 
-          <div className="from-green-50 to-green-100 rounded-xl bg-gradient-to-br p-6">
-            <h3 className="border-green-300 mb-4 border-b-2 pb-2 text-xl font-bold text-primary">
+          <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
+            <h3 className="border-brand-orange-600 mb-4 border-b-2 pb-2 text-xl font-bold text-primary">
               🏢 Isolation des murs
             </h3>
             <div className="space-y-3">
@@ -190,7 +190,7 @@ export default function IsolationInterieurePage() {
             Notre gamme de matériaux isolants certifiés
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg border-t-4 border-blue-500 bg-white p-4 shadow-lg">
+            <div className="rounded-lg border-t-4 border-brand-orange-600 bg-white p-4 shadow-lg">
               <h4 className="mb-2 font-bold text-primary">Laine de verre</h4>
               <ul className="space-y-1 text-xs">
                 <li>• λ = 0,032-0,040 W/m.K</li>
@@ -199,7 +199,7 @@ export default function IsolationInterieurePage() {
                 <li>• Rapport qualité/prix optimal</li>
               </ul>
             </div>
-            <div className="border-green-500 rounded-lg border-t-4 bg-white p-4 shadow-lg">
+            <div className="border-brand-orange-600 rounded-lg border-t-4 bg-white p-4 shadow-lg">
               <h4 className="mb-2 font-bold text-primary">Laine de roche</h4>
               <ul className="space-y-1 text-xs">
                 <li>• λ = 0,033-0,042 W/m.K</li>
@@ -261,7 +261,7 @@ export default function IsolationInterieurePage() {
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
                 <span className="text-2xl">🌡️</span>
               </div>
               <h3 className="mb-2 font-semibold">-40% consommation</h3>
@@ -270,7 +270,7 @@ export default function IsolationInterieurePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🔇</span>
               </div>
               <h3 className="mb-2 font-semibold">+15dB acoustique</h3>

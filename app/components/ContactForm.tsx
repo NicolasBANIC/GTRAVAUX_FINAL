@@ -42,8 +42,8 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <div className="bg-green-50 border-green-200 rounded-lg border p-6">
-        <p className="text-green-800 font-medium">
+      <div className="bg-brand-orange-500/10 border-brand-orange-600 rounded-lg border p-6">
+        <p className="text-brand-orange-700 font-medium">
           Merci pour votre message ! Nous vous répondrons dans les plus brefs
           délais.
         </p>

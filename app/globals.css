@@ -6,37 +6,6 @@
 
 :root {
   --font-raleway: 'Raleway', Arial, Helvetica, sans-serif;
-
-  /* Gradients harmonisés (bleu pétrole et orange) */
-  --gradient-premium: linear-gradient(
-    135deg,
-    #0f2c3a 0%,
-    #163b4d 50%,
-    #143444 100%
-  );
-  --gradient-accent: linear-gradient(
-    135deg,
-    #275e77 0%,
-    #1e4b60 50%,
-    #143444 100%
-  );
-  --gradient-success: linear-gradient(
-    135deg,
-    #a65816 0%,
-    #d88a3d 50%,
-    #f2a65a 100%
-  );
-  --gradient-glass: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.04)
-  );
-
-  /* Glass effect variables */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  /* Ombre orangée douce au lieu de violette */
-  --glass-shadow: 0 8px 24px 0 rgba(166, 88, 22, 0.3);
 }
 
 /* Premium animations */
@@ -175,17 +144,7 @@
   @apply transition-all duration-200 hover:shadow-md;
 }
 
-.button-primary {
-  @apply rounded-md border border-primary bg-primary px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-primary/90;
-}
-
-.button-secondary {
-  @apply rounded-md border-2 border-white bg-transparent px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-white hover:text-primary;
-}
-
-.button-accent {
-  @apply rounded-md border-2 border-primary bg-primary px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:border-accent-400 hover:bg-accent-600 hover:shadow-lg hover:shadow-primary/20;
-}
+/* Old button classes removed - using pontage rules at end of file */
 
 /* Professional card styles */
 .service-card {
@@ -219,7 +178,7 @@
 
 /* Professional form styles */
 .form-input {
-  @apply w-full rounded-md border border-gray-300 bg-white px-4 py-3 transition-colors duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+  @apply w-full rounded-md border border-gray-300 bg-white px-4 py-3 transition-colors duration-200 focus:border-brand-orange-600 focus:outline-none focus:ring-2 focus:ring-brand-orange-600/20;
 }
 
 .form-input:hover {
@@ -227,7 +186,7 @@
 }
 
 .form-label {
-  @apply mb-3 block text-sm font-semibold text-primary-700;
+  @apply mb-3 block text-sm font-semibold text-brand-orange-700;
 }
 
 .form-glass {
@@ -258,15 +217,15 @@
 
 /* Styles pour les notifications toast */
 .toast-success {
-  @apply rounded-lg border border-green/20 bg-green/10 px-4 py-3 text-green shadow-lg;
+  @apply rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-700 shadow-lg;
 }
 
 .toast-error {
-  @apply rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-600 shadow-lg;
+  @apply rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700 shadow-lg;
 }
 
 .toast-info {
-  @apply rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-blue-600 shadow-lg;
+  @apply rounded-lg border border-brand-orange-300 bg-brand-orange-300/10 px-4 py-3 text-brand-orange-700 shadow-lg;
 }
 
 /* Responsive design tokens */
@@ -290,15 +249,15 @@
 
 /* Skeleton loading */
 .skeleton {
-  @apply animate-pulse rounded bg-lightGray;
+  @apply animate-pulse rounded bg-brand-graphite-100;
 }
 
 .skeleton-text {
-  @apply h-4 animate-pulse rounded bg-lightGray;
+  @apply h-4 animate-pulse rounded bg-brand-graphite-100;
 }
 
 .skeleton-avatar {
-  @apply h-10 w-10 animate-pulse rounded-full bg-lightGray;
+  @apply h-10 w-10 animate-pulse rounded-full bg-brand-graphite-100;
 }
 
 /* Styles pour accessibilité */
@@ -315,7 +274,7 @@
 }
 
 .focus-visible:focus {
-  @apply outline-2 outline-offset-2 outline-primary;
+  @apply outline-2 outline-offset-2 outline-brand-orange-700;
 }
 
 /* Scroll smooth pour toute la page */
@@ -329,13 +288,139 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-lightGray;
+  @apply bg-brand-graphite-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-primary;
+  @apply rounded-full bg-brand-orange-600;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/80;
+  @apply bg-brand-orange-700;
 }
+
+/* === UI PREMIUM fidèles au logo === */
+@layer components {
+
+  /* Boutons */
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-brand px-5 py-3 font-semibold transition-[background,box-shadow,transform] duration-150 ease-out; }
+  .btn:active { transform: translateY(1px); }
+
+  /* CTA primaire (orange premium en dégradé) */
+  .btn-primary {
+    @apply text-white shadow-brand;
+    background-image: theme('backgroundImage.grad-orange-solid');
+  }
+  .btn-primary:hover { @apply shadow-brandSm; }
+
+  /* Secondaire (contour orange, fond clair premium) */
+  .btn-outline {
+    @apply border text-brand-orange-700 bg-white;
+    border-color: theme('colors.brand.orange.700');
+  }
+  .btn-outline:hover {
+    background-image: theme('backgroundImage.grad-orange-soft');
+  }
+
+  /* Bouton inverse pour fonds sombres */
+  .btn-inverse {
+    @apply text-white;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+
+  /* Badges */
+  .badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold; }
+  .badge-accent { @apply text-brand-orange-700; background-image: theme('backgroundImage.grad-orange-soft'); }
+
+  /* Sections */
+  .section-light  { @apply text-brand-graphite-900; background-image: theme('backgroundImage.grad-bone-wash'); }
+  .section-dark   { @apply text-white; background-image: theme('backgroundImage.grad-graphite-soft'); }
+  .section-hero::before {
+    content:""; position:absolute; inset:0; z-index:0;
+    background-image: theme('backgroundImage.grad-hero-dark');
+  }
+
+  /* Titres & sous-titres */
+  .section-title { @apply text-3xl md:text-4xl font-extrabold tracking-tight; }
+  .section-sub   { @apply text-base md:text-lg text-brand-graphite-600; }
+
+  /* Slider Avant/Après : piste/poignée cohérentes */
+  .range-track { @apply h-1 w-full rounded-full bg-brand-graphite-600/30; }
+  .range-thumb { @apply h-4 w-4 rounded-full bg-brand-orange-600 border-2 border-white shadow; }
+  .range-thumb:focus-visible { outline: 2px solid theme('colors.brand.orange.700'); outline-offset: 2px; }
+
+  /* Séparateur "tech" */
+  .hr-tech { height:1px; background-image: theme('backgroundImage.grad-tech-line'); }
+}
+
+/* Styliser le vrai input range (pseudos natifs) */
+input[type="range"].range-modern {
+  -webkit-appearance: none; appearance: none; width: 100%; background: transparent;
+}
+input[type="range"].range-modern::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: rgba(84,86,91,.30); }
+input[type="range"].range-modern::-moz-range-track { height: 4px; border-radius: 999px; background: rgba(84,86,91,.30); }
+input[type="range"].range-modern::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  height: 16px; width: 16px; border-radius: 999px;
+  background: #D65A0A; border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(0,0,0,.05); margin-top: -6px;
+}
+input[type="range"].range-modern::-moz-range-thumb {
+  height: 16px; width: 16px; border-radius: 999px;
+  background: #D65A0A; border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(0,0,0,.05);
+}
+
+/* === BRAND REFRESH ORANGE/GRAPHITE === */
+@layer components{
+  /* Boutons */
+  .btn{@apply inline-flex items-center justify-center gap-2 rounded-[0.875rem] px-5 py-3 font-semibold transition-[background,box-shadow,transform] duration-150 ease-out}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{@apply text-white shadow-[0_6px_18px_rgba(0,0,0,.12)];background-image:theme('backgroundImage.grad-orange-solid')}
+  .btn-primary:hover{@apply shadow-[0_3px_10px_rgba(0,0,0,.10)]}
+  .btn-outline{@apply border bg-white; color:theme('colors.brand.orange.700'); border-color:theme('colors.brand.orange.700')}
+  .btn-outline:hover{background-image:theme('backgroundImage.grad-orange-soft')}
+  .btn-inverse{@apply text-white; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
+
+  /* Sections */
+  .section-light{@apply text-brand-graphite-900; background-image:theme('backgroundImage.grad-bone-wash')}
+  .section-dark{@apply text-white; background-image:theme('backgroundImage.grad-graphite-soft')}
+  .section-hero::before{content:"";position:absolute;inset:0;z-index:0;background-image:theme('backgroundImage.grad-hero-dark')}
+
+  /* Titres */
+  .section-title{@apply text-3xl md:text-4xl font-extrabold tracking-tight}
+  .section-sub{@apply text-base md:text-lg text-brand-graphite-600}
+
+  /* Slider */
+  .range-track{@apply h-1 w-full rounded-full; background:rgba(84,86,91,.30)}
+  .range-thumb{@apply h-4 w-4 rounded-full border-2 border-white shadow; background:theme('colors.brand.orange.600')}
+  .range-thumb:focus-visible{outline:2px solid theme('colors.brand.orange.700'); outline-offset:2px}
+
+  /* Badges */
+  .badge{@apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold}
+  .badge-accent{color:theme('colors.brand.orange.700'); background-image:theme('backgroundImage.grad-orange-soft')}
+
+  /* Séparateur */
+  .hr-tech{height:1px;background:linear-gradient(90deg,transparent,rgba(214,90,10,.35),transparent)}
+}
+/* Header: remplace l'ancien bleu/teal par graphite */
+.glass-header{@apply rounded-none border-0 text-white; background:rgba(18,19,23,.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); box-shadow:none}
+/* Pontage anciennes classes → nouveau système */
+.button-primary{@apply btn btn-primary !important}
+.button-secondary{@apply btn btn-outline !important}
+.button-accent{@apply btn btn-primary !important}
+
+/* Améliorations accessibilité et cohérence */
+.skeleton { @apply bg-brand-graphite-100 animate-pulse rounded; }
+*:focus-visible { @apply outline-2 outline-brand-orange-700 outline-offset-2; }
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: theme('colors.brand.graphite.100'); }
+::-webkit-scrollbar-thumb { background: theme('colors.brand.orange.600'); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: theme('colors.brand.orange.700'); }
+
+/* === No-gap Header↔Hero (coupure nette) === */
+header, .site-header { margin-bottom: 0 !important; padding-bottom: 0 !important; border-bottom: 0 !important; }
+.header-spacer, .nav-spacer, .after-header, .sticky-placeholder { display: none !important; height: 0 !important; }
+main, .page-root, .content { margin-top: 0 !important; padding-top: 0 !important; }
+.hero, .section-hero { margin-top: 0 !important; padding-top: 0 !important; }

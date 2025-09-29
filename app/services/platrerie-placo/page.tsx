@@ -93,7 +93,7 @@ export default function PlatreriePage() {
               🏗️ Cloisons & séparations
             </h3>
             <div className="space-y-4">
-              <div className="rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Cloisons distributives
                 </h4>
@@ -103,7 +103,7 @@ export default function PlatreriePage() {
                   peindre.
                 </p>
               </div>
-              <div className="border-green-500 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+              <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Cloisons acoustiques
                 </h4>
@@ -129,7 +129,7 @@ export default function PlatreriePage() {
               🏢 Plafonds & doublages
             </h3>
             <div className="space-y-4">
-              <div className="rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Faux plafonds suspendus
                 </h4>
@@ -147,7 +147,7 @@ export default function PlatreriePage() {
                   intégré, collage/fixation mécanique selon support.
                 </p>
               </div>
-              <div className="rounded-lg border-l-4 border-teal-500 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Habillage technique
                 </h4>
@@ -166,48 +166,48 @@ export default function PlatreriePage() {
             Solutions adaptées à chaque environnement
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🏠 Habitat résidentiel
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Cloisons
+                  <span className="text-brand-orange-600 mr-2">✓</span> Cloisons
                   chambre/salon BA13
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> SDB plaques
+                  <span className="text-brand-orange-600 mr-2">✓</span> SDB plaques
                   hydrofuge BA15
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Faux plafonds
+                  <span className="text-brand-orange-600 mr-2">✓</span> Faux plafonds
                   cuisine/salon
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Doublage
+                  <span className="text-brand-orange-600 mr-2">✓</span> Doublage
                   isolation combles
                 </li>
               </ul>
             </div>
-            <div className="from-green-50 to-green-100 rounded-xl bg-gradient-to-br p-6">
+            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🏢 Bureaux & commerces
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Cloisons
+                  <span className="text-brand-orange-600 mr-2">✓</span> Cloisons
                   modulaires bureaux
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Plafonds
+                  <span className="text-brand-orange-600 mr-2">✓</span> Plafonds
                   acoustiques open-space
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Habillages
+                  <span className="text-brand-orange-600 mr-2">✓</span> Habillages
                   techniques ERP
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Finitions
+                  <span className="text-brand-orange-600 mr-2">✓</span> Finitions
                   commerciales haut de gamme
                 </li>
               </ul>
@@ -218,19 +218,19 @@ export default function PlatreriePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Redistribution
+                  <span className="text-brand-orange-600 mr-2">✓</span> Redistribution
                   volumes
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Isolation
+                  <span className="text-brand-orange-600 mr-2">✓</span> Isolation
                   thermique renforcée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Correction
+                  <span className="text-brand-orange-600 mr-2">✓</span> Correction
                   acoustique
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Mise aux normes
+                  <span className="text-brand-orange-600 mr-2">✓</span> Mise aux normes
                   technique
                 </li>
               </ul>
@@ -270,7 +270,7 @@ export default function PlatreriePage() {
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
                 <span className="text-2xl">📋</span>
               </div>
               <h3 className="mb-2 font-semibold">Conformité DTU 25.41</h3>
@@ -279,7 +279,7 @@ export default function PlatreriePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🔧</span>
               </div>
               <h3 className="mb-2 font-semibold">Matériaux certifiés</h3>

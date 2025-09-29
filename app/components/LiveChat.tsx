@@ -114,7 +114,7 @@ export default function LiveChat() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 z-50 rounded-full bg-green p-4 text-white shadow-lg transition-all duration-300 hover:bg-green/90 ${
+        className={`fixed bottom-6 left-6 z-50 btn btn-primary p-4 shadow-lg ${
           isOpen ? 'hidden' : 'flex'
         } items-center justify-center`}
         aria-label="Ouvrir le chat"
@@ -129,7 +129,7 @@ export default function LiveChat() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 flex h-96 w-80 flex-col rounded-lg border bg-white shadow-2xl">
           {/* Header */}
-          <div className="flex items-center justify-between rounded-t-lg bg-primary p-4 text-white">
+          <div className="flex items-center justify-between rounded-t-lg section-dark p-4">
             <div className="flex items-center">
               <div className="mr-2 size-3 rounded-full bg-green"></div>
               <div>
@@ -155,7 +155,7 @@ export default function LiveChat() {
                 <div
                   className={`max-w-xs rounded-lg px-3 py-2 text-sm ${
                     message.sender === 'user'
-                      ? 'bg-primary text-white'
+                      ? 'bg-brand-orange-600 text-white'
                       : 'bg-lightGray text-darkGray'
                   }`}
                 >
@@ -212,7 +212,7 @@ export default function LiveChat() {
                   <button
                     key={response}
                     onClick={() => handleQuickResponse(response)}
-                    className="rounded bg-lightGray px-2 py-1 text-xs text-darkGray transition-colors hover:bg-primary hover:text-white"
+                    className="rounded bg-lightGray px-2 py-1 text-xs text-darkGray transition-colors hover:bg-brand-orange-600 hover:text-white"
                   >
                     {response}
                   </button>
@@ -229,12 +229,12 @@ export default function LiveChat() {
                 value={inputMessage}
                 onChange={e => setInputMessage(e.target.value)}
                 placeholder="Tapez votre message..."
-                className="flex-1 rounded-lg border border-lightGray p-2 text-sm focus:border-primary focus:outline-none"
+                className="flex-1 rounded-lg border border-lightGray p-2 text-sm focus:border-brand-orange-600 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={!inputMessage.trim()}
-                className="rounded-lg bg-primary p-2 text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="btn btn-primary p-2 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <FaPaperPlane size={14} />
               </button>

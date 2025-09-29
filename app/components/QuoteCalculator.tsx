@@ -294,7 +294,7 @@ export default function QuoteCalculator() {
           </p>
           <button
             onClick={() => (window.location.href = '/contact')}
-            className="rounded-lg bg-green px-6 py-3 font-medium text-white transition-colors hover:bg-green/90"
+            className="btn btn-primary"
           >
             Demander un devis précis
           </button>
@@ -306,7 +306,7 @@ export default function QuoteCalculator() {
         {step > 1 && !estimatedPrice && (
           <button
             onClick={prevStep}
-            className="rounded-lg border border-primary px-6 py-3 text-primary transition-colors hover:bg-primary/10"
+            className="btn btn-outline"
           >
             Précédent
           </button>
@@ -320,7 +320,7 @@ export default function QuoteCalculator() {
               (step === 3 && quoteData.services.length === 0) ||
               (step === 4 && (!quoteData.urgency || !quoteData.budget))
             }
-            className="ml-auto rounded-lg bg-primary px-6 py-3 text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+            className="btn btn-primary ml-auto disabled:cursor-not-allowed disabled:opacity-50"
           >
             {step === 4 ? 'Calculer' : 'Suivant'}
           </button>

@@ -49,7 +49,7 @@ export default function SimpleCallbackForm() {
               onChange={handleChange}
               placeholder="Votre nom complet"
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
             />
           </div>
 
@@ -66,7 +66,7 @@ export default function SimpleCallbackForm() {
               onChange={handleChange}
               placeholder="06 12 34 56 78"
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
             />
           </div>
 
@@ -82,7 +82,7 @@ export default function SimpleCallbackForm() {
               value={formData.preferredDate}
               onChange={handleChange}
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function SimpleCallbackForm() {
               value={formData.timeSlot}
               onChange={handleChange}
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-white"
+              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors bg-white"
             >
               <option value="">Choisir un créneau</option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>
@@ -109,7 +109,7 @@ export default function SimpleCallbackForm() {
           {/* Bouton de soumission */}
           <button
             type="submit"
-            className="w-full bg-primary hover:bg-primary-800 text-white font-medium py-3 px-6 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="btn btn-primary w-full focus:outline-none focus:ring-2 focus:ring-brand-orange-700 focus:ring-offset-2"
           >
             Demander un rappel
           </button>

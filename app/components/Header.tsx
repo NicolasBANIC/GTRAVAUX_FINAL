@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown, FaPhone } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import Logo from './Logo';
 
 interface SubNavItem {
   label: string;
@@ -118,16 +119,14 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="glass-header fixed left-0 top-0 z-40 w-full"
+      className="sticky top-0 z-50 mb-0 pb-0 border-b-0 bg-brand-graphite-900/90 backdrop-blur supports-[backdrop-filter]:bg-brand-graphite-900/75"
     >
       {/* Ligne unique: logo à gauche, menu au centre, téléphone + bouton à droite */}
       <div className="container mx-auto flex h-16 md:h-20 items-center gap-4 px-4">
         {/* Logo */}
-        <Link
-          href="/"
-          className="shrink-0 text-2xl font-semibold tracking-widest text-white"
-        >
-          G.TRAVAUX
+        <Link href="/" className="flex items-center gap-2">
+          <Logo className="h-8 w-8"/>
+          <span className="font-bold tracking-wide text-white uppercase">TRAVAUX</span>
         </Link>
 
         {/* Menu desktop décalé vers la droite */}
@@ -140,7 +139,7 @@ export default function Header() {
                 {item.dropdown ? (
                   <>
                     <button
-                      className="flex items-center uppercase tracking-wider text-white/90 transition-colors hover:text-success-600 focus:outline-none"
+                      className="flex items-center uppercase tracking-wider text-white/90 transition-colors hover:text-brand-orange-600 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
                       onClick={() =>
                         setOpenDropdown(
                           openDropdown === item.label ? null : item.label
@@ -178,7 +177,7 @@ export default function Header() {
                               key={sub.href}
                               href={sub.href}
                               role="menuitem"
-                              className="block rounded-lg px-4 py-2 uppercase tracking-wide text-darkGray transition-colors hover:bg-lightGray hover:text-primary"
+                              className="block rounded-lg px-4 py-2 uppercase tracking-wide text-brand-graphite-800 transition-colors hover:bg-brand-orange-300/20 hover:text-brand-orange-700"
                               onClick={() => setOpenDropdown(null)}
                               onKeyDown={e => {
                                 if (e.key === 'Escape') {
@@ -197,7 +196,7 @@ export default function Header() {
                 ) : hasHref(item) ? (
                   <Link
                     href={item.href}
-                    className="uppercase tracking-wider text-white/90 transition-colors hover:text-success-600"
+                    className="uppercase tracking-wider text-white/90 transition-colors hover:text-brand-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700 border-b-2 border-transparent hover:border-brand-orange-600"
                   >
                     {item.label}
                   </Link>
@@ -213,24 +212,24 @@ export default function Header() {
 
         {/* Téléphone + bouton devis (droite) */}
         <div className="hidden shrink-0 items-center gap-6 md:flex">
-          <a
+          <Link
             href="tel:+33604007499"
-            className="group flex items-center rounded-lg border-2 border-success-400/20 bg-success-400/10 px-3 py-2 font-bold text-success-600 transition-all duration-300 hover:scale-105 hover:border-success-400/60 hover:bg-success-400/20 hover:text-success-400 hover:shadow-lg hover:shadow-success-400/20"
+            className="btn btn-outline md:ml-3"
             aria-label="Urgence 24h/24"
           >
-            <FaPhone className="mr-2 animate-pulse text-success-600 transition-colors duration-300 group-hover:text-success-400" />
+            <FaPhone className="mr-2" />
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-white/80">
+              <span className="text-xs font-bold">
                 URGENCE 24h/24
               </span>
-              <span className="text-lg font-black text-white">
+              <span className="text-sm font-black">
                 06 04 00 74 99
               </span>
             </div>
-          </a>
+          </Link>
           <Link
             href="/contact"
-            className="button-accent"
+            className="btn btn-primary"
             aria-label="Demander un devis"
           >
             Devis gratuit
@@ -261,7 +260,7 @@ export default function Header() {
                 <li key={item.label} className="border-b pb-2 last:border-b-0">
                   {item.dropdown ? (
                     <details className="group">
-                      <summary className="flex cursor-pointer items-center justify-between text-darkGray hover:text-primary">
+                      <summary className="flex cursor-pointer items-center justify-between text-brand-graphite-800 hover:text-brand-orange-700">
                         {item.label}
                         <FaChevronDown className="transition-transform duration-200 group-open:rotate-180" />
                       </summary>
@@ -270,7 +269,7 @@ export default function Header() {
                           <li key={sub.href}>
                             <Link
                               href={sub.href}
-                              className="block py-1 text-darkGray hover:text-primary"
+                              className="block py-1 text-brand-graphite-800 hover:text-brand-orange-700"
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               {sub.label}
@@ -282,29 +281,30 @@ export default function Header() {
                   ) : hasHref(item) ? (
                     <Link
                       href={item.href}
-                      className="block text-darkGray hover:text-primary"
+                      className="block text-brand-graphite-800 hover:text-brand-orange-700"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="block text-darkGray">{item.label}</span>
+                    <span className="block text-brand-graphite-800">{item.label}</span>
                   )}
                 </li>
               ))}
               <li className="pt-4">
                 <div className="flex items-center justify-between gap-4">
-                  <a
+                  <Link
                     href="tel:+33604007499"
-                    className="group flex items-center font-semibold text-success-600 transition-colors duration-300 hover:text-success-400"
-                    aria-label="Téléphoner"
+                    className="btn btn-outline"
+                    aria-label="Urgence 24h/24"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    <FaPhone className="mr-2 text-success-600 transition-colors duration-300 group-hover:text-success-400" />
+                    <FaPhone className="mr-2" />
                     <span>06 04 00 74 99</span>
-                  </a>
+                  </Link>
                   <Link
                     href="/contact"
-                    className="button-accent"
+                    className="btn btn-primary"
                     aria-label="Demander un devis"
                     onClick={() => setMobileMenuOpen(false)}
                   >

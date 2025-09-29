@@ -98,7 +98,7 @@ export default function BeforeAfterSlider({
   return (
     <div className="relative w-full">
       {/* Conteneur principal avec ratio fixe */}
-      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-gray-100">
+      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-brand bg-brand-graphite-100 shadow-brand">
         
         {/* AVANT (fond) */}
         <Image
@@ -133,12 +133,12 @@ export default function BeforeAfterSlider({
 
         {/* Repère central (ligne de séparation) */}
         <div 
-          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg pointer-events-none z-10"
+          className="absolute top-0 bottom-0 w-0.5 bg-brand-orange-600 shadow-lg pointer-events-none z-10"
           style={{ left: `${value}%`, transform: 'translateX(-50%)' }}
         >
           {/* Poignée circulaire */}
-          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-white rounded-full shadow-lg border-2 border-gray-300 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-            <div className="w-1 h-4 bg-gray-400 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-white rounded-full shadow-brand border-2 border-brand-orange-600 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            <div className="w-1 h-4 bg-brand-orange-600 rounded-full"></div>
           </div>
         </div>
 
@@ -149,16 +149,16 @@ export default function BeforeAfterSlider({
           min={0}
           max={100}
           defaultValue={50}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="range-modern absolute inset-0 w-full h-full opacity-0 cursor-ew-resize focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
           aria-label={`Comparateur avant-après pour ${nomProjet}. Utilisez les flèches ou glissez pour révéler l'image après rénovation.`}
           aria-valuetext={`${value}% de révélation de l'image après rénovation`}
         />
       </div>
 
       {/* Légende */}
-      <div className="mt-4 flex justify-between text-sm text-gray-600">
+      <div className="mt-4 flex justify-between text-sm text-brand-graphite-600">
         <span className="font-medium">Avant</span>
-        <span className="text-gray-500">Glisser pour comparer</span>
+        <span className="text-brand-graphite-500">Glisser pour comparer</span>
         <span className="font-medium">Après</span>
       </div>
     </div>

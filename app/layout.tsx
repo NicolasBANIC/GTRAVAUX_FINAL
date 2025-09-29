@@ -86,8 +86,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <BackgroundGradients />
         <Header />
-        {/* The main content is pushed exactly by header height across breakpoints */}
-        <main id="main" className="min-h-screen pt-16 md:pt-20">
+        {/* Main content without padding-top - header and hero are now flush */}
+        <main id="main" className="min-h-screen pt-0 mt-0">
           {children}
         </main>
         <Footer />

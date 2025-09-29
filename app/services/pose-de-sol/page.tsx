@@ -164,54 +164,54 @@ export default function PoseDeSolPage() {
             Sols souples haute technologie
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 💎 Sol vinyle LVT
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Épaisseur
+                  <span className="text-brand-orange-600 mr-2">✓</span> Épaisseur
                   2,5-4mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Classe 33-34
+                  <span className="text-brand-orange-600 mr-2">✓</span> Classe 33-34
                   commercial
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Pose
+                  <span className="text-brand-orange-600 mr-2">✓</span> Pose
                   libre/collée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> 100% étanche
+                  <span className="text-brand-orange-600 mr-2">✓</span> 100% étanche
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Imitation
+                  <span className="text-brand-orange-600 mr-2">✓</span> Imitation
                   bois/pierre
                 </li>
               </ul>
             </div>
-            <div className="from-green-50 to-green-100 rounded-xl bg-gradient-to-br p-6">
+            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🏢 Stratifié haute densité
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> HDF 850kg/m³
+                  <span className="text-brand-orange-600 mr-2">✓</span> HDF 850kg/m³
                   minimum
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> AC4-AC6 usage
+                  <span className="text-brand-orange-600 mr-2">✓</span> AC4-AC6 usage
                   intensif
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Chanfrein V2-V4
+                  <span className="text-brand-orange-600 mr-2">✓</span> Chanfrein V2-V4
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Pose clipsable
+                  <span className="text-brand-orange-600 mr-2">✓</span> Pose clipsable
                   5G
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Garantie 20-25
+                  <span className="text-brand-orange-600 mr-2">✓</span> Garantie 20-25
                   ans
                 </li>
               </ul>
@@ -222,23 +222,23 @@ export default function PoseDeSolPage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Résine époxy
+                  <span className="text-brand-orange-600 mr-2">✓</span> Résine époxy
                   2-3mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Béton ciré
+                  <span className="text-brand-orange-600 mr-2">✓</span> Béton ciré
                   taloché
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Finition
+                  <span className="text-brand-orange-600 mr-2">✓</span> Finition
                   satinée/mate
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span> Joint de
+                  <span className="text-brand-orange-600 mr-2">✓</span> Joint de
                   dilatation
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-600 mr-2">✓</span>{' '}
+                  <span className="text-brand-orange-600 mr-2">✓</span>{' '}
                   Personnalisation couleur
                 </li>
               </ul>
@@ -252,7 +252,7 @@ export default function PoseDeSolPage() {
             Techniques de pose professionnelles
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-lg border-t-4 border-blue-500 bg-white p-4 shadow-lg">
+            <div className="rounded-lg border-t-4 border-brand-orange-600 bg-white p-4 shadow-lg">
               <h4 className="mb-3 text-center font-bold text-primary">
                 🔨 Pose clouée
               </h4>
@@ -264,7 +264,7 @@ export default function PoseDeSolPage() {
                 <li>• Durabilité maximale</li>
               </ul>
             </div>
-            <div className="border-green-500 rounded-lg border-t-4 bg-white p-4 shadow-lg">
+            <div className="border-brand-orange-600 rounded-lg border-t-4 bg-white p-4 shadow-lg">
               <h4 className="mb-3 text-center font-bold text-primary">
                 🧴 Pose collée
               </h4>
@@ -335,7 +335,7 @@ export default function PoseDeSolPage() {
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
                 <span className="text-2xl">✅</span>
               </div>
               <h3 className="mb-2 font-semibold">Garantie pose 5 ans</h3>
@@ -344,7 +344,7 @@ export default function PoseDeSolPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">📐</span>
               </div>
               <h3 className="mb-2 font-semibold">Planéité garantie</h3>

@@ -10,10 +10,10 @@ export default function TestimonialCard({
   message,
 }: TestimonialCardProps) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6">
-      <p className="mb-4 italic text-darkGray">"{message}"</p>
-      <p className="font-semibold text-primary">{name}</p>
-      <p className="text-sm text-darkGray">{location}</p>
+    <div className="rounded-brand bg-white p-6 shadow-brand">
+      <p className="mb-4 italic text-brand-graphite-600">"{message}"</p>
+      <p className="font-semibold text-brand-orange-600">{name}</p>
+      <p className="text-sm text-brand-graphite-500">{location}</p>
     </div>
   );
 }

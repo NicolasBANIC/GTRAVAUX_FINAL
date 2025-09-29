@@ -120,7 +120,7 @@ export default function BlogPage() {
           <h2 className="mb-8 text-center text-2xl font-bold uppercase tracking-widest">
             📌 Article à la une
           </h2>
-          <div className="overflow-hidden rounded-lg bg-gradient-to-r from-primary to-steelBlue text-white shadow-xl">
+          <div className="overflow-hidden rounded-brand bg-grad-orange-solid text-white shadow-brand">
             <div className="p-8">
               <div className="mb-4 flex flex-wrap items-center space-x-4 text-sm">
                 <span className="rounded-full bg-white/20 px-3 py-1">
@@ -159,7 +159,7 @@ export default function BlogPage() {
           Catégories
         </h2>
         <div className="flex flex-wrap gap-3">
-          <span className="rounded-full bg-primary px-4 py-2 text-sm text-white">
+          <span className="badge badge-accent">
             Tous les articles
           </span>
           {categories.map(category => (
@@ -247,7 +247,7 @@ export default function BlogPage() {
             placeholder="Votre email"
             className="form-input flex-1"
           />
-          <button className="whitespace-nowrap rounded-full bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary/90">
+          <button className="btn btn-primary whitespace-nowrap">
             S'abonner
           </button>
         </div>

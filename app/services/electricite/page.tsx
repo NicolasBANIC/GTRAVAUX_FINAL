@@ -85,7 +85,7 @@ export default function ElectricitePage() {
         {/* Nos expertises techniques */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-4">
-            <div className="rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-sm">
+            <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
               <h4 className="mb-2 font-semibold text-primary">
                 Installation tableau électrique
               </h4>
@@ -95,7 +95,7 @@ export default function ElectricitePage() {
                 selon besoins.
               </p>
             </div>
-            <div className="border-green-500 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+            <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
               <h4 className="mb-2 font-semibold text-primary">
                 Mise aux normes NF C15-100
               </h4>
@@ -179,7 +179,7 @@ export default function ElectricitePage() {
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="bg-green-100 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
                 <span className="text-2xl">✓</span>
               </div>
               <h3 className="mb-2 font-semibold">Conformité NF C15-100</h3>
@@ -188,7 +188,7 @@ export default function ElectricitePage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-blue-100">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🔧</span>
               </div>
               <h3 className="mb-2 font-semibold">Dépannage 24h/24</h3>

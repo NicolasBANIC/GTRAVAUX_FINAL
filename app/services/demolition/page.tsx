@@ -22,7 +22,7 @@ const interventionCards = [
   },
   {
     title: 'Dépose ciblée',
-    gradient: 'from-primary/10 to-blue-100',
+    gradient: 'from-brand-orange-500/10 to-orange-100',
     items: [
       'Ouverture de murs non porteurs et démantèlement partiel',
       'Remplacement sécurisé de menuiseries, vitrines et escaliers',
@@ -32,7 +32,7 @@ const interventionCards = [
   },
   {
     title: 'Débarras & logistique',
-    gradient: 'from-primary/10 to-rose-100',
+    gradient: 'from-brand-orange-500/10 to-orange-100',
     items: [
       'Location de bennes, big-bags et ascenseurs de chantier',
       'Tri à la source et valorisation des matériaux réutilisables',
@@ -84,14 +84,14 @@ const highlights = [
 const commitments = [
   {
     icon: '🛡️',
-    background: 'bg-green-100',
+    background: 'bg-brand-orange-500/10',
     title: 'Sécurité renforcée',
     description:
       "Respect strict des normes, protections collectives, consignation des réseaux et contrôle d'accès.",
   },
   {
     icon: '⏱️',
-    background: 'bg-blue-100',
+    background: 'bg-brand-orange-500/10',
     title: 'Délais maîtrisés',
     description:
       'Planning chantier optimisé, interventions coordonnées avec les autres corps d’état.',
@@ -170,7 +170,7 @@ export default function DemolitionPage() {
                 <ul className="space-y-3 text-left text-sm leading-relaxed text-darkGray">
                   {card.items.map(item => (
                     <li key={item} className="flex items-start">
-                      <span aria-hidden="true" className="mr-2 mt-1 text-green-600">
+                      <span aria-hidden="true" className="mr-2 mt-1 text-brand-orange-600">
                         ✓
                       </span>
                       <span>{item}</span>

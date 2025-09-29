@@ -3,30 +3,30 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="mt-12 bg-primary text-white">
+    <footer className="mt-12 section-dark">
       <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 md:grid-cols-4">
         <div className="space-y-3">
-          <h3 className="text-xl font-bold uppercase tracking-widest">
+          <h3 className="text-xl font-bold uppercase tracking-widest text-white">
             G.TRAVAUX
           </h3>
           <p className="mb-2 flex items-center text-white/90">
-            <FaMapMarkerAlt className="mr-2 text-accent-400" /> 3 Rue du
+            <FaMapMarkerAlt className="mr-2 text-brand-orange-400" /> 3 Rue du
             Vingt-Deux Novembre, 67000 Strasbourg
           </p>
           <p className="mb-2 flex items-center text-white/90">
-            <FaPhone className="mr-2 text-success-400" />
+            <FaPhone className="mr-2 text-brand-orange-400" />
             <a
               href="tel:+33972123456"
-              className="transition-colors hover:text-accent-300"
+              className="transition-colors hover:text-brand-orange-300"
             >
               +33 9 72 12 34 56
             </a>
           </p>
           <p className="flex items-center text-white/90">
-            <FaEnvelope className="mr-2 text-accent-400" />
+            <FaEnvelope className="mr-2 text-brand-orange-400" />
             <a
               href="mailto:contact.gtravaux@gmail.com"
-              className="transition-colors hover:text-accent-300"
+              className="transition-colors hover:text-brand-orange-300"
             >
               contact.gtravaux@gmail.com
             </a>
