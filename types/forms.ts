@@ -52,14 +52,17 @@ export type ValidationSchema<T> = {
 
 // Services disponibles pour le formulaire de contact
 export const AVAILABLE_SERVICES = [
-  'Maçonnerie légère',
-  'Électricité & plomberie',
+  'Démolition',
+  'Électricité',
   'Isolation intérieure',
-  'Plâtrerie & placo',
-  'Pose de sol',
+  'Maçonnerie',
   'Peinture & finitions',
+  'Plâtrerie & placo',
+  'Plomberie',
+  'Pose de sol',
+  'Sanitaires',
   'Rénovation complète',
-  'Après sinistre',
+  'Après-sinistre',
   'Autres'
 ] as const;
 
