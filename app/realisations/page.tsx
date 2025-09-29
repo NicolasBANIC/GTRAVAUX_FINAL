@@ -75,9 +75,11 @@ export default function RealisationsPage() {
           </h2>
           <div className="mx-auto max-w-4xl">
             <BeforeAfterSlider
-              beforeSrc="/images/placeholder/before-1.jpg"
-              afterSrc="/images/placeholder/after-1.jpg"
-              alt="Comparateur avant/après"
+              nomProjet="Cuisine 01"
+              srcBefore="/images/placeholder/apres.png"
+              srcAfter="/images/placeholder/avant.png"
+              altBefore="Cuisine avant rénovation — projet Cuisine 01"
+              altAfter="Cuisine après rénovation — projet Cuisine 01"
             />
           </div>
         </div>
