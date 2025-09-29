@@ -78,14 +78,14 @@ export default function BeforeAfterSlider({
       }
     };
 
-    input.addEventListener("input", onInput, { passive: true } as any);
+    input.addEventListener("input", onInput, { passive: true });
     input.addEventListener("keydown", onKeyDown);
     
     // Initialisation
     onInput();
 
     return () => {
-      input.removeEventListener("input", onInput as any);
+      input.removeEventListener("input", onInput);
       input.removeEventListener("keydown", onKeyDown);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };

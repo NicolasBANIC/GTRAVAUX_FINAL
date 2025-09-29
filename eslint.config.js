@@ -16,6 +16,9 @@ export default tseslint.config(
       '*.config.js',
       '*.config.ts',
       'next-env.d.ts',
+      'test-services-order.js',
+      'scripts/**',
+      '.migration-backup/**',
     ],
   },
   js.configs.recommended,
@@ -47,6 +50,7 @@ export default tseslint.config(
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
       ...tailwindcss.configs.recommended.rules,
 
       // React specific
