@@ -424,3 +424,14 @@ header, .site-header { margin-bottom: 0 !important; padding-bottom: 0 !important
 .header-spacer, .nav-spacer, .after-header, .sticky-placeholder { display: none !important; height: 0 !important; }
 main, .page-root, .content { margin-top: 0 !important; padding-top: 0 !important; }
 .hero, .section-hero { margin-top: 0 !important; padding-top: 0 !important; }
+
+/* --- HÉROS : retirer le flou derrière le texte --- */
+.section-hero .glass,
+.section-hero .glass-card,
+.section-hero .form-glass{
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  background: transparent !important; /* mettre rgba(0,0,0,.55) si on veut un "pill" sombre */
+}
