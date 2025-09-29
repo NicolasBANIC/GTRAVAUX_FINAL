@@ -43,7 +43,7 @@ export default function Hero({
 
   return (
     <section
-      className={`relative flex items-center section-light mt-0 pt-0 ${alignmentClass} ${
+      className={`section-hero relative flex items-center section-light mt-0 pt-0 ${alignmentClass} ${
         heightClass
       }`}
     >
@@ -73,7 +73,7 @@ export default function Hero({
       </div>
 
       {/* Overlay sombre pour améliorer la lisibilité */}
-      <div className="section-hero absolute inset-0 -z-0" />
+      <div className="absolute inset-0 -z-0" />
 
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 md:py-12">
@@ -85,10 +85,9 @@ export default function Hero({
             <ClientMotionDiv immediateVisible={true} delay={0.2} className="order-1">
               <div
                 className={`
-                  relative z-10 max-w-3xl
-                  text-white [text-wrap:balance]
+                  relative z-10 max-w-3xl text-white
                   sm:bg-transparent sm:p-0
-                  bg-black/60 p-4 rounded-brand backdrop-blur
+                  bg-black/60 p-4 rounded-brand
                   ${centerText
                     ? 'text-center'
                     : 'text-center md:text-left md:max-w-none'
@@ -128,10 +127,9 @@ export default function Hero({
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
               <ClientMotionDiv immediateVisible={true} delay={0.2}>
                 <div className="
-                  relative z-10 max-w-3xl
-                  text-white [text-wrap:balance]
+                  relative z-10 max-w-3xl text-white
                   sm:bg-transparent sm:p-0
-                  bg-black/60 p-4 rounded-brand backdrop-blur
+                  bg-black/60 p-4 rounded-brand
                   text-center mx-auto
                 ">
                   <h1 className="section-title text-white text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
