@@ -74,19 +74,28 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2 text-white/90">
             <li>
-              <span className="cursor-not-allowed text-white/50">
-                Mentions légales (bientôt)
-              </span>
+              <Link
+                href="/mentions-legales"
+                className="transition-colors hover:text-white"
+              >
+                Mentions légales
+              </Link>
             </li>
             <li>
-              <span className="cursor-not-allowed text-white/50">
-                Politique de confidentialité (bientôt)
-              </span>
+              <Link
+                href="/confidentialite"
+                className="transition-colors hover:text-white"
+              >
+                Politique de confidentialité
+              </Link>
             </li>
             <li>
-              <span className="cursor-not-allowed text-white/50">
-                Politique de cookies (bientôt)
-              </span>
+              <Link
+                href="/cookies"
+                className="transition-colors hover:text-white"
+              >
+                Politique de cookies
+              </Link>
             </li>
           </ul>
         </div>
