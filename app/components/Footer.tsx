@@ -19,7 +19,7 @@ export default function Footer() {
               href="tel:+33972123456"
               className="transition-colors hover:text-brand-orange-300"
             >
-              +33 9 72 12 34 56
+              +33 9 72 12 34 56
             </a>
           </p>
           <p className="flex items-center text-white/90">
@@ -106,7 +106,7 @@ export default function Footer() {
           <p className="mb-2 text-white/90">
             Basés à Strasbourg — interventions dans toute la France.
           </p>
-          <p className="mb-2 text-white/90">SIRET : 123 456 789 00012</p>
+          <p className="mb-2 text-white/90">SIRET : 930 621 875 00010</p>
           <p className="mb-2 text-white/90">Assurance décennale incluse.</p>
           <p className="mb-2 text-white/90">Certifications : RGE, Qualibat</p>
           <p className="text-xs text-white/60">
