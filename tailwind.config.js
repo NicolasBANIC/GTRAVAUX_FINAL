@@ -54,7 +54,7 @@ module.exports = {
         brandSm: "0 3px 10px rgba(0,0,0,.10)"
       },
       backgroundImage: {
-        "grad-hero-dark": "linear-gradient(180deg,rgba(10,10,11,.72) 0%,rgba(10,10,11,.45) 42%,rgba(10,10,11,.18) 100%)",
+        "grad-hero-dark": "linear-gradient(180deg,rgba(10,10,11,.78) 0%,rgba(10,10,11,.45) 42%,rgba(10,10,11,.18) 100%)",
         "grad-graphite-soft": "linear-gradient(135deg,#121317 0%,#232428 60%,#1A1B1E 100%)",
         "grad-bone-wash": "linear-gradient(180deg,#FFFFFF 0%,#F7F5F2 100%)",
         "grad-orange-solid": "linear-gradient(180deg,#E86810 0%,#D65A0A 60%,#B94C08 100%)",

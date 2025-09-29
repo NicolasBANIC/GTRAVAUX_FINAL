@@ -1,7 +1,7 @@
 import { FaTools, FaClock, FaShieldAlt, FaSmile } from 'react-icons/fa';
 import Hero from './components/Hero';
 import ServiceParagraph from './components/ServiceParagraph';
-import TestimonialCard from './components/TestimonialCard';
+
 import GoogleReviews from './components/GoogleReviews';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
@@ -48,23 +48,7 @@ export default async function HomePage() {
     },
   ];
 
-  const testimonials = [
-    {
-      name: 'Marie D.',
-      location: 'Strasbourg',
-      message: "Équipe à l'écoute et travail de qualité. Mon appartement a retrouvé tout son charme !",
-    },
-    {
-      name: 'Thomas B.',
-      location: 'Colmar',
-      message: 'Intervention rapide après un dégât des eaux. Je recommande vivement G.TRAVAUX.',
-    },
-    {
-      name: 'Sophie L.',
-      location: 'Mulhouse',
-      message: 'Projet 3D réaliste et finitions impeccables. Merci pour votre professionnalisme.',
-    },
-  ];
+
 
   return (
     <>
@@ -77,8 +61,8 @@ export default async function HomePage() {
 
       {/* Hero section avec formulaire intégré */}
       <Hero
-        title="Rénovation haut de gamme & après sinistre"
-        subtitle={`Forte de ${stats.yearsExperience} années d'expérience et plus de ${stats.projectsCompleted} projets réalisés, notre équipe coordonne tous les corps de métier pour un résultat durable, esthétique et conforme aux normes. Basés à Strasbourg, nous intervenons partout en France.`}
+        title="Entreprise générale du bâtiment — tous corps d'état"
+        subtitle="Rénovation complète, remise en état après sinistre et coordination de chantier. Une équipe unique pour un résultat durable, conforme aux normes et livré clé en main, partout en France."
         videoSrc="/videos/videoLibreGT.mp4"
         cta={{ label: 'Demander un devis', href: '/contact' }}
         showForm={true}
@@ -337,23 +321,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-white py-20" id="temoignages">
-        <div className="container mx-auto px-4">
-          <ClientMotionDiv>
-            <h2 className="section-title mb-12 text-center text-brand-graphite-900">
-              Ils nous ont fait confiance
-            </h2>
-          </ClientMotionDiv>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <ClientMotionDiv key={testimonial.name} delay={index * 0.1}>
-                <TestimonialCard {...testimonial} />
-              </ClientMotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Google Reviews block - Server-side */}
       <section className="section-light py-20" aria-labelledby="avis-google-title">

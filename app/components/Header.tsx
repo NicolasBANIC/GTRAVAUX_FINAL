@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaChevronDown, FaPhone } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from './Logo';
+import BrandLogo from './BrandLogo';
 
 interface SubNavItem {
   label: string;
@@ -124,9 +124,8 @@ export default function Header() {
       {/* Ligne unique: logo à gauche, menu au centre, téléphone + bouton à droite */}
       <div className="container mx-auto flex h-16 md:h-20 items-center gap-4 px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Logo className="h-8 w-8"/>
-          <span className="font-bold tracking-wide text-white uppercase">TRAVAUX</span>
+        <Link href="/" className="flex items-center">
+          <BrandLogo className="block" width={170} height={40} />
         </Link>
 
         {/* Menu desktop décalé vers la droite */}

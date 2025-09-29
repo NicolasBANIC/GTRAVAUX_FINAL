@@ -43,7 +43,7 @@ export default function Hero({
 
   return (
     <section
-      className={`relative flex items-center section-hero mt-0 pt-0 ${alignmentClass} ${
+      className={`relative flex items-center section-light mt-0 pt-0 ${alignmentClass} ${
         heightClass
       }`}
     >
@@ -72,6 +72,9 @@ export default function Hero({
         )}
       </div>
 
+      {/* Overlay sombre pour améliorer la lisibilité */}
+      <div className="section-hero absolute inset-0 -z-0" />
+
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 md:py-12">
         {/* Dynamic layout: responsive stacking for mobile, two-column for desktop */}
@@ -81,16 +84,21 @@ export default function Hero({
             {/* Text Content - Full width on mobile, proper alignment responsive */}
             <ClientMotionDiv immediateVisible={true} delay={0.2} className="order-1">
               <div
-                className={
-                  centerText
+                className={`
+                  relative z-10 max-w-3xl
+                  text-white [text-wrap:balance]
+                  sm:bg-transparent sm:p-0
+                  bg-black/60 p-4 rounded-brand backdrop-blur
+                  ${centerText
                     ? 'text-center'
-                    : 'text-center md:text-left max-w-3xl md:max-w-none'
-                }
+                    : 'text-center md:text-left md:max-w-none'
+                  }
+                `}
               >
-                <h1 className="section-title text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
+                <h1 className="section-title text-white text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
                   {title}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-brand-graphite-100/90 mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
+                <p className="mt-4 section-sub text-white/90 text-base sm:text-lg md:text-xl mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
                   {subtitle}
                 </p>
                 {cta && (
@@ -119,11 +127,17 @@ export default function Hero({
           <div className="flex justify-center">
             <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
               <ClientMotionDiv immediateVisible={true} delay={0.2}>
-                <div className="text-center">
-                  <h1 className="section-title text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                <div className="
+                  relative z-10 max-w-3xl
+                  text-white [text-wrap:balance]
+                  sm:bg-transparent sm:p-0
+                  bg-black/60 p-4 rounded-brand backdrop-blur
+                  text-center mx-auto
+                ">
+                  <h1 className="section-title text-white text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
                     {title}
                   </h1>
-                  <p className="text-xl text-brand-graphite-100/90 mb-8 leading-relaxed">
+                  <p className="mt-4 section-sub text-white/90 text-xl mb-8 leading-relaxed">
                     {subtitle}
                   </p>
                   {cta && (
