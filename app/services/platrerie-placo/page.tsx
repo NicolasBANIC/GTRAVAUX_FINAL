@@ -89,7 +89,7 @@ export default function PlatreriePage() {
         {/* Nos prestations techniques */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               🏗️ Cloisons & séparations
             </h3>
             <div className="space-y-4">
@@ -103,7 +103,7 @@ export default function PlatreriePage() {
                   peindre.
                 </p>
               </div>
-              <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Cloisons acoustiques
                 </h4>
@@ -125,7 +125,7 @@ export default function PlatreriePage() {
           </div>
 
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               🏢 Plafonds & doublages
             </h3>
             <div className="space-y-4">
@@ -172,42 +172,42 @@ export default function PlatreriePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Cloisons
+                  <span className="mr-2 text-brand-orange-600">✓</span> Cloisons
                   chambre/salon BA13
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> SDB plaques
+                  <span className="mr-2 text-brand-orange-600">✓</span> SDB plaques
                   hydrofuge BA15
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Faux plafonds
+                  <span className="mr-2 text-brand-orange-600">✓</span> Faux plafonds
                   cuisine/salon
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Doublage
+                  <span className="mr-2 text-brand-orange-600">✓</span> Doublage
                   isolation combles
                 </li>
               </ul>
             </div>
-            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🏢 Bureaux & commerces
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Cloisons
+                  <span className="mr-2 text-brand-orange-600">✓</span> Cloisons
                   modulaires bureaux
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Plafonds
+                  <span className="mr-2 text-brand-orange-600">✓</span> Plafonds
                   acoustiques open-space
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Habillages
+                  <span className="mr-2 text-brand-orange-600">✓</span> Habillages
                   techniques ERP
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Finitions
+                  <span className="mr-2 text-brand-orange-600">✓</span> Finitions
                   commerciales haut de gamme
                 </li>
               </ul>
@@ -218,19 +218,19 @@ export default function PlatreriePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Redistribution
+                  <span className="mr-2 text-brand-orange-600">✓</span> Redistribution
                   volumes
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Isolation
+                  <span className="mr-2 text-brand-orange-600">✓</span> Isolation
                   thermique renforcée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Correction
+                  <span className="mr-2 text-brand-orange-600">✓</span> Correction
                   acoustique
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Mise aux normes
+                  <span className="mr-2 text-brand-orange-600">✓</span> Mise aux normes
                   technique
                 </li>
               </ul>
@@ -249,7 +249,7 @@ export default function PlatreriePage() {
                 key={step.title}
                 className="premium-card group transition-all duration-300 hover:shadow-xl"
               >
-                <span className="mb-3 inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 mb-3 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="mb-3 text-lg font-bold uppercase tracking-widest text-primary">
@@ -264,13 +264,13 @@ export default function PlatreriePage() {
         </div>
 
         {/* Matériaux et certifications */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             🏆 Matériaux haute qualité & certifications
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">📋</span>
               </div>
               <h3 className="mb-2 font-semibold">Conformité DTU 25.41</h3>

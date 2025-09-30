@@ -86,7 +86,7 @@ export default function CalendlyBooking({
   return (
     <div className="mx-auto max-w-2xl rounded-lg border bg-white shadow-lg">
       {/* Header */}
-      <div className="rounded-t-lg section-dark p-6">
+      <div className="section-dark rounded-t-lg p-6">
         <div className="flex items-center space-x-3">
           <FaCalendarAlt size={24} />
           <div>
@@ -112,7 +112,7 @@ export default function CalendlyBooking({
                 <button
                   key={`${slot.date}-${slot.time}`}
                   onClick={() => handleSlotSelect(`${slot.date}-${slot.time}`)}
-                  className="rounded-lg border p-4 text-left transition-colors hover:border-brand-orange-600 hover:bg-brand-orange-50"
+                  className="hover:bg-brand-orange-50 rounded-lg border p-4 text-left transition-colors hover:border-brand-orange-600"
                 >
                   <div className="flex items-center space-x-3">
                     <FaClock className="text-brand-orange-600" />
@@ -154,10 +154,10 @@ export default function CalendlyBooking({
               </button>
             </div>
 
-            <div className="mb-6 rounded-lg border border-green/20 bg-green/10 p-3">
+            <div className="border-green/20 bg-green/10 mb-6 rounded-lg border p-3">
               <div className="flex items-center space-x-2">
                 <FaClock className="text-green" />
-                <span className="text-sm font-medium text-green">
+                <span className="text-green text-sm font-medium">
                   Créneau sélectionné :{' '}
                   {
                     availableSlots.find(
@@ -255,8 +255,8 @@ export default function CalendlyBooking({
         {/* Étape 3: Succès */}
         {bookingStep === 'success' && (
           <div className="text-center">
-            <div className="mb-4 text-4xl text-green">✓</div>
-            <h3 className="mb-4 text-xl font-bold text-green">
+            <div className="text-green mb-4 text-4xl">✓</div>
+            <h3 className="text-green mb-4 text-xl font-bold">
               Rendez-vous confirmé !
             </h3>
 

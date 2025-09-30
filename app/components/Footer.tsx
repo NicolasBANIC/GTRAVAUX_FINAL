@@ -3,7 +3,7 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="mt-12 section-dark">
+    <footer className="section-dark mt-12">
       <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 md:grid-cols-4">
         <div className="space-y-3">
           <h3 className="text-xl font-bold uppercase tracking-widest text-white">

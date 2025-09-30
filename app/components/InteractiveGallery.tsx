@@ -173,7 +173,7 @@ export default function InteractiveGallery({
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-brand-orange-600 text-white shadow-lg'
-                  : 'bg-lightGray text-darkGray hover:bg-brand-orange-50 hover:text-brand-orange-700'
+                  : 'hover:bg-brand-orange-50 bg-lightGray text-darkGray hover:text-brand-orange-700'
               }`}
             >
               {category === 'all' ? 'Tous les projets' : category}
@@ -371,7 +371,7 @@ export default function InteractiveGallery({
                     />
                   </div>
                   <div>
-                    <h4 className="mb-2 font-semibold text-green">Après</h4>
+                    <h4 className="text-green mb-2 font-semibold">Après</h4>
                     <img
                       src={selectedItem.afterImage}
                       alt={`Après - ${selectedItem.title}`}

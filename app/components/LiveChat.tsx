@@ -114,7 +114,7 @@ export default function LiveChat() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 z-50 btn btn-primary p-4 shadow-lg ${
+        className={`btn btn-primary fixed bottom-6 left-6 z-50 p-4 shadow-lg ${
           isOpen ? 'hidden' : 'flex'
         } items-center justify-center`}
         aria-label="Ouvrir le chat"
@@ -129,9 +129,9 @@ export default function LiveChat() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 flex h-96 w-80 flex-col rounded-lg border bg-white shadow-2xl">
           {/* Header */}
-          <div className="flex items-center justify-between rounded-t-lg section-dark p-4">
+          <div className="section-dark flex items-center justify-between rounded-t-lg p-4">
             <div className="flex items-center">
-              <div className="mr-2 size-3 rounded-full bg-green"></div>
+              <div className="bg-green mr-2 size-3 rounded-full"></div>
               <div>
                 <h4 className="font-semibold">Chat d'urgence</h4>
                 <p className="text-xs opacity-90">En ligne maintenant</p>
@@ -244,7 +244,7 @@ export default function LiveChat() {
                 Urgence ?
                 <a
                   href="tel:+33604007499"
-                  className="ml-1 font-medium text-green"
+                  className="text-green ml-1 font-medium"
                 >
                   <FaPhone className="mr-1 inline" size={10} />
                   06 04 00 74 99

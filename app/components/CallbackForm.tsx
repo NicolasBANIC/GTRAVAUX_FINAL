@@ -74,10 +74,10 @@ export default function CallbackForm() {
 
   if (sent) {
     return (
-      <div className="rounded-lg border-2 border-green/20 bg-green/10 p-6 text-center">
-        <div className="mb-2 text-2xl text-green">✓</div>
-        <h3 className="mb-2 text-lg font-bold text-green">Demande envoyée !</h3>
-        <p className="font-medium text-green">
+      <div className="border-green/20 bg-green/10 rounded-lg border-2 p-6 text-center">
+        <div className="text-green mb-2 text-2xl">✓</div>
+        <h3 className="text-green mb-2 text-lg font-bold">Demande envoyée !</h3>
+        <p className="text-green font-medium">
           Merci ! Nous vous rappellerons dans les plus brefs délais.
         </p>
       </div>

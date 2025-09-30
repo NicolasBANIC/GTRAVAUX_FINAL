@@ -24,9 +24,9 @@ export default function SimpleCallbackForm() {
   };
 
   return (
-    <div className="w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl backdrop-blur-sm">
+    <div className="w-full rounded-lg bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:p-6">
       <div className="mb-4 text-center">
-        <h3 className="mb-2 text-lg sm:text-xl font-bold text-darkGray">
+        <h3 className="mb-2 text-lg font-bold text-darkGray sm:text-xl">
           Nous vous rappelons !
         </h3>
         <p className="text-sm text-darkGray">
@@ -49,7 +49,7 @@ export default function SimpleCallbackForm() {
               onChange={handleChange}
               placeholder="Votre nom complet"
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -66,7 +66,7 @@ export default function SimpleCallbackForm() {
               onChange={handleChange}
               placeholder="06 12 34 56 78"
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -82,7 +82,7 @@ export default function SimpleCallbackForm() {
               value={formData.preferredDate}
               onChange={handleChange}
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function SimpleCallbackForm() {
               value={formData.timeSlot}
               onChange={handleChange}
               required
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors bg-white"
+              className="w-full rounded-md border border-lightGray bg-white px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             >
               <option value="">Choisir un créneau</option>
               <option value="Matin (8h-12h)">Matin (8h-12h)</option>

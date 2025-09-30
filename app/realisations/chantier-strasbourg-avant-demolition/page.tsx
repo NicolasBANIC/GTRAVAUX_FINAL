@@ -34,7 +34,7 @@ export default function ChantierStrasbourgAvantDemolitionPage() {
         <div className="mx-auto max-w-4xl">
           {/* Introduction */}
           <div className="mb-12">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg leading-relaxed text-gray-700">
               Ce projet présente notre intervention avant les travaux de démolition à Strasbourg. 
               Découvrez l'état initial complet de l'appartement avec tous ses espaces : salon avec parquet en point de Hongrie, chambres, cuisine équipée, bureau avec bibliothèque intégrée, salle de bain et couloir avant notre intervention de démolition.
             </p>

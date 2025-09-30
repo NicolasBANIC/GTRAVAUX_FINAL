@@ -146,7 +146,7 @@ export default function SanitairesPage() {
                 <ul className="space-y-3 text-left text-sm leading-relaxed text-darkGray">
                   {card.items.map(item => (
                     <li key={item} className="flex items-start">
-                      <span aria-hidden="true" className="text-brand-orange-600 mr-2 mt-1">
+                      <span aria-hidden="true" className="mr-2 mt-1 text-brand-orange-600">
                         ✓
                       </span>
                       <span>{item}</span>
@@ -159,7 +159,7 @@ export default function SanitairesPage() {
         </div>
 
         {/* Points forts */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-widest text-primary">
             L'excellence sanitaire signée G.TRAVAUX
           </h2>
@@ -190,9 +190,9 @@ export default function SanitairesPage() {
             {processSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="premium-card group flex flex-col space-y-4 border-t-4 border-accent-600 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="premium-card border-accent-600 group flex flex-col space-y-4 border-t-4 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="text-lg font-bold uppercase tracking-widest text-primary">
@@ -212,7 +212,7 @@ export default function SanitairesPage() {
           <ul className="mx-auto max-w-3xl space-y-3 text-left text-sm leading-relaxed text-darkGray">
             {ctaList.map(item => (
               <li key={item} className="flex items-start">
-                <span aria-hidden="true" className="text-brand-orange-600 mr-2 mt-1">
+                <span aria-hidden="true" className="mr-2 mt-1 text-brand-orange-600">
                   ✓
                 </span>
                 <span>{item}</span>

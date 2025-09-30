@@ -88,7 +88,7 @@ export default function PoseDeSolPage() {
         {/* Types de sols par catégorie */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               🪵 Parquets & bois
             </h3>
             <div className="space-y-4">
@@ -123,7 +123,7 @@ export default function PoseDeSolPage() {
           </div>
 
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               🏠 Carrelages & sols durs
             </h3>
             <div className="space-y-4">
@@ -170,48 +170,48 @@ export default function PoseDeSolPage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Épaisseur
+                  <span className="mr-2 text-brand-orange-600">✓</span> Épaisseur
                   2,5-4mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Classe 33-34
+                  <span className="mr-2 text-brand-orange-600">✓</span> Classe 33-34
                   commercial
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Pose
+                  <span className="mr-2 text-brand-orange-600">✓</span> Pose
                   libre/collée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> 100% étanche
+                  <span className="mr-2 text-brand-orange-600">✓</span> 100% étanche
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Imitation
+                  <span className="mr-2 text-brand-orange-600">✓</span> Imitation
                   bois/pierre
                 </li>
               </ul>
             </div>
-            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🏢 Stratifié haute densité
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> HDF 850kg/m³
+                  <span className="mr-2 text-brand-orange-600">✓</span> HDF 850kg/m³
                   minimum
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> AC4-AC6 usage
+                  <span className="mr-2 text-brand-orange-600">✓</span> AC4-AC6 usage
                   intensif
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Chanfrein V2-V4
+                  <span className="mr-2 text-brand-orange-600">✓</span> Chanfrein V2-V4
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Pose clipsable
+                  <span className="mr-2 text-brand-orange-600">✓</span> Pose clipsable
                   5G
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Garantie 20-25
+                  <span className="mr-2 text-brand-orange-600">✓</span> Garantie 20-25
                   ans
                 </li>
               </ul>
@@ -222,23 +222,23 @@ export default function PoseDeSolPage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Résine époxy
+                  <span className="mr-2 text-brand-orange-600">✓</span> Résine époxy
                   2-3mm
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Béton ciré
+                  <span className="mr-2 text-brand-orange-600">✓</span> Béton ciré
                   taloché
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Finition
+                  <span className="mr-2 text-brand-orange-600">✓</span> Finition
                   satinée/mate
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Joint de
+                  <span className="mr-2 text-brand-orange-600">✓</span> Joint de
                   dilatation
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span>{' '}
+                  <span className="mr-2 text-brand-orange-600">✓</span>{' '}
                   Personnalisation couleur
                 </li>
               </ul>
@@ -264,7 +264,7 @@ export default function PoseDeSolPage() {
                 <li>• Durabilité maximale</li>
               </ul>
             </div>
-            <div className="border-brand-orange-600 rounded-lg border-t-4 bg-white p-4 shadow-lg">
+            <div className="rounded-lg border-t-4 border-brand-orange-600 bg-white p-4 shadow-lg">
               <h4 className="mb-3 text-center font-bold text-primary">
                 🧴 Pose collée
               </h4>
@@ -314,7 +314,7 @@ export default function PoseDeSolPage() {
                 key={step.title}
                 className="premium-card group transition-all duration-300 hover:shadow-xl"
               >
-                <span className="mb-3 inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 mb-3 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="mb-3 text-lg font-bold uppercase tracking-widest text-primary">
@@ -329,13 +329,13 @@ export default function PoseDeSolPage() {
         </div>
 
         {/* Garanties et entretien */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             🔧 Garanties & conseils entretien
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="text-center">
-              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">✅</span>
               </div>
               <h3 className="mb-2 font-semibold">Garantie pose 5 ans</h3>

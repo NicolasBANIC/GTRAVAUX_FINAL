@@ -130,7 +130,7 @@ export default function PeinturePage() {
         {/* Gamme de prestations */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               🎨 Peintures techniques
             </h3>
             <div className="space-y-4">
@@ -143,7 +143,7 @@ export default function PeinturePage() {
                   microporeuse, faible odeur, 150+ teintes RAL/NCS disponibles.
                 </p>
               </div>
-              <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+              <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
                 <h4 className="mb-2 font-semibold text-primary">
                   Glycérophtalique traditionnelle
                 </h4>
@@ -167,7 +167,7 @@ export default function PeinturePage() {
           </div>
 
           <div>
-            <h3 className="mb-6 border-l-4 border-accent-600 pl-4 text-2xl font-bold text-primary">
+            <h3 className="border-accent-600 mb-6 border-l-4 pl-4 text-2xl font-bold text-primary">
               ✨ Finitions décoratives
             </h3>
             <div className="space-y-4">
@@ -216,50 +216,50 @@ export default function PeinturePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Peinture mate
+                  <span className="mr-2 text-brand-orange-600">✓</span> Peinture mate
                   anti-reflet
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Couleurs
+                  <span className="mr-2 text-brand-orange-600">✓</span> Couleurs
                   apaisantes
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> COV ultra-bas
+                  <span className="mr-2 text-brand-orange-600">✓</span> COV ultra-bas
                   &lt;5g/L
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Tête de lit
+                  <span className="mr-2 text-brand-orange-600">✓</span> Tête de lit
                   décorative
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Finition
+                  <span className="mr-2 text-brand-orange-600">✓</span> Finition
                   velours
                 </li>
               </ul>
             </div>
-            <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
+            <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
               <h3 className="mb-4 text-xl font-bold text-primary">
                 🍳 Cuisines
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Lessivable
+                  <span className="mr-2 text-brand-orange-600">✓</span> Lessivable
                   classe 1
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Résistance
+                  <span className="mr-2 text-brand-orange-600">✓</span> Résistance
                   graisse/vapeur
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Finition
+                  <span className="mr-2 text-brand-orange-600">✓</span> Finition
                   satinée brillante
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Protection
+                  <span className="mr-2 text-brand-orange-600">✓</span> Protection
                   anti-moisissures
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Carrelage mural
+                  <span className="mr-2 text-brand-orange-600">✓</span> Carrelage mural
                   rénové
                 </li>
               </ul>
@@ -270,23 +270,23 @@ export default function PeinturePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Peinture
+                  <span className="mr-2 text-brand-orange-600">✓</span> Peinture
                   anti-humidité
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Fongicide
+                  <span className="mr-2 text-brand-orange-600">✓</span> Fongicide
                   intégré
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Joint silicone
+                  <span className="mr-2 text-brand-orange-600">✓</span> Joint silicone
                   sanitaire
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Enduit étanche
+                  <span className="mr-2 text-brand-orange-600">✓</span> Enduit étanche
                   douche
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Ventilation
+                  <span className="mr-2 text-brand-orange-600">✓</span> Ventilation
                   optimisée
                 </li>
               </ul>
@@ -297,23 +297,23 @@ export default function PeinturePage() {
               </h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Peinture NF
+                  <span className="mr-2 text-brand-orange-600">✓</span> Peinture NF
                   Environnement
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Résistance
+                  <span className="mr-2 text-brand-orange-600">✓</span> Résistance
                   trafic intensif
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Couleurs
+                  <span className="mr-2 text-brand-orange-600">✓</span> Couleurs
                   corporate
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Signalétique
+                  <span className="mr-2 text-brand-orange-600">✓</span> Signalétique
                   intégrée
                 </li>
                 <li className="flex items-center">
-                  <span className="text-brand-orange-600 mr-2">✓</span> Intervention
+                  <span className="mr-2 text-brand-orange-600">✓</span> Intervention
                   hors horaires
                 </li>
               </ul>
@@ -351,7 +351,7 @@ export default function PeinturePage() {
                 <li>• Rinçage neutralisation pH</li>
               </ul>
             </div>
-            <div className="border-brand-orange-600 rounded-xl border-t-4 bg-white p-6 shadow-lg">
+            <div className="rounded-xl border-t-4 border-brand-orange-600 bg-white p-6 shadow-lg">
               <h4 className="mb-4 text-center text-xl font-bold text-primary">
                 🏗️ Réparation finition
               </h4>
@@ -377,7 +377,7 @@ export default function PeinturePage() {
                 key={step.title}
                 className="premium-card group transition-all duration-300 hover:shadow-xl"
               >
-                <span className="mb-3 inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 mb-3 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="mb-3 text-lg font-bold uppercase tracking-widest text-primary">
@@ -392,7 +392,7 @@ export default function PeinturePage() {
         </div>
 
         {/* Garanties et services */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             🏆 Garanties qualité & services inclus
           </h2>
@@ -405,7 +405,7 @@ export default function PeinturePage() {
               <p className="text-sm text-darkGray">Tenue couleur & adhérence</p>
             </div>
             <div className="text-center">
-              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🛡️</span>
               </div>
               <h3 className="mb-2 font-semibold">Protection complète</h3>

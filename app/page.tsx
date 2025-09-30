@@ -75,27 +75,27 @@ export default async function HomePage() {
       <section className="section-light py-16">
         <div className="container mx-auto px-4">
           <ClientMotionDiv>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                <div className="mb-2 text-4xl font-bold text-brand-orange-600">
                   {stats.projectsCompleted}+
                 </div>
                 <div className="text-brand-graphite-700">Projets réalisés</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                <div className="mb-2 text-4xl font-bold text-brand-orange-600">
                   {stats.yearsExperience}
                 </div>
                 <div className="text-brand-graphite-700">Années d'expérience</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                <div className="mb-2 text-4xl font-bold text-brand-orange-600">
                   {stats.satisfactionRate}%
                 </div>
                 <div className="text-brand-graphite-700">Clients satisfaits</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-brand-orange-600 mb-2">
+                <div className="mb-2 text-4xl font-bold text-brand-orange-600">
                   {stats.coverageArea}
                 </div>
                 <div className="text-brand-graphite-700">Départements couverts</div>
@@ -118,12 +118,12 @@ export default async function HomePage() {
               const Icon = reason.Icon;
               return (
                 <ClientMotionDiv key={reason.title} delay={index * 0.1}>
-                  <div className="rounded-brand bg-white p-5 shadow-brand text-center h-full hover:shadow-brandSm transition-shadow">
+                  <div className="h-full rounded-brand bg-white p-5 text-center shadow-brand transition-shadow hover:shadow-brandSm">
                     <Icon className="mx-auto mb-4 text-brand-orange-600" size={40} />
-                    <h3 className="mb-3 font-semibold text-brand-graphite-900 text-lg">
+                    <h3 className="mb-3 text-lg font-semibold text-brand-graphite-900">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-brand-graphite-600 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-brand-graphite-600">
                       {reason.description}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ export default async function HomePage() {
             <h2 className="section-title mb-8 text-center text-brand-graphite-900">
               Avant / Après — Nous redonnons vie à vos espaces sinistrés
             </h2>
-            <p className="section-sub text-center mb-12 max-w-4xl mx-auto">
+            <p className="section-sub mx-auto mb-12 max-w-4xl text-center">
               Faites glisser le curseur pour comparer l'existant et le résultat final.
             </p>
           </ClientMotionDiv>
@@ -189,7 +189,7 @@ export default async function HomePage() {
             <h2 className="section-title mb-12 text-center text-brand-graphite-900">
               Estimez votre projet
             </h2>
-            <p className="section-sub text-center mb-8 max-w-4xl mx-auto">
+            <p className="section-sub mx-auto mb-8 max-w-4xl text-center">
               Obtenez une première estimation de votre projet de rénovation avec notre calculateur interactif.
             </p>
           </ClientMotionDiv>
@@ -227,8 +227,8 @@ export default async function HomePage() {
               }
             ].map((engagement, index) => (
               <ClientMotionDiv key={engagement.title} delay={index * 0.1}>
-                <div className="rounded-brand bg-white p-6 shadow-brand h-full hover:shadow-brandSm transition-shadow">
-                  <h3 className="mb-3 font-semibold text-brand-graphite-900 text-lg">
+                <div className="h-full rounded-brand bg-white p-6 shadow-brand transition-shadow hover:shadow-brandSm">
+                  <h3 className="mb-3 text-lg font-semibold text-brand-graphite-900">
                     {engagement.title}
                   </h3>
                   <p className="text-sm text-brand-graphite-600">
@@ -274,11 +274,11 @@ export default async function HomePage() {
               }
             ].map((item, i) => (
               <ClientMotionDiv key={item.step} delay={i * 0.1}>
-                <div className="rounded-brand bg-white p-6 shadow-brand text-center h-full">
+                <div className="h-full rounded-brand bg-white p-6 text-center shadow-brand">
                   <div className="mb-4 text-4xl font-bold text-brand-orange-600">
                     {i + 1}
                   </div>
-                  <div className="mb-3 font-semibold text-brand-graphite-900 text-lg">
+                  <div className="mb-3 text-lg font-semibold text-brand-graphite-900">
                     {item.step}
                   </div>
                   <div className="text-sm text-brand-graphite-600">
@@ -315,11 +315,11 @@ export default async function HomePage() {
       <section className="bg-white py-16" id="leadership">
         <div className="container mx-auto px-4">
           <ClientMotionDiv>
-            <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="mx-auto max-w-4xl space-y-6 text-center">
               <h2 className="section-title text-brand-graphite-900">
                 Leader de la rénovation en Alsace & Lorraine
               </h2>
-              <p className="text-lg text-brand-graphite-600 leading-relaxed">
+              <p className="text-lg leading-relaxed text-brand-graphite-600">
                 Forts de plus de {stats.yearsExperience} ans d'expérience, nous maîtrisons l'ensemble des 
                 métiers de la rénovation et intervenons aussi bien pour des projets 
                 complets que pour des dépannages après sinistre. Notre priorité est 
@@ -327,17 +327,17 @@ export default async function HomePage() {
                 interventions sont couvertes par une assurance décennale et 
                 respectent les normes en vigueur.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
                 <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="text-2xl font-bold text-brand-orange-600 mb-2">RGE</div>
+                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">RGE</div>
                   <div className="text-sm text-brand-graphite-600">Reconnu Garant Environnement</div>
                 </div>
                 <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="text-2xl font-bold text-brand-orange-600 mb-2">QUALIBAT</div>
+                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">QUALIBAT</div>
                   <div className="text-sm text-brand-graphite-600">Certification métiers</div>
                 </div>
                 <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="text-2xl font-bold text-brand-orange-600 mb-2">10 ans</div>
+                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">10 ans</div>
                   <div className="text-sm text-brand-graphite-600">Garantie décennale</div>
                 </div>
               </div>
@@ -350,25 +350,25 @@ export default async function HomePage() {
       <section className="section-dark py-16">
         <div className="container mx-auto px-4">
           <ClientMotionDiv>
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="mx-auto max-w-3xl text-center">
               <h2 className="section-title mb-4 text-white">Besoin d'un conseil ?</h2>
               <p className="mb-8 text-xl text-white/90">
                 Notre équipe est disponible pour répondre à toutes vos questions
                 et vous accompagner dans votre projet de rénovation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Link
                   href="tel:+33604007499"
-                  className="btn btn-primary text-lg px-8 py-4"
+                  className="btn btn-primary px-8 py-4 text-lg"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="mr-2 size-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   06 04 00 74 99
                 </Link>
                 <Link
                   href="/contact"
-                  className="btn btn-inverse text-lg px-8 py-4"
+                  className="btn btn-inverse px-8 py-4 text-lg"
                 >
                   Demander un devis
                 </Link>

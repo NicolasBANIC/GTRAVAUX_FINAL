@@ -117,8 +117,8 @@ export default function IsolationInterieurePage() {
             </div>
           </div>
 
-          <div className="from-brand-orange-500/10 to-orange-100 rounded-xl bg-gradient-to-br p-6">
-            <h3 className="border-brand-orange-600 mb-4 border-b-2 pb-2 text-xl font-bold text-primary">
+          <div className="rounded-xl bg-gradient-to-br from-brand-orange-500/10 to-orange-100 p-6">
+            <h3 className="mb-4 border-b-2 border-brand-orange-600 pb-2 text-xl font-bold text-primary">
               🏢 Isolation des murs
             </h3>
             <div className="space-y-3">
@@ -199,7 +199,7 @@ export default function IsolationInterieurePage() {
                 <li>• Rapport qualité/prix optimal</li>
               </ul>
             </div>
-            <div className="border-brand-orange-600 rounded-lg border-t-4 bg-white p-4 shadow-lg">
+            <div className="rounded-lg border-t-4 border-brand-orange-600 bg-white p-4 shadow-lg">
               <h4 className="mb-2 font-bold text-primary">Laine de roche</h4>
               <ul className="space-y-1 text-xs">
                 <li>• λ = 0,033-0,042 W/m.K</li>
@@ -240,7 +240,7 @@ export default function IsolationInterieurePage() {
                 key={step.title}
                 className="premium-card group transition-all duration-300 hover:shadow-xl"
               >
-                <span className="mb-3 inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 mb-3 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="mb-3 text-lg font-bold uppercase tracking-widest text-primary">
@@ -255,13 +255,13 @@ export default function IsolationInterieurePage() {
         </div>
 
         {/* Performances et économies */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             📊 Performances énergétiques garanties
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div className="text-center">
-              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">🌡️</span>
               </div>
               <h3 className="mb-2 font-semibold">-40% consommation</h3>

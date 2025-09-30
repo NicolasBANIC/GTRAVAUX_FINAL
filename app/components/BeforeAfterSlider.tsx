@@ -133,12 +133,12 @@ export default function BeforeAfterSlider({
 
         {/* Repère central (ligne de séparation) */}
         <div 
-          className="absolute top-0 bottom-0 w-0.5 bg-brand-orange-600 shadow-lg pointer-events-none z-10"
+          className="pointer-events-none absolute inset-y-0 z-10 w-0.5 bg-brand-orange-600 shadow-lg"
           style={{ left: `${value}%`, transform: 'translateX(-50%)' }}
         >
           {/* Poignée circulaire */}
-          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-white rounded-full shadow-brand border-2 border-brand-orange-600 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-            <div className="w-1 h-4 bg-brand-orange-600 rounded-full"></div>
+          <div className="absolute left-1/2 top-1/2 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-brand-orange-600 bg-white shadow-brand">
+            <div className="h-4 w-1 rounded-full bg-brand-orange-600"></div>
           </div>
         </div>
 
@@ -149,7 +149,7 @@ export default function BeforeAfterSlider({
           min={0}
           max={100}
           defaultValue={50}
-          className="range-modern absolute inset-0 w-full h-full opacity-0 cursor-ew-resize focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
+          className="range-modern absolute inset-0 size-full cursor-ew-resize opacity-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
           aria-label={`Comparateur avant-après pour ${nomProjet}. Utilisez les flèches ou glissez pour révéler l'image après rénovation.`}
           aria-valuetext={`${value}% de révélation de l'image après rénovation`}
         />

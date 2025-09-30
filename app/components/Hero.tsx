@@ -43,7 +43,7 @@ export default function Hero({
 
   return (
     <section
-      className={`section-hero relative flex items-center section-light mt-0 pt-0 ${alignmentClass} ${
+      className={`section-hero section-light relative mt-0 flex items-center pt-0 ${alignmentClass} ${
         heightClass
       }`}
     >
@@ -59,7 +59,7 @@ export default function Hero({
         ) : (
           imageSrc && (
             <div
-              className="h-full w-full bg-cover bg-center bg-no-repeat"
+              className="size-full bg-cover bg-center bg-no-repeat"
               style={{
                 backgroundImage: `url(${imageSrc})`,
                 minHeight: '100%',
@@ -76,34 +76,34 @@ export default function Hero({
       <div className="absolute inset-0 -z-0" />
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-6 md:py-12">
+      <div className="container relative z-10 mx-auto px-4 py-6 sm:px-6 md:py-12">
         {/* Dynamic layout: responsive stacking for mobile, two-column for desktop */}
         {showForm ? (
           // Responsive layout: mobile stacked (text above form), desktop two-column
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-2 lg:gap-12">
             {/* Text Content - Full width on mobile, proper alignment responsive */}
             <ClientMotionDiv immediateVisible={true} delay={0.2} className="order-1">
               <div
                 className={`
-                  relative z-10 max-w-3xl text-white
-                  sm:bg-transparent sm:p-0
-                  bg-black/60 p-4 rounded-brand
+                  relative z-10 max-w-3xl rounded-brand
+                  bg-black/60 p-4
+                  text-white sm:bg-transparent sm:p-0
                   ${centerText
                     ? 'text-center'
-                    : 'text-center md:text-left md:max-w-none'
+                    : 'text-center md:max-w-none md:text-left'
                   }
                 `}
               >
-                <h1 className="section-title text-white text-[clamp(2rem,4vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-5 lg:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
+                <h1 className="section-title mb-4 text-[clamp(2rem,4vw,3.5rem)] leading-tight text-white sm:mb-5 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:mb-6 lg:text-6xl lg:leading-tight">
                   {title}
                 </h1>
-                <p className="mt-4 section-sub text-white/90 text-base sm:text-lg md:text-xl mb-6 md:mb-7 lg:mb-8 leading-relaxed md:leading-relaxed max-w-xl md:max-w-2xl mx-auto md:mx-0">
+                <p className="section-sub mx-auto mb-6 mt-4 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg md:mx-0 md:mb-7 md:max-w-2xl md:text-xl md:leading-relaxed lg:mb-8">
                   {subtitle}
                 </p>
                 {cta && (
                   <Link
                     href={cta.href}
-                    className="btn btn-primary text-sm sm:text-base md:text-lg px-5 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 inline-block transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
+                    className="btn btn-primary inline-block px-5 py-3 text-sm transition-all hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700 sm:px-7 sm:py-3.5 sm:text-base md:px-8 md:py-4 md:text-lg"
                     aria-label={`${cta.label} - Ouvre la page de contact`}
                   >
                     {cta.label}
@@ -124,24 +124,24 @@ export default function Hero({
         ) : (
           // Centered single column layout for other pages without form
           <div className="flex justify-center">
-            <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="mx-auto w-full max-w-4xl px-4 sm:px-6">
               <ClientMotionDiv immediateVisible={true} delay={0.2}>
                 <div className="
-                  relative z-10 max-w-3xl text-white
+                  relative z-10 mx-auto max-w-3xl
+                  rounded-brand bg-black/60
+                  p-4 text-center text-white
                   sm:bg-transparent sm:p-0
-                  bg-black/60 p-4 rounded-brand
-                  text-center mx-auto
                 ">
-                  <h1 className="section-title text-white text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+                  <h1 className="section-title mb-6 text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
                     {title}
                   </h1>
-                  <p className="mt-4 section-sub text-white/90 text-xl mb-8 leading-relaxed">
+                  <p className="section-sub mb-8 mt-4 text-xl leading-relaxed text-white/90">
                     {subtitle}
                   </p>
                   {cta && (
                     <Link
                       href={cta.href}
-                      className="btn btn-primary text-lg px-8 py-4 inline-block transition-all hover:scale-105"
+                      className="btn btn-primary inline-block px-8 py-4 text-lg transition-all hover:scale-105"
                     >
                       {cta.label}
                     </Link>
@@ -156,14 +156,14 @@ export default function Hero({
       {/* Scroll Indicator - Immediate visibility with longer delay */}
       {fullScreen && (
         <ClientMotionDiv
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
           immediateVisible={true}
           delay={1.2}
         >
           <div className="flex flex-col items-center">
-            <span className="text-white/80 text-sm mb-2">Découvrez nos services</span>
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-bounce"></div>
+            <span className="mb-2 text-sm text-white/80">Découvrez nos services</span>
+            <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/50">
+              <div className="mt-2 h-3 w-1 animate-bounce rounded-full bg-white/80"></div>
             </div>
           </div>
         </ClientMotionDiv>

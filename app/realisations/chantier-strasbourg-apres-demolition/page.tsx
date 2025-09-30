@@ -34,7 +34,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
         <div className="mx-auto max-w-4xl">
           {/* Introduction */}
           <div className="mb-12">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg leading-relaxed text-gray-700">
               Ce projet présente le résultat de notre intervention après les travaux de démolition à Strasbourg. 
               Découvrez les différentes étapes de démolition avec la mise à nu de la structure en bois, 
               l'ouverture des espaces et la préparation minutieuse pour les finitions. Ces photos témoignent 
@@ -60,7 +60,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
                   className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-20"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-sm text-white">Structure en bois apparente et murs décapés</p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
                   className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-20"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-sm text-white">Poutres en bois apparentes au plafond</p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
                   className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-20"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-sm text-white">Cloison démolie avec briques apparentes</p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
                   className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-20"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-sm text-white">Structure en bois du plafond mise à nu</p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function ChantierStrasbourgApresDemolitionPage() {
                   className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 transition-all duration-300 group-hover:bg-opacity-20"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <p className="text-sm text-white">Salle de bain démolie avec carrelage bleu visible</p>
                 </div>
               </div>

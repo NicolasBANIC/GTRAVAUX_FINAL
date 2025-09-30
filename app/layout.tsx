@@ -87,7 +87,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <BackgroundGradients />
         <Header />
         {/* Main content without padding-top - header and hero are now flush */}
-        <main id="main" className="min-h-screen pt-0 mt-0">
+        <main id="main" className="mt-0 min-h-screen pt-0">
           {children}
         </main>
         <Footer />

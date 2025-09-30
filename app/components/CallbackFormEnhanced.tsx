@@ -139,10 +139,10 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
   // Message de confirmation après envoi réussi
   if (sent) {
     return (
-      <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl ${className}`}>
+      <div className={`w-full rounded-lg bg-white/95 p-4 shadow-xl sm:p-6 ${className}`}>
         <div className="text-center">
           <div className="mb-4 text-4xl text-brand-orange-600">✓</div>
-          <h3 className="mb-3 text-lg sm:text-xl font-bold text-darkGray">
+          <h3 className="mb-3 text-lg font-bold text-darkGray sm:text-xl">
             Demande de rappel enregistrée !
           </h3>
           <div className="space-y-2 text-sm text-darkGray">
@@ -157,7 +157,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
                 day: 'numeric' 
               })}</strong> pendant le créneau <strong>{data.timeSlot.toLowerCase()}</strong>.
             </p>
-            <p className="text-xs text-gray-600 mt-4">
+            <p className="mt-4 text-xs text-gray-600">
               Vous recevrez une confirmation par SMS au {data.phone}.
             </p>
           </div>
@@ -168,9 +168,9 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
 
   // Formulaire principal
   return (
-    <div className={`w-full rounded-lg bg-white/95 p-4 sm:p-6 shadow-xl ${className}`}>
+    <div className={`w-full rounded-lg bg-white/95 p-4 shadow-xl sm:p-6 ${className}`}>
       <div className="mb-4 text-center">
-        <h3 className="mb-2 text-lg sm:text-xl font-bold text-darkGray">
+        <h3 className="mb-2 text-lg font-bold text-darkGray sm:text-xl">
           Nous vous rappelons !
         </h3>
         <p className="text-sm text-darkGray">
@@ -180,8 +180,8 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
 
       <form onSubmit={handleSubmit} className="w-full" noValidate>
         {error && (
-          <div className="mb-4 rounded-md bg-red-50 border border-red-200 p-3">
-            <p className="text-sm text-red-600 font-medium">{error}</p>
+          <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-3">
+            <p className="text-sm font-medium text-red-600">{error}</p>
           </div>
         )}
 
@@ -200,7 +200,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
               placeholder="Votre nom complet"
               required
               aria-required="true"
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -218,7 +218,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
               placeholder="06 12 34 56 78"
               required
               aria-required="true"
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -236,7 +236,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
               min={getTodayDate()}
               required
               aria-required="true"
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-lightGray px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             />
           </div>
 
@@ -252,7 +252,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
               onChange={handleChange}
               required
               aria-required="true"
-              className="w-full px-3 sm:px-4 py-2 border border-lightGray rounded-md focus:ring-2 focus:ring-brand-orange-600 focus:border-transparent transition-colors bg-white"
+              className="w-full rounded-md border border-lightGray bg-white px-3 py-2 transition-colors focus:border-transparent focus:ring-2 focus:ring-brand-orange-600 sm:px-4"
             >
               <option value="">Choisir un créneau</option>
               {CALLBACK_TIME_SLOTS.map((slot) => (
@@ -278,12 +278,12 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary w-full focus:outline-none focus:ring-2 focus:ring-brand-orange-700 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn btn-primary w-full focus:outline-none focus:ring-2 focus:ring-brand-orange-700 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             aria-label={loading ? "Envoi en cours..." : "Demander un rappel"}
           >
             {loading ? (
               <>
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <div className="size-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
                 Envoi...
               </>
             ) : (

@@ -119,10 +119,10 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 mb-0 pb-0 border-b-0 bg-brand-graphite-900/90 backdrop-blur supports-[backdrop-filter]:bg-brand-graphite-900/75"
+      className="sticky top-0 z-50 mb-0 border-b-0 bg-brand-graphite-900/90 pb-0 backdrop-blur supports-[backdrop-filter]:bg-brand-graphite-900/75"
     >
       {/* Ligne unique: logo à gauche, menu au centre, téléphone + bouton à droite */}
-      <div className="container mx-auto flex h-16 md:h-20 items-center gap-4 px-4">
+      <div className="container mx-auto flex h-16 items-center gap-4 px-4 md:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <BrandLogo className="block" width={170} height={40} />
@@ -195,7 +195,7 @@ export default function Header() {
                 ) : hasHref(item) ? (
                   <Link
                     href={item.href}
-                    className="uppercase tracking-wider text-white/90 transition-colors hover:text-brand-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700 border-b-2 border-transparent hover:border-brand-orange-600"
+                    className="border-b-2 border-transparent uppercase tracking-wider text-white/90 transition-colors hover:border-brand-orange-600 hover:text-brand-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-orange-700"
                   >
                     {item.label}
                   </Link>

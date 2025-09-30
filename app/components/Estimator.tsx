@@ -26,7 +26,7 @@ export default function Estimator(){
 
   const det=useMemo(()=>{if(!ls.length)return null;let lo=0,mi=0,hi=0;for(const l of ls){const rt=RATES[l.s],qty=rt.u==="m2"?Math.max(0,l.q):Math.max(0,Math.floor(l.q));lo+=(rt.lo??rt.a*.85)*qty;mi+=rt.a*qty;hi+=(rt.hi??rt.a*1.15)*qty;}return{lo,mi,hi}},[ls]);
 
-  const tot=useMemo(()=>{let T=det;if(!T)return null;let {lo,mi,hi}=T;if(dk!=="none"){lo*=(1+UP);mi*=(1+UP);hi*=(1+UP);const area=Math.max(0,da);const band=CLEAN[dk as "eau"|"incendie"];lo+=band.lo*area;mi+=band.a*area;hi+=band.hi*area;}return{lo,mi,hi}},[det,dk,da]);
+  const tot=useMemo(()=>{if(!det)return null;let {lo,mi,hi}=det;if(dk!=="none"){lo*=(1+UP);mi*=(1+UP);hi*=(1+UP);const area=Math.max(0,da);const band=CLEAN[dk];lo+=band.lo*area;mi+=band.a*area;hi+=band.hi*area;}return{lo,mi,hi}},[det,dk,da]);
 
   const add=()=>{
     console.log('Adding service...');
@@ -44,8 +44,8 @@ export default function Estimator(){
   const rm=(id:string)=>setLS(v=>v.filter(x=>x.id!==id));
 
   return <div className="space-y-6">
-    <div className="text-center mb-6">
-      <h3 className="text-2xl font-bold text-brand-graphite-900 mb-2">
+    <div className="mb-6 text-center">
+      <h3 className="mb-2 text-2xl font-bold text-brand-graphite-900">
         Calculateur de devis
       </h3>
       <p className="text-brand-graphite-600">
@@ -54,7 +54,7 @@ export default function Estimator(){
     </div>
 
     <div>
-      <h4 className="text-lg font-semibold text-brand-graphite-900 mb-4">
+      <h4 className="mb-4 text-lg font-semibold text-brand-graphite-900">
         Services à estimer ({ls.length})
       </h4>
 
@@ -64,26 +64,26 @@ export default function Estimator(){
         </button>
       </div>
 
-      {ls.length===0?<div className="text-sm text-brand-graphite-600 italic bg-gray-50 p-4 rounded-xl">
+      {ls.length===0?<div className="rounded-xl bg-gray-50 p-4 text-sm italic text-brand-graphite-600">
         Ajoutez les services nécessaires à votre projet (Démolition, Électricité, Isolation, Maçonnerie, Peinture, Plâtrerie/Placo, Plomberie, Pose de sol, Sanitaires).
       </div>:
       <div className="space-y-4">
         {ls.map(l=>{
           const rt=RATES[l.s];
-          return <div key={l.id} className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 border border-brand-graphite-200 rounded-xl">
+          return <div key={l.id} className="border-brand-graphite-200 grid grid-cols-1 gap-4 rounded-xl border p-4 md:grid-cols-4">
             <div>
-              <label className="block text-sm font-medium text-brand-graphite-700 mb-2">
+              <label htmlFor={`service-${l.id}`} className="mb-2 block text-sm font-medium text-brand-graphite-700">
                 Service
               </label>
-              <select value={l.s} onChange={e=>up(l.id,{s:e.target.value as SK})} className="w-full rounded-xl border border-brand-graphite-200 px-3 py-2 focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600">
+              <select id={`service-${l.id}`} value={l.s} onChange={e=>up(l.id,{s:e.target.value as SK})} className="border-brand-graphite-200 w-full rounded-xl border px-3 py-2 focus:border-brand-orange-600 focus:ring-2 focus:ring-brand-orange-600">
                 {Object.entries(RATES).map(([k,v])=><option key={k} value={k}>{v.l}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-brand-graphite-700 mb-2">
+              <label htmlFor={`quantity-${l.id}`} className="mb-2 block text-sm font-medium text-brand-graphite-700">
                 {rt.u==="m2"?"Surface (m²)":(l.s==="sanitaires"?"Nb appareils":"Nb points d'eau")}
               </label>
-              <input type="number" value={l.q||""} onChange={e=>up(l.id,{q:+e.target.value})} className="w-full rounded-xl border border-brand-graphite-200 px-3 py-2 focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600" placeholder={rt.u==="m2"?"ex: 40":"ex: 2"}/>
+              <input id={`quantity-${l.id}`} type="number" value={l.q||""} onChange={e=>up(l.id,{q:+e.target.value})} className="border-brand-graphite-200 w-full rounded-xl border px-3 py-2 focus:border-brand-orange-600 focus:ring-2 focus:ring-brand-orange-600" placeholder={rt.u==="m2"?"ex: 40":"ex: 2"}/>
             </div>
             <div className="flex items-end">
               <div className="text-sm text-brand-graphite-600">
@@ -97,48 +97,48 @@ export default function Estimator(){
         })}
       </div>}
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label className="block text-sm font-medium text-brand-graphite-700 mb-2">
+          <label htmlFor="disaster-type" className="mb-2 block text-sm font-medium text-brand-graphite-700">
             Après sinistre
           </label>
-          <select value={dk} onChange={e=>setDK(e.target.value as DK)} className="w-full rounded-xl border border-brand-graphite-200 px-3 py-2 focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600">
+          <select id="disaster-type" value={dk} onChange={e=>setDK(e.target.value as DK)} className="border-brand-graphite-200 w-full rounded-xl border px-3 py-2 focus:border-brand-orange-600 focus:ring-2 focus:ring-brand-orange-600">
             <option value="none">— Aucune —</option>
             <option value="eau">Dégât des eaux</option>
             <option value="incendie">Incendie / fumées</option>
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-brand-graphite-700 mb-2">
+          <label htmlFor="disaster-area" className="mb-2 block text-sm font-medium text-brand-graphite-700">
             Surface à traiter (m²)
           </label>
-          <input type="number" value={da||""} onChange={e=>setDA(+e.target.value)} className="w-full rounded-xl border border-brand-graphite-200 px-3 py-2 focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600" placeholder="ex: 40" disabled={dk==="none"}/>
+          <input id="disaster-area" type="number" value={da||""} onChange={e=>setDA(+e.target.value)} className="border-brand-graphite-200 w-full rounded-xl border px-3 py-2 focus:border-brand-orange-600 focus:ring-2 focus:ring-brand-orange-600" placeholder="ex: 40" disabled={dk==="none"}/>
         </div>
-        {dk!=="none"&&<div className="md:col-span-2 text-sm text-brand-orange-700 bg-brand-orange-50 p-3 rounded-xl">
+        {dk!=="none"&&<div className="bg-brand-orange-50 rounded-xl p-3 text-sm text-brand-orange-700 md:col-span-2">
           +{Math.round(UP*100)}% + nettoyage {dk==="eau"?"8–15":"50–170"} €/m².
         </div>}
       </div>
     </div>
 
     <div className="border-t pt-6">
-      <h4 className="text-lg font-semibold text-brand-graphite-900 mb-4">
+      <h4 className="mb-4 text-lg font-semibold text-brand-graphite-900">
         Estimation
       </h4>
 
-      {!tot?<div className="text-brand-graphite-600 italic text-center py-8">
+      {!tot?<div className="py-8 text-center italic text-brand-graphite-600">
         Ajoutez des services pour obtenir une estimation.
       </div>:
-      <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="text-center p-4 bg-green-50 border border-green-200 rounded-xl">
-          <div className="text-sm text-green-700 mb-1">Borne basse</div>
+      <div className="mb-6 grid grid-cols-3 gap-4">
+        <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-center">
+          <div className="mb-1 text-sm text-green-700">Borne basse</div>
           <div className="text-xl font-bold text-green-800">{formatEuro(tot.lo)}</div>
         </div>
-        <div className="text-center p-4 bg-blue-50 border border-blue-200 rounded-xl">
-          <div className="text-sm text-blue-700 mb-1">Médiane</div>
+        <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-center">
+          <div className="mb-1 text-sm text-blue-700">Médiane</div>
           <div className="text-xl font-bold text-blue-800">{formatEuro(tot.mi)}</div>
         </div>
-        <div className="text-center p-4 bg-orange-50 border border-orange-200 rounded-xl">
-          <div className="text-sm text-orange-700 mb-1">Borne haute</div>
+        <div className="rounded-xl border border-orange-200 bg-orange-50 p-4 text-center">
+          <div className="mb-1 text-sm text-orange-700">Borne haute</div>
           <div className="text-xl font-bold text-orange-800">{formatEuro(tot.hi)}</div>
         </div>
       </div>}
@@ -147,7 +147,7 @@ export default function Estimator(){
         <a href="/contact" className="btn btn-primary inline-block">
           Obtenir un devis précis
         </a>
-        <p className="text-xs text-brand-graphite-500 mt-2">
+        <p className="mt-2 text-xs text-brand-graphite-500">
           Estimations TTC indicatives.
         </p>
       </div>

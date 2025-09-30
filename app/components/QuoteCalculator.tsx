@@ -281,11 +281,11 @@ export default function QuoteCalculator() {
       )}
 
       {estimatedPrice && (
-        <div className="mt-6 rounded-lg border border-green bg-green/10 p-6">
-          <h4 className="mb-2 text-lg font-semibold text-green">
+        <div className="border-green bg-green/10 mt-6 rounded-lg border p-6">
+          <h4 className="text-green mb-2 text-lg font-semibold">
             Estimation indicative
           </h4>
-          <div className="mb-4 text-3xl font-bold text-green">
+          <div className="text-green mb-4 text-3xl font-bold">
             {estimatedPrice.toLocaleString('fr-FR')}€
           </div>
           <p className="mb-4 text-sm text-darkGray">

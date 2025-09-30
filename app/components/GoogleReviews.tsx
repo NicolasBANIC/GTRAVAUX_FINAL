@@ -160,17 +160,17 @@ export default function GoogleReviews() {
           </div>
 
           {/* Navigation desktop */}
-          <div className="hidden md:flex items-center justify-center space-x-4 mt-8">
+          <div className="mt-8 hidden items-center justify-center space-x-4 md:flex">
             <button
               onClick={prev}
-              className="flex items-center justify-center size-12 rounded-full bg-white border-2 border-brand-orange-600 text-brand-orange-600 hover:bg-brand-orange-600 hover:text-white transition-colors"
+              className="flex size-12 items-center justify-center rounded-full border-2 border-brand-orange-600 bg-white text-brand-orange-600 transition-colors hover:bg-brand-orange-600 hover:text-white"
               aria-label="Avis précédents"
             >
               ←
             </button>
             <button
               onClick={next}
-              className="flex items-center justify-center size-12 rounded-full bg-white border-2 border-brand-orange-600 text-brand-orange-600 hover:bg-brand-orange-600 hover:text-white transition-colors"
+              className="flex size-12 items-center justify-center rounded-full border-2 border-brand-orange-600 bg-white text-brand-orange-600 transition-colors hover:bg-brand-orange-600 hover:text-white"
               aria-label="Avis suivants"
             >
               →
@@ -181,19 +181,19 @@ export default function GoogleReviews() {
 
       {/* Vue 3 par 3 (boucle infinie via modulo) */}
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {visible.map((r) => (
-            <div key={`${r.id}-${page}`} className="bg-white rounded-brand shadow-brand p-6 h-full">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-brand-graphite-900 text-base truncate">
+            <div key={`${r.id}-${page}`} className="h-full rounded-brand bg-white p-6 shadow-brand">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="min-w-0 flex-1">
+                  <h3 className="truncate text-base font-bold text-brand-graphite-900">
                     {r.name} — {r.city}
                   </h3>
-                  <p className="text-xs text-brand-graphite-600 mt-1">
+                  <p className="mt-1 text-xs text-brand-graphite-600">
                     {new Date(r.date).toLocaleDateString("fr-FR", { year: "numeric", month: "long" })} • {r.service}
                   </p>
                 </div>
-                <div className="flex space-x-1 ml-2 shrink-0">
+                <div className="ml-2 flex shrink-0 space-x-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <span
                       key={i}
@@ -204,7 +204,7 @@ export default function GoogleReviews() {
                   ))}
                 </div>
               </div>
-              <p className="text-brand-graphite-700 leading-relaxed text-sm">
+              <p className="text-sm leading-relaxed text-brand-graphite-700">
                 "{r.comment}"
               </p>
             </div>
@@ -212,17 +212,17 @@ export default function GoogleReviews() {
         </div>
         
         {/* Navigation mobile */}
-        <div className="flex md:hidden items-center justify-center space-x-4 mt-8">
+        <div className="mt-8 flex items-center justify-center space-x-4 md:hidden">
           <button
             onClick={prev}
-            className="flex items-center justify-center size-10 rounded-full bg-white border-2 border-brand-orange-600 text-brand-orange-600 hover:bg-brand-orange-600 hover:text-white transition-colors"
+            className="flex size-10 items-center justify-center rounded-full border-2 border-brand-orange-600 bg-white text-brand-orange-600 transition-colors hover:bg-brand-orange-600 hover:text-white"
             aria-label="Avis précédents"
           >
             ←
           </button>
           <button
             onClick={next}
-            className="flex items-center justify-center size-10 rounded-full bg-white border-2 border-brand-orange-600 text-brand-orange-600 hover:bg-brand-orange-600 hover:text-white transition-colors"
+            className="flex size-10 items-center justify-center rounded-full border-2 border-brand-orange-600 bg-white text-brand-orange-600 transition-colors hover:bg-brand-orange-600 hover:text-white"
             aria-label="Avis suivants"
           >
             →
@@ -232,8 +232,8 @@ export default function GoogleReviews() {
 
       {/* Logo Google et CTA */}
       <div className="mt-12 text-center">
-        <div className="flex items-center justify-center space-x-2 mb-4">
-          <svg className="w-6 h-6" viewBox="0 0 24 24">
+        <div className="mb-4 flex items-center justify-center space-x-2">
+          <svg className="size-6" viewBox="0 0 24 24">
             <path 
               fill="#4285f4" 
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -253,7 +253,7 @@ export default function GoogleReviews() {
           </svg>
           <span className="text-sm font-medium text-brand-graphite-600">Avis Google</span>
         </div>
-        <p className="text-brand-graphite-600 mb-4">
+        <p className="mb-4 text-brand-graphite-600">
           Rejoignez nos clients satisfaits
         </p>
         <a
@@ -262,7 +262,7 @@ export default function GoogleReviews() {
           rel="noopener noreferrer"
           className="btn btn-primary inline-flex items-center space-x-2"
         >
-          <svg className="w-5 h-5" viewBox="0 0 24 24">
+          <svg className="size-5" viewBox="0 0 24 24">
             <path 
               fill="currentColor" 
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"

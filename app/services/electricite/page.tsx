@@ -95,7 +95,7 @@ export default function ElectricitePage() {
                 selon besoins.
               </p>
             </div>
-            <div className="border-brand-orange-600 rounded-lg border-l-4 bg-white p-4 shadow-sm">
+            <div className="rounded-lg border-l-4 border-brand-orange-600 bg-white p-4 shadow-sm">
               <h4 className="mb-2 font-semibold text-primary">
                 Mise aux normes NF C15-100
               </h4>
@@ -158,7 +158,7 @@ export default function ElectricitePage() {
                 key={step.title}
                 className="premium-card group transition-all duration-300 hover:shadow-xl"
               >
-                <span className="mb-3 inline-block text-4xl font-bold text-accent-600 transition-transform group-hover:scale-110">
+                <span className="text-accent-600 mb-3 inline-block text-4xl font-bold transition-transform group-hover:scale-110">
                   {index + 1}
                 </span>
                 <h3 className="mb-3 text-lg font-bold uppercase tracking-widest text-primary">
@@ -173,13 +173,13 @@ export default function ElectricitePage() {
         </div>
 
         {/* Garanties et certifications */}
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent-600/10 p-8">
+        <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             ⚡ Nos garanties électricité
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">
-              <div className="bg-brand-orange-500/10 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
+              <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange-500/10">
                 <span className="text-2xl">✓</span>
               </div>
               <h3 className="mb-2 font-semibold">Conformité NF C15-100</h3>

@@ -51,7 +51,7 @@ export default function AboutPage() {
           <h2 className="mb-4 text-3xl font-bold uppercase tracking-widest">
             Notre mission
           </h2>
-          <p className="max-w-4xl mx-auto text-darkGray">
+          <p className="mx-auto max-w-4xl text-darkGray">
             Concevoir et réaliser des rénovations durables, esthétiques et
             conformes, avec une expérience client irréprochable. De l’étude à la
             réception, nous coordonnons tous les corps de métier pour livrer des
@@ -120,7 +120,7 @@ export default function AboutPage() {
           <h2 className="mb-4 text-3xl font-bold uppercase tracking-widest">
             Assurances, certifications & garanties
           </h2>
-          <p className="max-w-4xl mx-auto text-darkGray">
+          <p className="mx-auto max-w-4xl text-darkGray">
             Assurance décennale, RC Pro, certifications RGE & Qualibat selon
             lots concernés. Documents fournis sur demande. Respect strict des
             normes, PV et fiches techniques disponibles. Accompagnement complet

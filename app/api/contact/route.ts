@@ -3,7 +3,7 @@ import type { ContactFormData, ContactApiResponse } from '../../../types/api';
 
 export async function POST(request: NextRequest) {
   try {
-    const data: ContactFormData = await request.json();
+    const data = await request.json() as ContactFormData;
 
     // Honeypot check - if filled, it's likely spam
     if (data.honeypot && data.honeypot.trim() !== '') {
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
     // Validate phone number (basic French format)
     const phoneRegex = /^(?:(?:\+33|0)[1-9](?:[0-9]{8}))$/;
-    const cleanPhone = data.phone.replace(/[\s\-\.]/g, '');
+    const cleanPhone = data.phone.replace(/[\s\-.]/g, '');
     if (!phoneRegex.test(cleanPhone)) {
       return NextResponse.json(
         { success: false, message: 'Format de téléphone invalide' },

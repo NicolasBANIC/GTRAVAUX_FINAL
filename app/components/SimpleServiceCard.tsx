@@ -17,7 +17,7 @@ export default function SimpleServiceCard({
   return (
     <div className="service-card card-hover rounded-2xl bg-white/95 p-6 transition-all duration-300 hover:shadow-lg">
       <div className="tilt-inner">
-        <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent-400/15 text-accent-600">
+        <div className="bg-accent-400/15 text-accent-600 mb-4 inline-flex size-12 items-center justify-center rounded-xl">
           <Icon size={24} />
         </div>
         <h3 className="mb-2 text-xl font-semibold uppercase tracking-widest text-primary">
@@ -26,7 +26,7 @@ export default function SimpleServiceCard({
         <p className="mb-4 text-sm text-darkGray/80">{description}</p>
         <Link
           href={href}
-          className="button-secondary inline-block border-accent-400 !text-primary"
+          className="button-secondary border-accent-400 inline-block !text-primary"
         >
           En savoir plus
         </Link>
