@@ -24,12 +24,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Export static (if Next.js)
-        run: |
-          if [ -f package.json ] && cat package.json | grep -q "\"export\""; then
-            npm run export
-          fi
-
       - name: Determine output dir
         id: outdir
         run: |
