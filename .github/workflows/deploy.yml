@@ -1,0 +1,67 @@
+name: Build & Deploy to Hostinger
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Export static (if Next.js)
+        run: |
+          if [ -f package.json ] && cat package.json | grep -q "\"export\""; then
+            npm run export
+          fi
+
+      - name: Determine output dir
+        id: outdir
+        run: |
+          if [ -d "out" ]; then echo "dir=out" >> $GITHUB_OUTPUT
+          elif [ -d "build" ]; then echo "dir=build" >> $GITHUB_OUTPUT
+          elif [ -d "dist" ]; then echo "dir=dist" >> $GITHUB_OUTPUT
+          else echo "dir=." >> $GITHUB_OUTPUT; fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: ${{ steps.outdir.outputs.dir }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ${{ secrets.FTP_SECURE == 'true' && 'ftps' || 'ftp' }}
+          local-dir: site/
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
+          dangerous-clean-slate: true

@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Configuration pour l'export statique
+  output: 'export',
+  trailingSlash: true,
+  
   // Optimisations de performance
   experimental: {
     optimizePackageImports: ['react-icons'],
