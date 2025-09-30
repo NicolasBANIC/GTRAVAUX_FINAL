@@ -39,7 +39,7 @@ export default function PeinturePage() {
       <Hero
         title="Peinture & finitions"
         subtitle="Des finitions impeccables pour des intérieurs éclatants."
-        imageSrc="/images/placeholder/peinture-hero.jpg"
+        imageSrc="/images/peinture-hero.jpg"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 
