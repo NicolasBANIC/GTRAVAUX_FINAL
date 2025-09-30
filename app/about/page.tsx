@@ -2,9 +2,9 @@ import Hero from '../components/Hero';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'À propos | G.TRAVAUX - Ali Gherib',
+  title: 'A propos | G.TRAVAUX - Ali Gherib',
   description:
-    'Découvrez Ali Gherib, artisan passionné avec plus de 35 ans d'expérience dans tous les corps de métiers du bâtiment.',
+    'Decouvrez Ali Gherib, artisan passionne avec plus de 35 ans d\'experience dans tous les corps de metiers du batiment.',
 };
 
 export default function AboutPage() {
