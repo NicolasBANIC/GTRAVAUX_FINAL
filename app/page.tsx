@@ -9,6 +9,7 @@ import Link from 'next/link';
 import CertificationsBadge from './components/CertificationsBadge';
 import { getServices, getCompanyStats } from '../lib/staticData';
 import ClientMotionDiv from './components/ClientMotionDiv';
+import Estimator from './components/Estimator';
 
 /**
  * Page d'accueil - Version Server Component
@@ -193,63 +194,7 @@ export default async function HomePage() {
             </p>
           </ClientMotionDiv>
           <div className="mx-auto max-w-4xl rounded-brand bg-white p-8 shadow-brand">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-brand-graphite-900 mb-2">
-                Calculateur de devis
-              </h3>
-              <p className="text-brand-graphite-600">
-                Obtenez une estimation rapide de votre projet
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <fieldset>
-                <legend className="block text-sm font-medium text-brand-graphite-700 mb-3">
-                  Type de projet
-                </legend>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {['Rénovation complète', 'Rénovation partielle', 'Après sinistre', 'Aménagement'].map((type) => (
-                    <div key={type} className="border border-brand-graphite-200 rounded-brand p-4 cursor-pointer hover:border-brand-orange-600 transition-colors">
-                      <div className="text-center">
-                        <div className="text-sm font-medium text-brand-graphite-700">{type}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </fieldset>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="calc-surface" className="block text-sm font-medium text-brand-graphite-700 mb-2">
-                    Surface (m²)
-                  </label>
-                  <input
-                    id="calc-surface"
-                    name="surface"
-                    type="number"
-                    placeholder="Ex: 80"
-                    className="w-full px-4 py-2 border border-brand-graphite-200 rounded-brand focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="calc-rooms" className="block text-sm font-medium text-brand-graphite-700 mb-2">
-                    Nombre de pièces
-                  </label>
-                  <input
-                    id="calc-rooms"
-                    name="rooms"
-                    type="number"
-                    placeholder="Ex: 4"
-                    className="w-full px-4 py-2 border border-brand-graphite-200 rounded-brand focus:ring-2 focus:ring-brand-orange-600 focus:border-brand-orange-600"
-                  />
-                </div>
-              </div>
-              
-              <Link href="/contact" className="btn btn-primary block w-full text-center">
-                Obtenir un devis précis
-              </Link>
-            </div>
+            <Estimator />
           </div>
         </div>
       </section>

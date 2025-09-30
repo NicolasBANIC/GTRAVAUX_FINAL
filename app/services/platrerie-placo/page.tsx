@@ -39,7 +39,7 @@ export default function PlatreriePage() {
       <Hero
         title="Plâtrerie & placo"
         subtitle="Reconfigurez vos espaces avec des cloisons sur mesure."
-        imageSrc="/images/placeholder/platrerie-placo-hero.jpg"
+        imageSrc="/images/placeholder/platrerie-placo-hero.png"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 

@@ -39,7 +39,7 @@ export default function ElectricitePage() {
       <Hero
         title="Électricité"
         subtitle="Des installations électriques fiables et conformes aux normes."
-        imageSrc="/images/placeholder/electricite-hero.jpg"
+        imageSrc="/images/placeholder/electricite-hero.png"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 
