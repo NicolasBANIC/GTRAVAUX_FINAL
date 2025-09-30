@@ -20,3 +20,6 @@ server*.log
 .migration-backup/
 .vscode/
 zencoder_paths_report.txt
+
+# Archives de déploiement
+out/site_v2.zip
