@@ -27,10 +27,23 @@ jobs:
       - name: Determine output dir
         id: outdir
         run: |
-          if [ -d "out" ]; then echo "dir=out" >> $GITHUB_OUTPUT
-          elif [ -d "build" ]; then echo "dir=build" >> $GITHUB_OUTPUT
-          elif [ -d "dist" ]; then echo "dir=dist" >> $GITHUB_OUTPUT
-          else echo "dir=." >> $GITHUB_OUTPUT; fi
+          if [ -d "out" ]; then 
+            echo "dir=out" >> $GITHUB_OUTPUT
+            echo "Found out directory"
+            ls -la out/
+          elif [ -d "build" ]; then 
+            echo "dir=build" >> $GITHUB_OUTPUT
+            echo "Found build directory"
+            ls -la build/
+          elif [ -d "dist" ]; then 
+            echo "dir=dist" >> $GITHUB_OUTPUT
+            echo "Found dist directory"
+            ls -la dist/
+          else 
+            echo "dir=." >> $GITHUB_OUTPUT
+            echo "No specific output directory found, using current directory"
+            ls -la
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -48,6 +61,15 @@ jobs:
           name: site
           path: site
 
+      - name: Debug downloaded files
+        run: |
+          echo "=== Downloaded files structure ==="
+          ls -la site/
+          echo "=== Looking for index.html ==="
+          find site/ -name "index.html" -type f
+          echo "=== Total files count ==="
+          find site/ -type f | wc -l
+
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -59,3 +81,4 @@ jobs:
           local-dir: site/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
           dangerous-clean-slate: true
+          log-level: verbose
