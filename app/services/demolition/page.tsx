@@ -118,7 +118,7 @@ export default function DemolitionPage() {
       <Hero
         title="Démolition contrôlée"
         subtitle="Préparez vos chantiers de rénovation avec une dépose propre, rapide et sécurisée."
-        imageSrc="/images/placeholder/demolition-hero.jpg"
+        imageSrc="/images/demolition-hero.jpg"
         cta={{ label: 'Planifier un curage', href: '/contact' }}
       />
 
