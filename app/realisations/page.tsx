@@ -22,8 +22,8 @@ export default function RealisationsPage() {
       title: 'Chantier Strasbourg après démolition',
       slug: 'chantier-strasbourg-apres-demolition',
       description: 'Résultat de notre intervention après les travaux de démolition à Strasbourg.',
-      coverImage: null,
-      hasImages: false,
+      coverImage: '/images/realisations/chantier-strasbourg-apres-demolition/salon-poutres-apparentes.jpg',
+      hasImages: true,
     },
   ];
 
