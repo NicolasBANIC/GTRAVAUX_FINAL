@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import type { ContactFormData, ContactApiResponse } from '../../../types/api';
 
+// Configuration pour l'export statique
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json() as ContactFormData;
