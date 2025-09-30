@@ -136,7 +136,7 @@ export async function getServices(): Promise<Service[]> {
       description:
         "Création d'ouvertures, travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle.",
       href: '/services/maconnerie',
-      image: '/images/maconnerie.webp'
+      image: '/images/maconnerie-hero.png'
     },
     {
       title: 'Peinture & finitions',

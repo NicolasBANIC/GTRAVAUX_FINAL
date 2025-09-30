@@ -39,7 +39,7 @@ export default function MaconneriePage() {
       <Hero
         title="Maçonnerie"
         subtitle="Des travaux de maçonnerie pour transformer votre intérieur."
-        imageSrc="/images/placeholder/maconnerie-hero.jpg"
+        imageSrc="/images/maconnerie-hero.png"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 

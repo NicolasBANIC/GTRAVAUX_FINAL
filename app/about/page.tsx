@@ -43,7 +43,7 @@ export default function AboutPage() {
       <Hero
         title="Qui sommes-nous ?"
         subtitle="Une équipe passionnée dédiée à la rénovation et à votre satisfaction."
-        imageSrc="/images/placeholder/about-hero.jpg"
+        imageSrc="/images/about-hero.png"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
       <section className="container mx-auto space-y-12 px-4 py-16 text-center">
