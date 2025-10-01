@@ -172,7 +172,7 @@ export default function ElectricitePage() {
           </div>
         </div>
 
-        {/* Garanties et certifications */}
+        {/* Nos garanties */}
         <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
             ⚡ Nos garanties électricité

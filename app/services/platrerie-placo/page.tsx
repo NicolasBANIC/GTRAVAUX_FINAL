@@ -263,10 +263,10 @@ export default function PlatreriePage() {
           </div>
         </div>
 
-        {/* Matériaux et certifications */}
+        {/* Matériaux haute qualité */}
         <div className="to-accent-600/10 rounded-xl bg-gradient-to-r from-primary/10 p-8">
           <h2 className="mb-6 text-center text-2xl font-bold text-primary">
-            🏆 Matériaux haute qualité & certifications
+            🏆 Matériaux haute qualité
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="text-center">

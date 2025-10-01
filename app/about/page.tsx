@@ -1,5 +1,6 @@
 import Hero from '../components/Hero';
 import Image from 'next/image';
+import TrustBar from '../components/TrustBar';
 
 export const metadata = {
   title: 'A propos | G.TRAVAUX - Ali Gherib',
@@ -194,17 +195,18 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Garanties et certifications */}
+        {/* Garanties et confiance */}
         <div className="text-center">
           <h2 className="mb-6 text-3xl font-bold uppercase tracking-widest">
             Assurances & Garanties
           </h2>
-          <p className="mx-auto max-w-4xl text-darkGray text-lg leading-relaxed">
-            <strong>Assurance décennale, RC Professionnelle</strong>, certifications selon les lots concernés. 
+          <p className="mx-auto max-w-4xl text-darkGray text-lg leading-relaxed mb-8">
+            <strong>Assurance décennale, RC Professionnelle</strong>. 
             Tous les documents sont fournis sur demande. Respect strict des normes en vigueur, 
             PV de conformité et fiches techniques disponibles. 
             <strong>Accompagnement complet après sinistre</strong> et relations privilégiées avec les assurances.
           </p>
+          <TrustBar variant="full" />
         </div>
 
         {/* Call to action final */}

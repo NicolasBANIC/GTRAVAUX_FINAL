@@ -6,7 +6,7 @@ import GoogleReviews from './components/GoogleReviews';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
 import Link from 'next/link';
-import CertificationsBadge from './components/CertificationsBadge';
+import TrustBar from './components/TrustBar';
 import { getServices, getCompanyStats } from '../lib/staticData';
 import ClientMotionDiv from './components/ClientMotionDiv';
 import Estimator from './components/Estimator';
@@ -239,8 +239,8 @@ export default async function HomePage() {
             ))}
           </div>
           <ClientMotionDiv delay={0.4}>
-            <div className="mt-12 text-center">
-              <CertificationsBadge />
+            <div className="mt-12">
+              <TrustBar variant="full" />
             </div>
           </ClientMotionDiv>
         </div>
@@ -327,19 +327,8 @@ export default async function HomePage() {
                 interventions sont couvertes par une assurance décennale et 
                 respectent les normes en vigueur.
               </p>
-              <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">RGE</div>
-                  <div className="text-sm text-brand-graphite-600">Reconnu Garant Environnement</div>
-                </div>
-                <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">QUALIBAT</div>
-                  <div className="text-sm text-brand-graphite-600">Certification métiers</div>
-                </div>
-                <div className="rounded-brand bg-brand-bone p-6 shadow-brandSm">
-                  <div className="mb-2 text-2xl font-bold text-brand-orange-600">10 ans</div>
-                  <div className="text-sm text-brand-graphite-600">Garantie décennale</div>
-                </div>
+              <div className="mt-8">
+                <TrustBar variant="full" />
               </div>
             </div>
           </ClientMotionDiv>
