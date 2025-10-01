@@ -11,9 +11,9 @@ interface CallbackFormEnhancedProps {
 
 /**
  * Formulaire de rappel amélioré avec champ date souhaitée
- * - Empêche la redirection vers la page contact
- * - Affiche un message de confirmation après envoi simulé
- * - Prépare les points d'intégration pour l'envoi futur
+ * - Envoi via API PHP (Hostinger SMTP)
+ * - RGPD compliant avec consentement obligatoire
+ * - Protection anti-bot (honeypot)
  * - Validation côté client avec messages d'erreur clairs
  */
 export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnhancedProps) {
@@ -24,6 +24,7 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
     timeSlot: '',
     honeypot: '',
   });
+  const [consent, setConsent] = useState<boolean>(false);
   
   const [sent, setSent] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -59,6 +60,10 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
       return 'Le créneau horaire est obligatoire.';
     }
 
+    if (!consent) {
+      return 'Vous devez accepter la politique de confidentialité pour continuer.';
+    }
+
     // Vérifier que la date n'est pas dans le passé
     const selectedDate = new Date(data.preferredDate);
     const today = new Date();
@@ -72,13 +77,13 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    console.log('CallbackFormEnhanced: handleSubmit called');
     e.preventDefault();
     e.stopPropagation();
 
     // Protection honeypot
     if (data.honeypot) {
-      console.log('CallbackFormEnhanced: Honeypot detected, blocking submission');
+      // Bot détecté, on fait semblant que tout va bien
+      setSent(true);
       return;
     }
 
@@ -93,44 +98,36 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
     setError('');
 
     try {
-      // PHASE ACTUELLE : Simulation d'envoi (pas d'envoi réel)
-      // Point d'intégration futur : ici sera branché l'envoi réel
-      await simulateSubmission(data);
+      // Envoi vers l'API PHP
+      const formData = new FormData();
+      formData.append('nom', data.name);
+      formData.append('telephone', data.phone);
+      formData.append('email', ''); // Optionnel pour ce formulaire
+      formData.append('message', ''); // Optionnel pour ce formulaire
+      formData.append('preferredDate', data.preferredDate);
+      formData.append('timeSlot', data.timeSlot);
+      formData.append('_gotcha', data.honeypot);
+      if (consent) {
+        formData.append('consent', '1');
+      }
+
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi');
+      }
       
       setSent(true);
-    } catch (_err) {
-      setError('Une erreur est survenue. Veuillez réessayer.');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
-    }
-  };
-
-  /**
-   * Simulation d'envoi pour la phase actuelle
-   * POINT D'INTÉGRATION FUTUR : Cette fonction sera remplacée par l'envoi réel
-   * vers l'API qui gérera l'envoi d'emails/SMS/WhatsApp
-   */
-  const simulateSubmission = async (formData: CallbackFormData): Promise<void> => {
-    // Simulation d'un délai réseau
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Préparer les données qui seront envoyées dans la phase suivante
-    const submissionData = {
-      ...formData,
-      submittedAt: new Date().toISOString(),
-      source: 'homepage_hero_form',
-      // Ces données seront utilisées pour l'envoi futur :
-      // - Nom, téléphone, date souhaitée, créneau horaire
-      // - Page d'origine et horodatage
-      // - Prêt pour intégration email/SMS/WhatsApp
-    };
-    
-    // En phase de développement, on peut logger les données
-    console.log('Données préparées pour envoi futur:', submissionData);
-    
-    // Simulation de succès (95% de réussite)
-    if (Math.random() < 0.05) {
-      throw new Error('Simulation d\'erreur');
     }
   };
 
@@ -263,10 +260,36 @@ export default function CallbackFormEnhanced({ className = '' }: CallbackFormEnh
             </select>
           </div>
 
-          {/* Honeypot (protection anti-spam) */}
-          <div className="hidden">
+          {/* RGPD - Consentement obligatoire */}
+          <div className="flex items-start space-x-3">
             <input
-              name="honeypot"
+              type="checkbox"
+              id="callback-consent"
+              name="consent"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              required
+              aria-required="true"
+              className="mt-1 size-4 rounded border-lightGray text-brand-orange-600 focus:ring-brand-orange-600"
+            />
+            <label htmlFor="callback-consent" className="text-sm leading-5 text-darkGray">
+              J'accepte que mes informations soient utilisées pour me recontacter{' '}
+              <a 
+                href="/confidentialite/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-brand-orange-600 underline hover:text-brand-orange-700"
+              >
+                (voir Politique de confidentialité)
+              </a>
+              . *
+            </label>
+          </div>
+
+          {/* Honeypot (protection anti-spam) */}
+          <div className="hidden" aria-hidden="true">
+            <input
+              name="_gotcha"
               value={data.honeypot}
               onChange={handleChange}
               tabIndex={-1}

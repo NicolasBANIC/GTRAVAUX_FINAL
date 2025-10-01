@@ -1,0 +1,38 @@
+# Protection du dossier API
+# Empêche l'accès direct aux fichiers sensibles
+
+# Bloquer l'accès à config.php
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Bloquer l'accès au dossier vendor
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^vendor/ - [F,L]
+</IfModule>
+
+# Autoriser uniquement les requêtes POST pour les endpoints
+<FilesMatch "(contact|devis)\.php$">
+    <LimitExcept POST OPTIONS>
+        Order Allow,Deny
+        Deny from all
+    </LimitExcept>
+</FilesMatch>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Désactiver l'affichage des erreurs PHP en production
+php_flag display_errors Off
+php_flag log_errors On
+
+# Limiter la taille des uploads (si nécessaire)
+php_value upload_max_filesize 10M
+php_value post_max_size 10M

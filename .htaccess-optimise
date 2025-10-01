@@ -1,0 +1,161 @@
+# Configuration Apache optimisée pour Hostinger
+# Copiez ce contenu dans le fichier .htaccess de votre serveur
+
+# ========================================
+# Réécriture d'URL pour Next.js Static
+# ========================================
+RewriteEngine On
+RewriteBase /
+
+# Rediriger les URLs sans extension vers les fichiers HTML
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# ========================================
+# Forcer HTTPS (SSL)
+# ========================================
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ========================================
+# Cache des fichiers statiques
+# ========================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  
+  # CSS et JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  
+  # Vidéos
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  
+  # Fonts
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  
+  # HTML (pas de cache pour les pages)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ========================================
+# Compression GZIP
+# ========================================
+<IfModule mod_deflate.c>
+  # Compresser les fichiers texte
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE text/javascript
+  
+  # Exclure les fichiers déjà compressés
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|mp4|webm)$ no-gzip
+</IfModule>
+
+# ========================================
+# Sécurité
+# ========================================
+
+# Désactiver l'affichage des répertoires
+Options -Indexes
+
+# Protéger les fichiers sensibles
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Empêcher l'accès aux fichiers de configuration
+<FilesMatch "\.(env|json|config\.js|md|gitignore|gitattributes|lock)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+  # Protection XSS
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Empêcher le MIME sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Clickjacking protection
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Référer policy
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Content Security Policy (à ajuster selon vos besoins)
+  # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# ========================================
+# Performance
+# ========================================
+
+# Activer Keep-Alive
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>
+
+# Limiter la taille des uploads (si formulaire avec fichiers)
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# ========================================
+# Gestion des erreurs
+# ========================================
+
+# Page d'erreur 404 personnalisée
+ErrorDocument 404 /404.html
+
+# Page d'erreur 500 (optionnel)
+# ErrorDocument 500 /500.html
+
+# ========================================
+# Types MIME
+# ========================================
+<IfModule mod_mime.c>
+  # JavaScript
+  AddType application/javascript js
+  AddType text/javascript js
+  
+  # Vidéos
+  AddType video/mp4 mp4
+  AddType video/webm webm
+  
+  # Fonts
+  AddType font/woff woff
+  AddType font/woff2 woff2
+  
+  # Images
+  AddType image/webp webp
+  AddType image/svg+xml svg
+</IfModule>
+
+# ========================================
+# UTF-8 par défaut
+# ========================================
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+</IfModule>

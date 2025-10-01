@@ -15,8 +15,10 @@ export default function ContactForm() {
     want3D: false,
     honeypot: '',
   });
+  const [consent, setConsent] = useState<boolean>(false);
   const [sent, setSent] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = (e) => {
     const { name, value, type } = e.target;
@@ -28,16 +30,61 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    if (data.honeypot) return;
-    if (!data.name || !data.email || !data.message) {
-      setError('Veuillez remplir tous les champs obligatoires.');
+    
+    // Protection honeypot
+    if (data.honeypot) {
+      setSent(true);
       return;
     }
+    
+    // Validation
+    if (!data.name || !data.email || !data.message) {
+      setError('Veuillez remplir tous les champs obligatoires (nom, email, message).');
+      return;
+    }
+    
+    if (!consent) {
+      setError('Vous devez accepter la politique de confidentialité pour continuer.');
+      return;
+    }
+    
     setError('');
-    // TODO: Envoyer les données à l'API
-    setSent(true);
+    setLoading(true);
+
+    try {
+      // Envoi vers l'API PHP
+      const formData = new FormData();
+      formData.append('nom', data.name);
+      formData.append('email', data.email);
+      formData.append('telephone', data.phone);
+      formData.append('service', data.service);
+      formData.append('message', data.message);
+      formData.append('projection_3d', data.want3D ? '1' : '');
+      formData.append('_gotcha', data.honeypot);
+      if (consent) {
+        formData.append('consent', '1');
+      }
+
+      const response = await fetch('/api/devis.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi');
+      }
+      
+      setSent(true);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer.';
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (sent) {
@@ -159,10 +206,36 @@ export default function ContactForm() {
         </label>
       </div>
 
-      {/* Honeypot */}
-      <div className="hidden">
+      {/* RGPD - Consentement obligatoire */}
+      <div className="flex items-start space-x-3">
         <input
-          name="honeypot"
+          type="checkbox"
+          id="contact-consent"
+          name="consent"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          required
+          aria-required="true"
+          className="mt-1 size-4 rounded border-lightGray text-brand-orange-600 focus:ring-brand-orange-600"
+        />
+        <label htmlFor="contact-consent" className="text-sm leading-5 text-darkGray">
+          J'accepte que mes informations soient utilisées pour me recontacter{' '}
+          <a 
+            href="/confidentialite/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-brand-orange-600 underline hover:text-brand-orange-700"
+          >
+            (voir Politique de confidentialité)
+          </a>
+          . *
+        </label>
+      </div>
+
+      {/* Honeypot */}
+      <div className="hidden" aria-hidden="true">
+        <input
+          name="_gotcha"
           value={data.honeypot}
           onChange={handleChange}
           tabIndex={-1}
@@ -170,8 +243,19 @@ export default function ContactForm() {
         />
       </div>
 
-      <button type="submit" className="button-accent w-full font-semibold">
-        Envoyer le message
+      <button 
+        type="submit" 
+        disabled={loading}
+        className="button-accent w-full font-semibold disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {loading ? (
+          <>
+            <span className="inline-block size-4 animate-spin rounded-full border-2 border-white border-t-transparent mr-2"></span>
+            Envoi en cours...
+          </>
+        ) : (
+          'Envoyer le message'
+        )}
       </button>
     </form>
   );

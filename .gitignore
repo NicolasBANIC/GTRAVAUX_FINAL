@@ -2,6 +2,10 @@
 node_modules/
 .next/
 dist/
+out/
+coverage/
+.vite/
+.cache/
 .env
 .env.local
 .env.development.local
@@ -12,14 +16,32 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.tsbuildinfo
-cat >> .gitignore << 'EOF'
+
 # Local artifacts / tooling
 playwright-report/
 test-results/
+.playwright/
 server*.log
 .migration-backup/
 .vscode/
 zencoder_paths_report.txt
 
 # Archives de déploiement
-out/site_v2.zip
+*.zip
+*.tmp
+
+# Logs
+*.log
+
+# secrets & vendor (do NOT commit)
+api/config.php
+api/vendor/
+*.env
+.env.local
+.env.production
+
+# OS/editor junk
+Thumbs.db
+
+# Safety backup
+.safe_trash_*/
