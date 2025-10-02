@@ -108,14 +108,14 @@ export async function getServices(): Promise<Service[]> {
       description:
         'Curage complet, démolitions sélectives et tronçonnage technique sécurisé pour libérer vos volumes avant reconstruction.',
       href: '/services/demolition',
-      image: '/images/demolition.png'
+      image: '/images/demolition.webp'
     },
     {
       title: 'Électricité',
       description:
         'Mise aux normes électriques, installations neuves et dépannages en toute sécurité. Nos électriciens qualifiés interviennent sur tous vos équipements électriques.',
       href: '/services/electricite',
-      image: '/images/electricite.png'
+      image: '/images/electricite.webp'
     },
     {
       title: 'Plomberie',
@@ -129,14 +129,14 @@ export async function getServices(): Promise<Service[]> {
       description:
         'Améliorez votre confort thermique et acoustique grâce à des solutions performantes. Nous sélectionnons les matériaux isolants les plus adaptés à votre habitation.',
       href: '/services/isolation-interieure',
-      image: '/images/isolation-interieure.png'
+      image: '/images/isolation-interieure.webp'
     },
     {
       title: 'Maçonnerie',
       description:
         "Création d'ouvertures, travaux de maçonnerie et réparations structurales. Nos maçons expérimentés interviennent pour tous vos projets de modification structurelle.",
       href: '/services/maconnerie',
-      image: '/images/maconnerie-hero.png'
+      image: '/images/maconnerie-hero.webp'
     },
     {
       title: 'Peinture & finitions',
@@ -164,7 +164,7 @@ export async function getServices(): Promise<Service[]> {
       description:
         "Conception de salles d'eau, réseaux sanitaires complets et pose d'appareils haut rendement pour un confort durable.",
       href: '/services/sanitaires',
-      image: '/images/sanitaires.jpg'
+      image: '/images/sanitaires.webp'
     }
   ];
 

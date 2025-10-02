@@ -5,6 +5,7 @@ import BeforeAfterSlider from './components/BeforeAfterSlider';
 import GoogleReviews from './components/GoogleReviews';
 import InterventionZones from './components/InterventionZones';
 import LocalSEO from './components/LocalSEO';
+import StructuredData from './components/StructuredData';
 import Link from 'next/link';
 import TrustBar from './components/TrustBar';
 import { getServices, getCompanyStats } from '../lib/staticData';
@@ -58,6 +59,17 @@ export default async function HomePage() {
         businessName="G.TRAVAUX"
         city="Strasbourg"
         services={services.map(s => s.title)}
+      />
+      
+      {/* Données structurées WebSite + SearchAction */}
+      <StructuredData type="WebSite" />
+      
+      {/* Breadcrumb pour la page d'accueil */}
+      <StructuredData 
+        type="BreadcrumbList" 
+        breadcrumbs={[
+          { name: 'Accueil', url: 'https://g-travaux.fr/' }
+        ]}
       />
 
       {/* Hero section avec formulaire intégré */}
@@ -172,8 +184,8 @@ export default async function HomePage() {
             <ClientMotionDiv delay={0.2}>
               <BeforeAfterSlider
                 nomProjet="Cuisine rénovée"
-                srcBefore="/images/placeholder/apres.png"
-                srcAfter="/images/placeholder/avant.png"
+                srcBefore="/images/placeholder/apres.webp"
+                srcAfter="/images/placeholder/avant.webp"
                 altBefore="Cuisine avant rénovation — projet"
                 altAfter="Cuisine après rénovation — projet"
               />

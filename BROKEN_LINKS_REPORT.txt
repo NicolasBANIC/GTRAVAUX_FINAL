@@ -1,0 +1,22 @@
+RAPPORT DES LIENS CASSÉS
+========================
+
+Date: 2025-10-02T00:42:16.220Z
+Liens cassés: 4
+
+Lien: ${w}
+Fichiers concernés:
+  - app\components\OptimizedImage.tsx
+
+Lien: EN_ATTENTE_URL_MEDIATEUR
+Fichiers concernés:
+  - app\mentions-legales\page.tsx
+
+Lien: /realisations/chantier-strasbourg-avant-demolition
+Fichiers concernés:
+  - app\realisations\chantier-strasbourg-apres-demolition\page.tsx
+
+Lien: /realisations/chantier-strasbourg-apres-demolition
+Fichiers concernés:
+  - app\realisations\chantier-strasbourg-avant-demolition\page.tsx
+

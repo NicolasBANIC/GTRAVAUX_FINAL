@@ -1,0 +1,73 @@
+# REDIRECTIONS SEO - G.TRAVAUX
+# =============================
+# Ce fichier liste les redirections 301 recommandées pour préserver le SEO
+# lors de la migration ou de changements d'URLs.
+#
+# Format: ANCIENNE_URL → NOUVELLE_URL
+# 
+# STATUT: Aucune redirection nécessaire pour cette phase
+# -------------------------------------------------------
+# Toutes les URLs existantes ont été préservées.
+# Les pages suivantes sont actives et accessibles:
+#
+# Pages principales:
+# - / (accueil)
+# - /about (à propos)
+# - /contact
+# - /realisations
+# - /mentions-legales
+# - /confidentialite
+# - /cookies
+# - /blog
+#
+# Pages de services:
+# - /services/maconnerie
+# - /services/plomberie
+# - /services/electricite
+# - /services/platrerie-placo
+# - /services/peinture-finitions
+# - /services/pose-de-sol
+# - /services/sanitaires
+# - /services/isolation-interieure
+# - /services/demolition
+#
+# Pages de réalisations:
+# - /realisations/chantier-strasbourg-avant-demolition
+# - /realisations/chantier-strasbourg-apres-demolition
+#
+# RECOMMANDATIONS FUTURES:
+# ------------------------
+# Si vous modifiez des URLs à l'avenir, ajoutez les redirections ici
+# au format suivant, puis implémentez-les dans .htaccess racine:
+#
+# Exemple:
+# /ancien-service → /services/nouveau-service
+# /vieille-page → /nouvelle-page
+#
+# SNIPPET .htaccess POUR REDIRECTIONS 301:
+# ----------------------------------------
+# À ajouter dans le .htaccess RACINE (public_html/.htaccess)
+# NE PAS modifier api/.htaccess
+#
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   
+#   # Exemple de redirection 301
+#   # RewriteRule ^ancien-service$ /services/nouveau-service [R=301,L]
+#   
+#   # Redirection www vers non-www (si applicable)
+#   # RewriteCond %{HTTP_HOST} ^www\.gtravaux\.fr [NC]
+#   # RewriteRule ^(.*)$ https://gtravaux.fr/$1 [R=301,L]
+#   
+#   # Forcer HTTPS (si certificat SSL actif)
+#   # RewriteCond %{HTTPS} off
+#   # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# </IfModule>
+#
+# NOTES IMPORTANTES:
+# ------------------
+# 1. Testez toujours les redirections sur un environnement de staging
+# 2. Vérifiez que mod_rewrite est activé sur votre serveur
+# 3. Sauvegardez toujours .htaccess avant modification
+# 4. Les redirections 301 sont permanentes et mises en cache par les navigateurs
+# 5. Utilisez des outils comme Screaming Frog pour valider les redirections

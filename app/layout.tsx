@@ -22,6 +22,12 @@ export const metadata = {
   description:
     'Entreprise basée à Strasbourg — interventions dans toute la France. Rénovation haut de gamme & après sinistre, interventions rapides et finitions d’excellence.',
   metadataBase: new URL('https://g-travaux.fr'),
+  alternates: {
+    canonical: 'https://g-travaux.fr',
+    languages: {
+      'fr-FR': 'https://g-travaux.fr',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -32,27 +38,43 @@ export const metadata = {
       'Interventions rapides, finitions d’excellence, accompagnement assurance.',
     images: [
       {
-        url: '/images/placeholder/home-hero.jpg',
+        url: '/images/placeholder/home-hero.webp',
         width: 1200,
         height: 630,
-        alt: 'G.TRAVAUX',
+        alt: 'G.TRAVAUX - Entreprise de rénovation à Strasbourg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'G.TRAVAUX',
-    description: 'Rénovation haut de gamme & après sinistre',
-    images: ['/images/placeholder/home-hero.jpg'],
+    title: 'G.TRAVAUX | Rénovation haut de gamme',
+    description: 'Rénovation haut de gamme & après sinistre - Strasbourg et toute la France',
+    images: ['/images/placeholder/home-hero.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // À compléter avec les codes de vérification Google Search Console, Bing, etc.
   },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // JSON-LD for LocalBusiness schema
+  // JSON-LD for LocalBusiness schema (enrichi pour SEO)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
+    '@id': 'https://g-travaux.fr/#business',
     name: 'G.TRAVAUX',
+    legalName: 'G.TRAVAUX',
     description:
       'Entreprise de rénovation haut de gamme & après sinistre, basée à Strasbourg. Interventions dans toute la France.',
     url: 'https://g-travaux.fr',
@@ -65,8 +87,45 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       postalCode: '67000',
       addressCountry: 'FR',
     },
-    areaServed: 'FR',
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 48.5734,
+      longitude: 7.7521,
+    },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Strasbourg',
+      },
+      {
+        '@type': 'City',
+        name: 'Colmar',
+      },
+      {
+        '@type': 'City',
+        name: 'Mulhouse',
+      },
+      {
+        '@type': 'State',
+        name: 'Grand Est',
+      },
+      {
+        '@type': 'Country',
+        name: 'France',
+      },
+    ],
     priceRange: '$$',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
+    ],
+    sameAs: [
+      // À compléter avec les réseaux sociaux si disponibles
+    ],
   };
   return (
     <html lang="fr">

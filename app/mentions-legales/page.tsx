@@ -42,7 +42,7 @@ export default function Page() {
       <h2>Médiation de la consommation</h2>
       <p>
         Conformément à l'article L.616-1 du Code de la consommation, G.TRAVAUX propose un dispositif de médiation.<br />
-        <strong>Organisme :</strong> EN_ATTENTE_MEDIATEUR — <a href="EN_ATTENTE_URL_MEDIATEUR">Site du médiateur</a>.
+        <strong>Organisme :</strong> EN_ATTENTE_MEDIATEUR — <span className="text-gray-500">(informations en cours de finalisation)</span>.
       </p>
       
       <h2>Propriété intellectuelle</h2>
