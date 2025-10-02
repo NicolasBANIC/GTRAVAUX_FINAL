@@ -11,22 +11,22 @@ export const metadata = {
 export default function ContactPage() {
   const faqs = [
     {
-      question: 'Quels sont vos délais d’intervention ?',
+      question: "Quels sont vos délais d'intervention ?",
       answer:
-        'Nous intervenons généralement sous 48 h pour les demandes urgentes et planifions les chantiers selon vos disponibilités.',
+        "Nous intervenons généralement sous 48 h pour les demandes urgentes et planifions les chantiers selon vos disponibilités.",
     },
     {
-      question: 'Proposez-vous des devis gratuits ?',
+      question: 'Proposez-vous des devis gratuits ?',
       answer:
         'Oui, nous établissons un devis gratuit et détaillé après étude de votre projet.',
     },
     {
-      question: 'Travaillez-vous avec les assurances ?',
+      question: 'Travaillez-vous avec les assurances ?',
       answer:
         'Nous accompagnons nos clients dans leurs démarches auprès des assurances et intervenons après sinistre.',
     },
     {
-      question: 'Dans quelles régions intervenez-vous ?',
+      question: 'Dans quelles régions intervenez-vous ?',
       answer:
         'Nous sommes basés en Alsace et nous déplaçons également sur des chantiers à Lyon, Nancy et Metz.',
     },
@@ -36,7 +36,7 @@ export default function ContactPage() {
     <div>
       <Hero
         title="Contact & devis"
-        subtitle="Discutons de votre projet : nos équipes vous répondent sous 24 heures ouvrées."
+        subtitle="Discutons de votre projet : nos équipes vous répondent sous 24 heures ouvrées."
         imageSrc="/images/contact-hero.png"
       />
 
@@ -60,13 +60,13 @@ export default function ContactPage() {
               Nos coordonnées
             </h2>
             <p className="mb-2">
-              Téléphone :{' '}
+              Téléphone :{' '}
               <a href="tel:+33367102653" className="text-primary hover:underline">
-                +33 6 04 00 74 99
+                03 67 10 26 53
               </a>
             </p>
             <p className="mb-2">
-              Email :{' '}
+              Email :{' '}
               <a
                 href="mailto:contact@g-travaux.fr"
                 className="text-primary hover:underline"
@@ -75,7 +75,7 @@ export default function ContactPage() {
               </a>
             </p>
             <p className="mb-4">
-              Adresse : 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg
+              Adresse : 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg
             </p>
             <div className="h-64 w-full overflow-hidden rounded shadow">
               <iframe
