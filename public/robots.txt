@@ -1,0 +1,9 @@
+# Robots.txt pour G.TRAVAUX
+# Site: https://g-travaux.fr
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://g-travaux.fr/sitemap.xml

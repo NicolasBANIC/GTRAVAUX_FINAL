@@ -94,7 +94,7 @@ export default function SanitairesPage() {
       <Hero
         title="Installations sanitaires complètes"
         subtitle="Des réseaux fiables, des salles d'eau élégantes et performantes pour tous vos projets de rénovation."
-        imageSrc="/images/sanitaires-hero.jpg"
+        imageSrc="/images/sanitaires-hero.webp"
         cta={{ label: 'Planifier un projet sanitaire', href: '/contact' }}
       />
 

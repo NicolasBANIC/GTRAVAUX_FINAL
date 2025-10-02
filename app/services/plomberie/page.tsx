@@ -39,7 +39,7 @@ export default function PlomberiePage() {
       <Hero
         title="Plomberie"
         subtitle="Des installations de plomberie fiables et durables."
-        imageSrc="/images/placeholder/plomberie-hero.jpg"
+        imageSrc="/images/placeholder/plomberie-hero.webp"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 

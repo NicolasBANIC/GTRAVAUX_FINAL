@@ -12,8 +12,8 @@ type BeforeAfterProps = {
 
 export default function BeforeAfterSlider({
   nomProjet = "Réalisation",
-  srcBefore = "/images/placeholder/apres.png",  // BEFORE = nouvelle image "apres.png"
-  srcAfter = "/images/placeholder/avant.png",  // AFTER  = nouvelle image "avant.png"
+  srcBefore = "/images/placeholder/apres.webp",  // BEFORE = nouvelle image "apres.png"
+  srcAfter = "/images/placeholder/avant.webp",  // AFTER  = nouvelle image "avant.png"
   altBefore = "Cuisine avant rénovation — projet",
   altAfter = "Cuisine après rénovation — projet",
 }: BeforeAfterProps) {

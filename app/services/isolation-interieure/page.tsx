@@ -39,7 +39,7 @@ export default function IsolationInterieurePage() {
       <Hero
         title="Isolation intérieure"
         subtitle="Confort thermique et acoustique grâce à des solutions performantes."
-        imageSrc="/images/placeholder/isolation-interieure-hero.png"
+        imageSrc="/images/placeholder/isolation-interieure-hero.webp"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 

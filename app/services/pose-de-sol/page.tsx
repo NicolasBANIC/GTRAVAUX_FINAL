@@ -39,7 +39,7 @@ export default function PoseDeSolPage() {
       <Hero
         title="Pose de sol"
         subtitle="Des revêtements adaptés à votre mode de vie."
-        imageSrc="/images/placeholder/pose-sol-hero.jpg"
+        imageSrc="/images/placeholder/pose-sol-hero.webp"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
 

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://g-travaux.fr/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/" />
+  </url>
+  
+  <!-- À propos -->
+  <url>
+    <loc>https://g-travaux.fr/about/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/about/" />
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://g-travaux.fr/contact/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/contact/" />
+  </url>
+  
+  <!-- Réalisations -->
+  <url>
+    <loc>https://g-travaux.fr/realisations/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/realisations/" />
+  </url>
+  
+  <!-- Services -->
+  <url>
+    <loc>https://g-travaux.fr/services/demolition/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/demolition/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/electricite/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/electricite/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/isolation-interieure/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/isolation-interieure/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/maconnerie/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/maconnerie/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/peinture-finitions/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/peinture-finitions/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/platrerie-placo/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/platrerie-placo/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/plomberie/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/plomberie/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/pose-de-sol/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/pose-de-sol/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/services/sanitaires/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/services/sanitaires/" />
+  </url>
+  
+  <!-- Pages légales -->
+  <url>
+    <loc>https://g-travaux.fr/mentions-legales/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/mentions-legales/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/confidentialite/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/confidentialite/" />
+  </url>
+  
+  <url>
+    <loc>https://g-travaux.fr/cookies/</loc>
+    <lastmod>2024-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://g-travaux.fr/cookies/" />
+  </url>
+  
+</urlset>

@@ -37,7 +37,7 @@ export default function ContactPage() {
       <Hero
         title="Contact & devis"
         subtitle="Discutons de votre projet : nos équipes vous répondent sous 24 heures ouvrées."
-        imageSrc="/images/contact-hero.png"
+        imageSrc="/images/contact-hero.webp"
       />
 
       <section className="container mx-auto px-4 py-20 text-center">

@@ -14,7 +14,7 @@ export default function AboutPage() {
       <Hero
         title="Votre artisan de confiance"
         subtitle="Ali Gherib, plus de 35 ans d'expertise au service de vos projets"
-        imageSrc="/images/about-hero.png"
+        imageSrc="/images/about-hero.webp"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
       
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="w-80 h-80 overflow-hidden rounded-2xl shadow-2xl">
                 <Image
-                  src="/images/ali-gherib.png"
+                  src="/images/ali-gherib.webp"
                   alt="Ali Gherib - Artisan expert en bâtiment"
                   width={320}
                   height={320}

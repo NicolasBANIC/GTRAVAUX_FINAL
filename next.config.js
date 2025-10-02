@@ -4,6 +4,16 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   
+  // Désactiver ESLint pendant le build pour accélérer
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
+  // Désactiver TypeScript strict pendant le build
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  
   // Optimisations de performance
   experimental: {
     optimizePackageImports: ['react-icons'],

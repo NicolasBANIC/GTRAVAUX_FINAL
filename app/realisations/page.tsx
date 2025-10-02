@@ -39,7 +39,7 @@ export default function RealisationsPage() {
       <Hero
         title="Nos réalisations"
         subtitle="Parcourez nos projets et laissez-vous inspirer."
-        imageSrc="/images/realisations-hero.png"
+        imageSrc="/images/realisations-hero.webp"
         cta={{ label: 'Demander un devis', href: '/contact' }}
       />
       <section className="container mx-auto space-y-16 px-4 py-20 text-center">
