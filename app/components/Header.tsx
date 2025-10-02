@@ -212,7 +212,7 @@ export default function Header() {
         {/* Téléphone + bouton devis (droite) */}
         <div className="hidden shrink-0 items-center gap-6 md:flex">
           <Link
-            href="tel:+33604007499"
+            href="tel:+33367102653"
             className="btn btn-outline md:ml-3"
             aria-label="Urgence 24h/24"
           >
@@ -222,7 +222,7 @@ export default function Header() {
                 URGENCE 24h/24
               </span>
               <span className="text-sm font-black">
-                06 04 00 74 99
+                03 67 10 26 53
               </span>
             </div>
           </Link>
@@ -293,13 +293,13 @@ export default function Header() {
               <li className="pt-4">
                 <div className="flex items-center justify-between gap-4">
                   <Link
-                    href="tel:+33604007499"
+                    href="tel:+33367102653"
                     className="btn btn-outline"
                     aria-label="Urgence 24h/24"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <FaPhone className="mr-2" />
-                    <span>06 04 00 74 99</span>
+                    <span>03 67 10 26 53</span>
                   </Link>
                   <Link
                     href="/contact"

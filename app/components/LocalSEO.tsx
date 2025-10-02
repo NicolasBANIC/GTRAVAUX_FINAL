@@ -16,7 +16,7 @@ export function generateLocalSEOMetadata({
   address = 'Strasbourg, France',
   city = 'Strasbourg',
   postalCode = '67000',
-  phone = '+33604007499',
+  phone = '+33367102653',
   email = 'contact@g-travaux.fr',
   services = [
     'Rénovation complète',
@@ -258,7 +258,7 @@ export default function LocalSEO(props: LocalSEOProps) {
     '@type': 'LocalBusiness',
     name: props.businessName || 'G.TRAVAUX',
     image: 'https://g-travaux.fr/images/logo.png',
-    telephone: props.phone || '+33604007499',
+    telephone: props.phone || '+33367102653',
     email: props.email || 'contact@g-travaux.fr',
     address: {
       '@type': 'PostalAddress',

@@ -22,7 +22,7 @@ export default function Page() {
         <strong>RCS :</strong> Strasbourg — SIREN : 930 621 875 — SIRET (siège) : 930 621 875 00010<br />
         <strong>Code APE :</strong> 43.99C — Travaux de maçonnerie générale et gros œuvre de bâtiment<br />
         <strong>TVA intracom :</strong> EN_ATTENTE_TVA<br />
-        <strong>Tél. :</strong> 09 00 00 00 00 — Email : contact.gtravaux@gmail.com
+        <strong>Tél. :</strong> 03 67 10 26 53 — Email : contact@g-travaux.fr
       </p>
 
       <h2>Responsable de publication</h2>
@@ -66,7 +66,7 @@ export default function Page() {
       </p>
       
       <h2>Contact</h2>
-      <p>Pour toute question, écrivez-nous à contact.gtravaux@gmail.com ou appelez le 09 00 00 00 00.</p>
+      <p>Pour toute question, écrivez-nous à contact@g-travaux.fr ou appelez le 03 67 10 26 53.</p>
     </main>
   );
 }

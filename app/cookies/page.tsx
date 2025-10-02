@@ -43,7 +43,7 @@ export default function Page() {
       </p>
       
       <h2>Contact</h2>
-      <p>Pour toute question : contact.gtravaux@gmail.com.</p>
+      <p>Pour toute question : contact@g-travaux.fr.</p>
     </main>
   );
 }

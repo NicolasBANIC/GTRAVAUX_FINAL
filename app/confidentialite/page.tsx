@@ -22,7 +22,7 @@ export default function Page() {
       
       <h2>Responsable de traitement</h2>
       <p>
-        G.TRAVAUX — 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg — contact.gtravaux@gmail.com — 09 00 00 00 00.
+        G.TRAVAUX — 3 Rue du Vingt-Deux Novembre, 67000 Strasbourg — contact@g-travaux.fr — 03 67 10 26 53.
       </p>
       
       <h2>Données collectées</h2>
@@ -61,7 +61,7 @@ export default function Page() {
       <h2>Vos droits</h2>
       <p>
         Vous disposez des droits d'accès, rectification, effacement, limitation, opposition et portabilité.
-        Pour les exercer : contact.gtravaux@gmail.com. Vous pouvez aussi saisir la CNIL (cnil.fr).
+        Pour les exercer : contact@g-travaux.fr. Vous pouvez aussi saisir la CNIL (cnil.fr).
       </p>
       
       <h2>Sécurité</h2>

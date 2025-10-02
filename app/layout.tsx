@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     description:
       'Entreprise de rénovation haut de gamme & après sinistre, basée à Strasbourg. Interventions dans toute la France.',
     url: 'https://g-travaux.fr',
-    telephone: '+33604007499',
+    telephone: '+33367102653',
     email: 'contact@g-travaux.fr',
     address: {
       '@type': 'PostalAddress',

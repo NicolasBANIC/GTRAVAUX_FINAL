@@ -62,35 +62,35 @@ export default function LiveChat() {
     // URGENCES (Priorité maximale)
     {
       keywords: ['urgence', 'urgent', 'immédiat', 'tout de suite', 'maintenant', 'rapide', 'vite', 'sinistre', 'catastrophe', 'grave'],
-      response: '🚨 URGENCE DÉTECTÉE ! Pour toute intervention urgente, contactez-nous immédiatement au 06 04 00 74 99. Nous sommes disponibles 24h/24 et 7j/7 pour les urgences. Nos équipes peuvent intervenir sous 2h en Alsace-Lorraine.',
+      response: '🚨 URGENCE DÉTECTÉE ! Pour toute intervention urgente, contactez-nous immédiatement au 03 67 10 26 53. Nous sommes disponibles 24h/24 et 7j/7 pour les urgences. Nos équipes peuvent intervenir sous 2h en Alsace-Lorraine.',
       priority: 100,
     },
     
     // PLOMBERIE
     {
       keywords: ['plomberie', 'plombier', 'fuite', 'eau', 'robinet', 'tuyau', 'canalisation', 'wc', 'toilette', 'évier', 'lavabo', 'douche', 'baignoire', 'chauffe-eau', 'ballon', 'chaudière'],
-      response: '🔧 Plomberie : G.TRAVAUX intervient pour tous vos besoins en plomberie : fuites, installations sanitaires, réparations, remplacement de chauffe-eau, débouchage, etc. Urgence 24h/24 au 06 04 00 74 99. Souhaitez-vous un devis ou une intervention rapide ?',
+      response: '🔧 Plomberie : G.TRAVAUX intervient pour tous vos besoins en plomberie : fuites, installations sanitaires, réparations, remplacement de chauffe-eau, débouchage, etc. Urgence 24h/24 au 03 67 10 26 53. Souhaitez-vous un devis ou une intervention rapide ?',
       priority: 90,
     },
     
     // ÉLECTRICITÉ
     {
       keywords: ['électricité', 'électrique', 'électricien', 'panne', 'courant', 'disjoncteur', 'tableau électrique', 'prise', 'interrupteur', 'lumière', 'éclairage', 'court-circuit', 'installation électrique'],
-      response: '⚡ Électricité : Nos électriciens qualifiés interviennent pour : pannes électriques, installations, mises aux normes, tableaux électriques, éclairages, prises, etc. Pour une urgence électrique, appelez le 06 04 00 74 99. Besoin d\'un devis ?',
+      response: '⚡ Électricité : Nos électriciens qualifiés interviennent pour : pannes électriques, installations, mises aux normes, tableaux électriques, éclairages, prises, etc. Pour une urgence électrique, appelez le 03 67 10 26 53. Besoin d\'un devis ?',
       priority: 90,
     },
     
     // DÉGÂT DES EAUX
     {
       keywords: ['dégât des eaux', 'dégats', 'inondation', 'inondé', 'eau partout', 'fuite importante', 'débordement'],
-      response: '💧 Dégât des eaux : Intervention d\'urgence 24h/24 ! Appelez immédiatement le 06 04 00 74 99. Nous intervenons rapidement pour limiter les dégâts, assécher, réparer et remettre en état. Nos équipes sont équipées pour gérer tous types de sinistres.',
+      response: '💧 Dégât des eaux : Intervention d\'urgence 24h/24 ! Appelez immédiatement le 03 67 10 26 53. Nous intervenons rapidement pour limiter les dégâts, assécher, réparer et remettre en état. Nos équipes sont équipées pour gérer tous types de sinistres.',
       priority: 95,
     },
     
     // DÉMOLITION
     {
       keywords: ['démolition', 'démolir', 'casser', 'abattre', 'détruire', 'mur', 'cloison', 'destruction'],
-      response: '🔨 Démolition : Nous réalisons tous travaux de démolition : murs porteurs, cloisons, sols, dépose complète. Intervention sécurisée avec évacuation des gravats. Devis gratuit disponible sur notre site ou par téléphone au 06 04 00 74 99.',
+      response: '🔨 Démolition : Nous réalisons tous travaux de démolition : murs porteurs, cloisons, sols, dépose complète. Intervention sécurisée avec évacuation des gravats. Devis gratuit disponible sur notre site ou par téléphone au 03 67 10 26 53.',
       priority: 80,
     },
     
@@ -104,7 +104,7 @@ export default function LiveChat() {
     // PLÂTRERIE / PLACO
     {
       keywords: ['plâtrerie', 'placo', 'placoplatre', 'plâtre', 'cloison', 'faux plafond', 'isolation phonique', 'ba13'],
-      response: '🏗️ Plâtrerie & Placo : Pose de cloisons, faux plafonds, isolation phonique et thermique, finitions. Travail soigné et respect des normes. Devis gratuit en ligne ou au 06 04 00 74 99.',
+      response: '🏗️ Plâtrerie & Placo : Pose de cloisons, faux plafonds, isolation phonique et thermique, finitions. Travail soigné et respect des normes. Devis gratuit en ligne ou au 03 67 10 26 53.',
       priority: 80,
     },
     
@@ -139,14 +139,14 @@ export default function LiveChat() {
     // DEVIS
     {
       keywords: ['devis', 'estimation', 'prix', 'tarif', 'coût', 'combien', 'budget', 'gratuit'],
-      response: '📋 Devis gratuit : Vous pouvez obtenir un devis de 3 façons : 1) Utilisez notre calculateur en ligne pour une estimation immédiate, 2) Remplissez notre formulaire de contact détaillé, 3) Appelez-nous au 06 04 00 74 99. Tous nos devis sont gratuits et sans engagement !',
+      response: '📋 Devis gratuit : Vous pouvez obtenir un devis de 3 façons : 1) Utilisez notre calculateur en ligne pour une estimation immédiate, 2) Remplissez notre formulaire de contact détaillé, 3) Appelez-nous au 03 67 10 26 53. Tous nos devis sont gratuits et sans engagement !',
       priority: 85,
     },
     
     // RENDEZ-VOUS
     {
       keywords: ['rendez-vous', 'rdv', 'rencontrer', 'visite', 'passer', 'venir', 'disponibilité', 'planning'],
-      response: '📅 Prise de rendez-vous : Vous pouvez prendre rendez-vous directement via notre planificateur en ligne sur notre site, ou nous appeler au 06 04 00 74 99. Nous nous adaptons à vos disponibilités. Quand seriez-vous disponible ?',
+      response: '📅 Prise de rendez-vous : Vous pouvez prendre rendez-vous directement via notre planificateur en ligne sur notre site, ou nous appeler au 03 67 10 26 53. Nous nous adaptons à vos disponibilités. Quand seriez-vous disponible ?',
       priority: 85,
     },
     
@@ -167,7 +167,7 @@ export default function LiveChat() {
     // HORAIRES
     {
       keywords: ['horaire', 'heure', 'ouvert', 'fermé', 'disponible', 'joignable'],
-      response: '🕐 Horaires : Nos bureaux sont ouverts du lundi au vendredi de 8h à 18h, et le samedi de 9h à 12h. Pour les URGENCES, nous sommes disponibles 24h/24 et 7j/7 au 06 04 00 74 99 !',
+      response: '🕐 Horaires : Nos bureaux sont ouverts du lundi au vendredi de 8h à 18h, et le samedi de 9h à 12h. Pour les URGENCES, nous sommes disponibles 24h/24 et 7j/7 au 03 67 10 26 53 !',
       priority: 75,
     },
     
@@ -209,7 +209,7 @@ export default function LiveChat() {
     // CONTACT
     {
       keywords: ['contact', 'contacter', 'joindre', 'appeler', 'téléphone', 'mail', 'email'],
-      response: '📞 Nous contacter : Téléphone : 06 04 00 74 99 (urgences 24h/24), Email via notre formulaire de contact sur le site, ou prenez rendez-vous directement en ligne. Nous répondons rapidement à toutes vos demandes !',
+      response: '📞 Nous contacter : Téléphone : 03 67 10 26 53 (urgences 24h/24), Email via notre formulaire de contact sur le site, ou prenez rendez-vous directement en ligne. Nous répondons rapidement à toutes vos demandes !',
       priority: 75,
     },
     
@@ -272,7 +272,7 @@ export default function LiveChat() {
     }
 
     // Réponse par défaut si aucun mot-clé n'est détecté
-    return 'Merci pour votre message ! 😊 Je n\'ai pas bien compris votre demande. Pouvez-vous préciser ? Vous pouvez me parler de : urgences, devis, services (plomberie, électricité, maçonnerie, etc.), zones d\'intervention, ou appelez directement le 06 04 00 74 99.';
+    return 'Merci pour votre message ! 😊 Je n\'ai pas bien compris votre demande. Pouvez-vous préciser ? Vous pouvez me parler de : urgences, devis, services (plomberie, électricité, maçonnerie, etc.), zones d\'intervention, ou appelez directement le 03 67 10 26 53.';
   };
 
   const sendMessage = (text: string) => {
@@ -460,11 +460,11 @@ export default function LiveChat() {
               <p className="text-xs text-darkGray">
                 Urgence ?
                 <a
-                  href="tel:+33604007499"
+                  href="tel:+33367102653"
                   className="text-green ml-1 font-medium"
                 >
                   <FaPhone className="mr-1 inline" size={10} />
-                  06 04 00 74 99
+                  03 67 10 26 53
                 </a>
               </p>
             </div>

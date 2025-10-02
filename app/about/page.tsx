@@ -226,7 +226,7 @@ export default function AboutPage() {
               Demander un devis gratuit
             </a>
             <a
-              href="tel:+33123456789"
+              href="tel:+33367102653"
               className="inline-block border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
             >
               Appeler directement

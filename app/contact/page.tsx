@@ -61,7 +61,7 @@ export default function ContactPage() {
             </h2>
             <p className="mb-2">
               Téléphone :{' '}
-              <a href="tel:+33604007499" className="text-primary hover:underline">
+              <a href="tel:+33367102653" className="text-primary hover:underline">
                 +33 6 04 00 74 99
               </a>
             </p>

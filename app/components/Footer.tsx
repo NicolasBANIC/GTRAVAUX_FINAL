@@ -16,19 +16,19 @@ export default function Footer() {
           <p className="mb-2 flex items-center text-white/90">
             <FaPhone className="mr-2 text-brand-orange-400" />
             <a
-              href="tel:+33972123456"
+              href="tel:+33367102653"
               className="transition-colors hover:text-brand-orange-300"
             >
-              +33 9 72 12 34 56
+              03 67 10 26 53
             </a>
           </p>
           <p className="flex items-center text-white/90">
             <FaEnvelope className="mr-2 text-brand-orange-400" />
             <a
-              href="mailto:contact.gtravaux@gmail.com"
+              href="mailto:contact@g-travaux.fr"
               className="transition-colors hover:text-brand-orange-300"
             >
-              contact.gtravaux@gmail.com
+              contact@g-travaux.fr
             </a>
           </p>
         </div>
