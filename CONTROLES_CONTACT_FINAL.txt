@@ -1,0 +1,29 @@
+﻿=== CONTRÔLES CONTACT - RÉSULTATS ===
+
+1. LIENS TÉLÉPHONE (href='tel:')
+   ✅ Format uniforme : tel:+33367102653
+   ✅ Trouvé dans : Footer.tsx, Header.tsx, LiveChat.tsx, StickyCta.tsx, page.tsx (contact)
+   ✅ Aucune variation détectée
+
+2. LIENS EMAIL (href='mailto:')
+   ✅ Format uniforme : mailto:contact@g-travaux.fr
+   ✅ Trouvé dans : Footer.tsx, page.tsx (contact)
+   ✅ Aucune variation détectée
+
+3. TEXTE TÉLÉPHONE AFFICHÉ
+   ✅ Format uniforme : 03 67 10 26 53
+   ✅ Trouvé dans : Footer.tsx, Header.tsx, LiveChat.tsx, page.tsx (contact, about)
+   ✅ Format français lisible respecté
+
+4. TEXTE EMAIL AFFICHÉ
+   ✅ Format uniforme : contact@g-travaux.fr
+   ✅ Trouvé dans : Footer.tsx, LocalSEO.tsx, layout.tsx, page.tsx (contact, about)
+   ✅ Aucune variation détectée
+
+5. DONNÉES STRUCTURÉES (JSON-LD)
+   ✅ LocalSEO.tsx utilise : +33367102653 et contact@g-travaux.fr
+   ✅ Cohérence avec les liens href
+
+=== CONCLUSION ===
+✅ TOUS LES CONTRÔLES SONT PASSÉS
+✅ Uniformisation complète réussie
